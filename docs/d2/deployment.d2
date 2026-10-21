@@ -1,0 +1,53 @@
+deployment: "Kiến trúc triển khai trên ai1-k3s" {
+  grid-rows: 2
+  grid-columns: 3
+  grid-gap: 80
+  style: {
+    fill: "#f8fbff"
+    stroke: "#90caf9"
+    stroke-dash: 4
+    font-size: 22
+    font-color: "#0d47a1"
+  }
+
+  GitHub: "1 · GitHub\nbi-dss-platform\nmain (public)" {
+    style: {fill: "#fff3e0"; stroke: "#e65100"; font-size: 20; font-color: "#4e2600"}
+  }
+  Flux: "2 · Flux CD\nGitRepository\nKustomization · 1m" {
+    style: {fill: "#e3f2fd"; stroke: "#1565c0"; font-size: 20; font-color: "#0d47a1"}
+  }
+  Job: "3 · Job / CronJob\nv2 Complete 23s\nrefresh (suspend)" {
+    style: {fill: "#e3f2fd"; stroke: "#1565c0"; font-size: 20; font-color: "#0d47a1"}
+  }
+  PowerBI: "6 · Power BI\n8 CSV · 12 quan hệ" {
+    style: {fill: "#fffde7"; stroke: "#f9a825"; font-size: 20; font-color: "#5d4200"}
+  }
+  PVC: "5 · PVC 20Gi\nraw CSV 586 MB\nwarehouse.duckdb\nexports/*.csv" {
+    shape: cylinder
+    style: {fill: "#eceff1"; stroke: "#546e7a"; font-size: 20; font-color: "#263238"}
+  }
+  dbt: "4 · dbt-duckdb\nstaging → marts\n145 tests · 185 checks" {
+    style: {fill: "#e8f5e9"; stroke: "#2e7d32"; font-size: 20; font-color: "#1b5e20"}
+  }
+}
+
+deployment.GitHub -> deployment.Flux: "poll" {
+  style: {stroke: "#455a64"; stroke-width: 2; font-size: 15}
+  target-arrowhead: {shape: triangle; style: {fill: "#455a64"}}
+}
+deployment.Flux -> deployment.Job: "apply" {
+  style: {stroke: "#1565c0"; stroke-width: 2; font-size: 15}
+  target-arrowhead: {shape: triangle; style: {fill: "#1565c0"}}
+}
+deployment.Job -> deployment.dbt: "run" {
+  style: {stroke: "#1565c0"; stroke-width: 2; font-size: 15}
+  target-arrowhead: {shape: triangle; style: {fill: "#1565c0"}}
+}
+deployment.dbt -> deployment.PVC: "read/write" {
+  style: {stroke: "#2e7d32"; stroke-width: 2; font-size: 15}
+  target-arrowhead: {shape: triangle; style: {fill: "#2e7d32"}}
+}
+deployment.PVC -> deployment.PowerBI: "8 CSV" {
+  style: {stroke: "#f9a825"; stroke-width: 2; font-size: 15}
+  target-arrowhead: {shape: triangle; style: {fill: "#f9a825"}}
+}

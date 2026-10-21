@@ -190,8 +190,8 @@ para(
     "giảm dung lượng và thời gian refresh. Hai bảng được hiện thực bằng dbt-duckdb với contract enforced, "
     "được kiểm thử tự động và triển khai trên ai1-k3s."
 )
-picture("docs/figures/fig_6_1_star_schema.png")
-cap("Hình 6.1. Mô hình Star Schema hai fact và sáu bảng chiều cho giai đoạn 2022–2023")
+picture("docs/figures/d2_data_flow.png")
+cap("Hình 6.1. Luồng dữ liệu end-to-end từ CSV nguồn đến Power BI")
 
 h("6.2.1. FactFlight")
 para(
@@ -244,7 +244,8 @@ nullable = {"CancellationCode", "DepDelay", "ArrDelay", "DepDelayMinutes", "ArrD
 for i, (name, typ, desc) in enumerate(flight_cols, 1):
     rows.append([i, name, typ, desc, "Có" if name in nullable else "Không"])
 table(rows, [650, 2050, 1050, 5150, 1285], size=8, align=["c", "l", "c", "l", "c"])
-
+picture("docs/figures/d2_star_flight.png")
+cap("Hình 6.2. Star schema FactFlight — khóa chính, khóa ngoại và quan hệ")
 cap("Bảng: Công thức các measure và cờ nghiệp vụ chính của FactFlight")
 rows = [["Measure / cờ", "Công thức hoặc quy tắc", "Kiểu", "Ghi chú"]]
 rows += [
@@ -312,6 +313,8 @@ para("Thiết kế giữ các khóa dùng chung DateKey, CarrierKey và OriginAi
      "về FactFlight và DelayReasonKey để phân tích nguyên nhân. Destination không đưa vào fact này theo yêu cầu "
      "tối giản khóa; khi cần phân tích theo điểm đến, dùng FlightKey hoặc bổ sung DestAirportKey trong phiên bản sau.",
      before=100000)
+picture("docs/figures/d2_star_delay.png")
+cap("Hình 6.3. Star schema FactDelayReason — khóa chính, khóa ngoại và quan hệ")
 cap("Bảng: Cấu trúc FactDelayReason")
 rows = [["STT", "Thuộc tính", "Kiểu", "Mô tả", "Null"]]
 reason_cols = [
@@ -358,9 +361,6 @@ para(
     "Độ trễ lớn nhất của một dòng nguyên nhân là 2.934 phút; đây là giá trị hợp lệ nghiệp vụ và được giữ lại.",
     before=100000,
 )
-picture("docs/figures/fig_6_2_fact_unpivot.png")
-cap("Hình 6.2. Tách FactDelayReason từ năm cột nguyên nhân bằng UNPIVOT")
-
 para("Mã nguồn tiêu biểu (dbt, fact_delay_reason.sql):", bold=True, before=100000, keep=True)
 code([
     "WITH unpivoted AS (",
@@ -623,6 +623,8 @@ para(
 
 # ===================================================================== deployment note
 h("Ghi chú triển khai trên ai1-k3s")
+picture("docs/figures/d2_deployment.png")
+cap("Hình 6.4. Kiến trúc triển khai BI & DSS trên ai1-k3s")
 para(
     "Mô hình được triển khai theo kiến trúc GitOps: mã nguồn ở GitHub (Royal2005-coder/bi-dss-platform), Flux CD "
     "theo dõi repo và áp Kustomization vào namespace bi-dss; Job bi-dss-build-v2 chạy dbt build, export CSV và "
@@ -630,8 +632,6 @@ para(
     "warehouse DuckDB nằm trên PVC local-path 20 GiB, không đưa vào Git. Image bi-dss-toolbox:1.0.0 "
     "(dbt-core 1.12.6, dbt-duckdb 1.11.0, DuckDB 1.5.6) được build local và import vào containerd k8s.io."
 )
-picture("docs/figures/fig_6_3_k3s_architecture.png")
-cap("Hình 6.3. Kiến trúc triển khai BI & DSS trên ai1-k3s")
 para(
     "Kết quả chạy chính thức trên cluster: dbt build PASS 145/145 trong 6,34 giây; Job hoàn tất sau 23 giây; "
     f"{C['checks']} kiểm tra contract, {C['failures']} lỗi. Tám CSV được xuất vào /data/exports/powerbi; "

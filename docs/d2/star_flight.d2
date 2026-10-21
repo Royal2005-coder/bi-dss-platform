@@ -1,0 +1,81 @@
+star_flight: "Star schema — FactFlight (2022–2023)" {
+  grid-rows: 2
+  grid-columns: 3
+  grid-gap: 44
+  style: {
+    fill: "#ffffff"
+    stroke: "#cfd8dc"
+    stroke-width: 1
+    font-size: 22
+    font-color: "#263238"
+  }
+
+  DimDate: {
+    shape: sql_table
+    date_key: int {constraint: primary_key}
+    year: int
+    month: int
+    is_weekend: boolean
+    style: {fill: "#c8e6c9"; stroke: "#e8f5e9"; font-size: 18; font-color: "#1b5e20"}
+  }
+  DimCarrier: {
+    shape: sql_table
+    carrier_key: int {constraint: primary_key}
+    carrier_code: varchar
+    carrier_name: varchar
+    style: {fill: "#c8e6c9"; stroke: "#e8f5e9"; font-size: 18; font-color: "#1b5e20"}
+  }
+  DimAirport: {
+    shape: sql_table
+    airport_key: int {constraint: primary_key}
+    airport_code: varchar
+    region: varchar
+    style: {fill: "#c8e6c9"; stroke: "#e8f5e9"; font-size: 18; font-color: "#1b5e20"}
+  }
+
+  DimRoute: {
+    shape: sql_table
+    route_key: int {constraint: primary_key}
+    origin_code: varchar
+    dest_code: varchar
+    style: {fill: "#e1bee7"; stroke: "#f3e5f5"; font-size: 18; font-color: "#4a148c"}
+  }
+  FactFlight: {
+    shape: sql_table
+    flight_key: bigint {constraint: primary_key}
+    date_key: int {constraint: foreign_key}
+    carrier_key: int {constraint: foreign_key}
+    origin_airport_key: int {constraint: foreign_key}
+    dest_airport_key: int {constraint: foreign_key}
+    route_key: int {constraint: foreign_key}
+    flight_status_key: int {constraint: foreign_key}
+    style: {fill: "#bbdefb"; stroke: "#e3f2fd"; font-size: 18; font-color: "#0d47a1"}
+  }
+  DimFlightStatus: {
+    shape: sql_table
+    flight_status_key: int {constraint: primary_key}
+    flight_status_code: varchar
+    style: {fill: "#e1bee7"; stroke: "#f3e5f5"; font-size: 18; font-color: "#4a148c"}
+  }
+}
+
+star_flight.FactFlight.date_key -> star_flight.DimDate.date_key: N:1 {
+  style: {stroke: "#2e7d32"; stroke-width: 2; font-size: 14}
+  target-arrowhead: {shape: triangle; style: {fill: "#2e7d32"}}
+}
+star_flight.FactFlight.carrier_key -> star_flight.DimCarrier.carrier_key: N:1 {
+  style: {stroke: "#2e7d32"; stroke-width: 2; font-size: 14}
+  target-arrowhead: {shape: triangle; style: {fill: "#2e7d32"}}
+}
+star_flight.FactFlight.origin_airport_key -> star_flight.DimAirport.airport_key: 2× N:1 {
+  style: {stroke: "#2e7d32"; stroke-width: 2; font-size: 14}
+  target-arrowhead: {shape: triangle; style: {fill: "#2e7d32"}}
+}
+star_flight.FactFlight.route_key -> star_flight.DimRoute.route_key: N:1 {
+  style: {stroke: "#6a1b9a"; stroke-width: 2; font-size: 14}
+  target-arrowhead: {shape: triangle; style: {fill: "#6a1b9a"}}
+}
+star_flight.FactFlight.flight_status_key -> star_flight.DimFlightStatus.flight_status_key: N:1 {
+  style: {stroke: "#6a1b9a"; stroke-width: 2; font-size: 14}
+  target-arrowhead: {shape: triangle; style: {fill: "#6a1b9a"}}
+}

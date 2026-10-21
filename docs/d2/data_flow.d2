@@ -1,0 +1,53 @@
+data_flow: "Luồng dữ liệu end-to-end" {
+  grid-rows: 2
+  grid-columns: 3
+  grid-gap: 80
+  style: {
+    fill: "#f8fbff"
+    stroke: "#90caf9"
+    stroke-dash: 4
+    font-size: 22
+    font-color: "#0d47a1"
+  }
+
+  Source: "1 · CSV nguồn\n3.000.000 dòng" {
+    style: {fill: "#fff3e0"; stroke: "#e65100"; font-size: 20; font-color: "#4e2600"}
+  }
+  Staging: "2 · staging\n32 cột · typed" {
+    style: {fill: "#e3f2fd"; stroke: "#1565c0"; font-size: 20; font-color: "#0d47a1"}
+  }
+  Intermediate: "3 · intermediate\n1,15 triệu chuyến" {
+    style: {fill: "#e3f2fd"; stroke: "#1565c0"; font-size: 20; font-color: "#0d47a1"}
+  }
+  PowerBI: "6 · Power BI\n8 CSV · 12 quan hệ" {
+    style: {fill: "#fffde7"; stroke: "#f9a825"; font-size: 20; font-color: "#5d4200"}
+  }
+  Export: "5 · Export\n8 CSV + manifest" {
+    style: {fill: "#f3e5f5"; stroke: "#6a1b9a"; font-size: 20; font-color: "#4a148c"}
+  }
+  Marts: "4 · Marts\n2 facts + 6 dims" {
+    shape: hexagon
+    style: {fill: "#e8f5e9"; stroke: "#2e7d32"; font-size: 20; font-color: "#1b5e20"}
+  }
+}
+
+data_flow.Source -> data_flow.Staging: "đọc, lọc" {
+  style: {stroke: "#455a64"; stroke-width: 2; font-size: 15}
+  target-arrowhead: {shape: triangle; style: {fill: "#455a64"}}
+}
+data_flow.Staging -> data_flow.Intermediate: "2022–23" {
+  style: {stroke: "#455a64"; stroke-width: 2; font-size: 15}
+  target-arrowhead: {shape: triangle; style: {fill: "#455a64"}}
+}
+data_flow.Intermediate -> data_flow.Marts: "build + test" {
+  style: {stroke: "#2e7d32"; stroke-width: 2; font-size: 15}
+  target-arrowhead: {shape: triangle; style: {fill: "#2e7d32"}}
+}
+data_flow.Marts -> data_flow.Export: "8 CSV" {
+  style: {stroke: "#6a1b9a"; stroke-width: 2; font-size: 15}
+  target-arrowhead: {shape: triangle; style: {fill: "#6a1b9a"}}
+}
+data_flow.Export -> data_flow.PowerBI: "import" {
+  style: {stroke: "#f9a825"; stroke-width: 2; font-size: 15}
+  target-arrowhead: {shape: triangle; style: {fill: "#f9a825"}}
+}
