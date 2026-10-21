@@ -22,7 +22,7 @@ Power BI
 - **Runtime:** namespace `bi-dss` on `ai1-k3s`, `local-path` PVC `bi-dss-data` (20 GiB).
 - **Image:** `bi-dss-toolbox:1.0.0` (Python 3.12, dbt-core 1.12.6, dbt-duckdb 1.11.0, DuckDB 1.5.6). Built locally and imported into k3s containerd.
 - **GitOps:** Flux `GitRepository/bi-dss-repo` + `Kustomization/bi-dss` in `flux-system`.
-- **Jobs:** `Job/bi-dss-build-v1` for the initial build; `CronJob/bi-dss-refresh` (suspended) for scheduled refreshes.
+- **Jobs:** `Job/bi-dss-build-v2` for the initial build; `CronJob/bi-dss-refresh` (suspended) for scheduled refreshes.
 - **No secrets in Git.** The raw CSV is intentionally not committed.
 
 ## Data model
@@ -71,7 +71,7 @@ bash scripts/bootstrap_data.sh /path/to/archive.zip
 
 # 4. Watch the initial build
 kubectl -n bi-dss get job,pod,pvc
-kubectl -n bi-dss logs job/bi-dss-build-v1 -f
+kubectl -n bi-dss logs job/bi-dss-build-v2 -f
 
 # 5. Download CSV exports and dbt artifacts
 bash scripts/download_outputs.sh exports-k8s
@@ -109,6 +109,6 @@ docker run --rm --user 1000:1000 -e HOME=/tmp \
 
 - The CronJob is suspended by default. Enable it with:
   `kubectl -n bi-dss patch cronjob bi-dss-refresh --type merge -p '{"spec":{"suspend":false}}'`
-- When models change, bump the Job name (`bi-dss-build-v2`) or delete the completed Job; the CronJob always pulls the latest `main`.
+- When models change, bump the Job name (`bi-dss-build-v3`) or delete the completed Job; the CronJob always pulls the latest `main`.
 - The toolbox image is local; after changing dependencies, rebuild and re-import with `scripts/import_image.sh`.
 - Raw data lives only on the PVC. To refresh, replace `/data/raw/flights_sample_3m.csv` via the loader pod, then rerun the Job/CronJob.

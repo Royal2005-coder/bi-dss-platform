@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: bi-dss-build-v1
+  name: bi-dss-build-v2
   namespace: bi-dss
   labels:
     app.kubernetes.io/name: bi-dss-build
     app.kubernetes.io/part-of: bi-dss
-    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/version: "1.0.1"
 spec:
   backoffLimit: 1
   activeDeadlineSeconds: 3600
@@ -59,7 +59,6 @@ spec:
           args:
             - |
               set -eu
-              rm -rf /workspace/project
               git clone --depth 1 --branch main https://github.com/Royal2005-coder/bi-dss-platform.git /workspace/project
           env:
             - name: HOME
