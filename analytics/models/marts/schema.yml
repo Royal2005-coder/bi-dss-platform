@@ -1,0 +1,672 @@
+version: 2
+models:
+- name: dim_date
+  description: Bảng chiều lịch 2022-01-01 đến 2023-12-31, một dòng cho mỗi ngày.
+  config:
+    contract:
+      enforced: true
+  meta:
+    owner: BI & DSS
+    grain: one row per calendar date
+    version: 1.0.0
+  columns:
+  - name: date_key
+    data_type: INTEGER
+    description: Khóa ngày dạng YYYYMMDD (ví dụ 20220101).
+    tests:
+    - not_null
+    - unique
+  - name: full_date
+    data_type: DATE
+    description: Ngày đầy đủ.
+    tests:
+    - not_null
+    - unique
+  - name: year
+    data_type: INTEGER
+    description: Năm.
+    tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values:
+          - 2022
+          - 2023
+  - name: quarter
+    data_type: INTEGER
+    description: Quý 1-4.
+    tests:
+    - not_null
+  - name: quarter_name
+    data_type: VARCHAR
+    description: Nhãn quý Q1-Q4.
+    tests:
+    - not_null
+  - name: month
+    data_type: INTEGER
+    description: Tháng 1-12.
+    tests:
+    - not_null
+  - name: month_name
+    data_type: VARCHAR
+    description: Nhãn tháng tiếng Việt.
+    tests:
+    - not_null
+  - name: month_year
+    data_type: VARCHAR
+    description: Nhãn năm-tháng dạng YYYY-MM.
+    tests:
+    - not_null
+  - name: day_of_month
+    data_type: INTEGER
+    description: Ngày trong tháng.
+    tests:
+    - not_null
+  - name: day_of_year
+    data_type: INTEGER
+    description: Ngày trong năm.
+    tests:
+    - not_null
+  - name: week_of_year
+    data_type: INTEGER
+    description: Tuần ISO trong năm.
+    tests:
+    - not_null
+  - name: weekday_number
+    data_type: INTEGER
+    description: 'Thứ theo ISO: 1 = Thứ Hai, 7 = Chủ Nhật.'
+    tests:
+    - not_null
+  - name: weekday_name
+    data_type: VARCHAR
+    description: Tên thứ tiếng Việt.
+    tests:
+    - not_null
+  - name: is_weekend
+    data_type: BOOLEAN
+    description: TRUE nếu là Thứ Bảy hoặc Chủ Nhật.
+    tests:
+    - not_null
+  - name: season
+    data_type: VARCHAR
+    description: 'Mùa theo tháng: Xuân, Hạ, Thu, Đông.'
+    tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values:
+          - Xuân
+          - Hạ
+          - Thu
+          - Đông
+- name: dim_carrier
+  description: Bảng chiều hãng hàng không cho giai đoạn 2022-2023.
+  config:
+    contract:
+      enforced: true
+  meta:
+    owner: BI & DSS
+    grain: one row per carrier_code
+    version: 1.0.0
+  columns:
+  - name: carrier_key
+    data_type: INTEGER
+    description: Khóa thay thế của hãng.
+    tests:
+    - not_null
+    - unique
+  - name: carrier_code
+    data_type: VARCHAR
+    description: Mã hãng theo BTS (AIRLINE_CODE).
+    tests:
+    - not_null
+    - unique
+  - name: carrier_name
+    data_type: VARCHAR
+    description: Tên hãng (AIRLINE).
+    tests:
+    - not_null
+  - name: dot_code
+    data_type: INTEGER
+    description: Mã DOT của hãng.
+    tests:
+    - not_null
+  - name: airline_dot
+    data_type: VARCHAR
+    description: Chuỗi AIRLINE_DOT gốc.
+    tests:
+    - not_null
+- name: dim_airport
+  description: Bảng chiều sân bay, làm giàu State/Region từ OurAirports và Census region.
+  config:
+    contract:
+      enforced: true
+  meta:
+    owner: BI & DSS
+    grain: one row per airport_code
+    version: 1.0.0
+  columns:
+  - name: airport_key
+    data_type: INTEGER
+    description: Khóa thay thế của sân bay.
+    tests:
+    - not_null
+    - unique
+  - name: airport_code
+    data_type: VARCHAR
+    description: Mã IATA 3 ký tự.
+    tests:
+    - not_null
+    - unique
+  - name: airport_name
+    data_type: VARCHAR
+    description: Tên sân bay.
+    tests:
+    - not_null
+  - name: city
+    data_type: VARCHAR
+    description: Thành phố.
+    tests:
+    - not_null
+  - name: state_code
+    data_type: VARCHAR
+    description: Mã bang 2 ký tự (hoặc mã lãnh thổ PR/VI/GU/AS/MP).
+    tests:
+    - not_null
+  - name: state_name
+    data_type: VARCHAR
+    description: Tên bang/lãnh thổ.
+    tests:
+    - not_null
+  - name: region
+    data_type: VARCHAR
+    description: 'Vùng Census: Northeast, Midwest, South, West.'
+    tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values:
+          - Northeast
+          - Midwest
+          - South
+          - West
+          - Other
+  - name: region_name
+    data_type: VARCHAR
+    description: Tên vùng tiếng Việt.
+    tests:
+    - not_null
+  - name: country_code
+    data_type: VARCHAR
+    description: Mã quốc gia ISO-2.
+    tests:
+    - not_null
+  - name: latitude
+    data_type: DOUBLE
+    description: Vĩ độ.
+    tests:
+    - not_null
+  - name: longitude
+    data_type: DOUBLE
+    description: Kinh độ.
+    tests:
+    - not_null
+  - name: data_source
+    data_type: VARCHAR
+    description: 'Nguồn làm giàu: ourairports, manual, fallback_raw_city, missing.'
+    tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values:
+          - ourairports
+          - manual
+          - fallback_raw_city
+          - missing
+- name: dim_route
+  description: Bảng chiều tuyến bay Origin-Dest, kèm nhóm khoảng cách.
+  config:
+    contract:
+      enforced: true
+  meta:
+    owner: BI & DSS
+    grain: one row per origin_code, dest_code
+    version: 1.0.0
+  columns:
+  - name: route_key
+    data_type: INTEGER
+    description: Khóa thay thế của tuyến.
+    tests:
+    - not_null
+    - unique
+  - name: origin_code
+    data_type: VARCHAR
+    description: Mã sân bay đi.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_airport')
+          field: airport_code
+  - name: dest_code
+    data_type: VARCHAR
+    description: Mã sân bay đến.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_airport')
+          field: airport_code
+  - name: route_name
+    data_type: VARCHAR
+    description: Nhãn tuyến ORIGIN-DEST.
+    tests:
+    - not_null
+    - unique
+  - name: origin_airport_key
+    data_type: INTEGER
+    description: FK sân bay đi.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_airport')
+          field: airport_key
+  - name: dest_airport_key
+    data_type: INTEGER
+    description: FK sân bay đến.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_airport')
+          field: airport_key
+  - name: distance_miles
+    data_type: DOUBLE
+    description: Khoảng cách trung bình của tuyến (dặm).
+    tests:
+    - not_null
+  - name: distance_group
+    data_type: VARCHAR
+    description: Nhóm khoảng cách 5 mức.
+    tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values:
+          - 0–499 dặm
+          - 500–999 dặm
+          - 1000–1499 dặm
+          - 1500–1999 dặm
+          - 2000+ dặm
+  - name: distance_group_order
+    data_type: INTEGER
+    description: Thứ tự nhóm khoảng cách 1-5.
+    tests:
+    - not_null
+- name: dim_delay_reason
+  description: Bảng chiều 5 nhóm nguyên nhân chậm chuyến theo BTS.
+  config:
+    contract:
+      enforced: true
+  meta:
+    owner: BI & DSS
+    grain: one row per delay_reason_code
+    version: 1.0.0
+  columns:
+  - name: delay_reason_key
+    data_type: INTEGER
+    description: Khóa thay thế của nhóm nguyên nhân.
+    tests:
+    - not_null
+    - unique
+  - name: delay_reason_code
+    data_type: VARCHAR
+    description: 'Mã nguyên nhân: CARRIER, WEATHER, NAS, SECURITY, LATE_AIRCRAFT.'
+    tests:
+    - not_null
+    - unique
+    - accepted_values:
+        arguments:
+          values:
+          - CARRIER
+          - WEATHER
+          - NAS
+          - SECURITY
+          - LATE_AIRCRAFT
+  - name: delay_reason_name
+    data_type: VARCHAR
+    description: Tên nhóm nguyên nhân tiếng Việt.
+    tests:
+    - not_null
+  - name: description
+    data_type: VARCHAR
+    description: Mô tả chi tiết.
+    tests:
+    - not_null
+  - name: source_column
+    data_type: VARCHAR
+    description: Cột nguồn trong flights_sample_3m.csv.
+    tests:
+    - not_null
+    - unique
+  - name: sort_order
+    data_type: INTEGER
+    description: Thứ tự hiển thị.
+    tests:
+    - not_null
+- name: dim_flight_status
+  description: Bảng chiều trạng thái chuyến bay độc quyền.
+  config:
+    contract:
+      enforced: true
+  meta:
+    owner: BI & DSS
+    grain: one row per flight_status_code
+    version: 1.0.0
+  columns:
+  - name: flight_status_key
+    data_type: INTEGER
+    description: Khóa thay thế trạng thái.
+    tests:
+    - not_null
+    - unique
+  - name: flight_status_code
+    data_type: VARCHAR
+    description: 'Mã trạng thái: On-time, Delayed, Cancelled, Diverted.'
+    tests:
+    - not_null
+    - unique
+    - accepted_values:
+        arguments:
+          values:
+          - On-time
+          - Delayed
+          - Cancelled
+          - Diverted
+  - name: flight_status_name
+    data_type: VARCHAR
+    description: Tên trạng thái tiếng Việt.
+    tests:
+    - not_null
+  - name: description
+    data_type: VARCHAR
+    description: Định nghĩa trạng thái.
+    tests:
+    - not_null
+  - name: is_completed
+    data_type: BOOLEAN
+    description: TRUE nếu chuyến hoàn thành hành trình (On-time, Delayed).
+    tests:
+    - not_null
+  - name: is_disrupted
+    data_type: BOOLEAN
+    description: TRUE nếu chuyến bị gián đoạn (Delayed, Cancelled, Diverted).
+    tests:
+    - not_null
+  - name: sort_order
+    data_type: INTEGER
+    description: Thứ tự hiển thị.
+    tests:
+    - not_null
+- name: fact_flight
+  description: Bảng fact chính, grain một dòng cho mỗi chuyến bay 2022-2023.
+  config:
+    contract:
+      enforced: true
+  meta:
+    owner: BI & DSS
+    grain: one row per flight (FL_DATE + carrier + flight_number + origin + dest)
+    version: 1.0.0
+  columns:
+  - name: flight_key
+    data_type: BIGINT
+    description: Khóa thay thế của chuyến bay.
+    tests:
+    - not_null
+    - unique
+  - name: date_key
+    data_type: INTEGER
+    description: FK DimDate.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_date')
+          field: date_key
+  - name: carrier_key
+    data_type: INTEGER
+    description: FK DimCarrier.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_carrier')
+          field: carrier_key
+  - name: origin_airport_key
+    data_type: INTEGER
+    description: FK DimAirport cho sân bay đi.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_airport')
+          field: airport_key
+  - name: dest_airport_key
+    data_type: INTEGER
+    description: FK DimAirport cho sân bay đến.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_airport')
+          field: airport_key
+  - name: route_key
+    data_type: INTEGER
+    description: FK DimRoute.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_route')
+          field: route_key
+  - name: flight_status_key
+    data_type: INTEGER
+    description: FK DimFlightStatus.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_flight_status')
+          field: flight_status_key
+  - name: flight_number
+    data_type: INTEGER
+    description: Số hiệu chuyến (degenerate dimension).
+    tests:
+    - not_null
+  - name: scheduled_dep_time
+    data_type: INTEGER
+    description: Giờ khởi hành theo lịch dạng hhmm, đã chuẩn hóa 2400 thành 0000.
+    tests:
+    - not_null
+  - name: scheduled_dep_hour
+    data_type: INTEGER
+    description: Giờ khởi hành theo lịch 0-23.
+    tests:
+    - not_null
+  - name: scheduled_dep_minute
+    data_type: INTEGER
+    description: Phút khởi hành theo lịch 0-59.
+    tests:
+    - not_null
+  - name: cancellation_code
+    data_type: VARCHAR
+    description: Mã lý do hủy (A/B/C/D), NULL nếu không hủy.
+    tests: []
+  - name: dep_delay
+    data_type: DOUBLE
+    description: Chênh lệch giờ khởi hành thực tế so với lịch (phút, có thể âm).
+    tests: []
+  - name: arr_delay
+    data_type: DOUBLE
+    description: Chênh lệch giờ hạ cánh thực tế so với lịch (phút, có thể âm).
+    tests: []
+  - name: dep_delay_minutes
+    data_type: DOUBLE
+    description: Số phút khởi hành muộn (>=0); NULL nếu hủy hoặc thiếu.
+    tests: []
+  - name: arr_delay_minutes
+    data_type: DOUBLE
+    description: Số phút hạ cánh muộn (>=0); NULL nếu hủy/chuyển hướng hoặc thiếu.
+    tests: []
+  - name: taxi_out_minutes
+    data_type: DOUBLE
+    description: Thời gian taxi ra (phút).
+    tests: []
+  - name: taxi_in_minutes
+    data_type: DOUBLE
+    description: Thời gian taxi vào (phút).
+    tests: []
+  - name: air_time_minutes
+    data_type: DOUBLE
+    description: Thời gian bay (phút).
+    tests: []
+  - name: elapsed_time_minutes
+    data_type: DOUBLE
+    description: Thời gian hành trình thực tế (phút).
+    tests: []
+  - name: crs_elapsed_time_minutes
+    data_type: DOUBLE
+    description: Thời gian hành trình theo lịch (phút).
+    tests: []
+  - name: distance_miles
+    data_type: DOUBLE
+    description: Khoảng cách bay (dặm).
+    tests:
+    - not_null
+  - name: is_dep_delayed15
+    data_type: INTEGER
+    description: 1 nếu DEP_DELAY >= 15 phút và chuyến không bị hủy.
+    tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values:
+          - 0
+          - 1
+  - name: is_arr_delayed15
+    data_type: INTEGER
+    description: 1 nếu ARR_DELAY >= 15 phút trên chuyến hoàn thành.
+    tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values:
+          - 0
+          - 1
+  - name: is_cancelled
+    data_type: INTEGER
+    description: 1 nếu chuyến bị hủy.
+    tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values:
+          - 0
+          - 1
+  - name: is_diverted
+    data_type: INTEGER
+    description: 1 nếu chuyến bị chuyển hướng.
+    tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values:
+          - 0
+          - 1
+  - name: is_completed
+    data_type: INTEGER
+    description: 1 nếu chuyến không hủy và không chuyển hướng.
+    tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values:
+          - 0
+          - 1
+  - name: has_delay_reason
+    data_type: INTEGER
+    description: 1 nếu có ít nhất một cột nguyên nhân chậm > 0.
+    tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values:
+          - 0
+          - 1
+- name: fact_delay_reason
+  description: Bảng fact nguyên nhân chậm, grain một dòng cho mỗi chuyến × nguyên nhân có số phút > 0.
+  config:
+    contract:
+      enforced: true
+  meta:
+    owner: BI & DSS
+    grain: one row per flight_key x delay_reason_key with delay_minutes > 0
+    version: 1.0.0
+  columns:
+  - name: delay_fact_key
+    data_type: BIGINT
+    description: Khóa thay thế của dòng fact nguyên nhân.
+    tests:
+    - not_null
+    - unique
+  - name: flight_key
+    data_type: BIGINT
+    description: FK FactFlight (drill-through).
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('fact_flight')
+          field: flight_key
+  - name: date_key
+    data_type: INTEGER
+    description: FK DimDate.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_date')
+          field: date_key
+  - name: carrier_key
+    data_type: INTEGER
+    description: FK DimCarrier.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_carrier')
+          field: carrier_key
+  - name: origin_airport_key
+    data_type: INTEGER
+    description: FK DimAirport cho sân bay đi.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_airport')
+          field: airport_key
+  - name: delay_reason_key
+    data_type: INTEGER
+    description: FK DimDelayReason.
+    tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_delay_reason')
+          field: delay_reason_key
+  - name: delay_minutes
+    data_type: DOUBLE
+    description: Số phút chậm do nguyên nhân tương ứng (> 0).
+    tests:
+    - not_null

@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.DS_Store
+
+target/
+logs/
+data/
+exports/
+exports-k8s/
+out/
+artifacts/
+*.duckdb
+*.duckdb.wal
+*.zip

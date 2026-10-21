@@ -1,0 +1,11 @@
+bi_dss:
+  target: prod
+  outputs:
+    prod:
+      type: duckdb
+      path: "{{ env_var('BI_DUCKDB_PATH', '/data/warehouse/warehouse.duckdb') }}"
+      schema: main
+      threads: 4
+      settings:
+        memory_limit: "3GB"
+        temp_directory: "/tmp"

@@ -1,0 +1,32 @@
+{{ config(materialized='table') }}
+
+SELECT
+    flight_key,
+    date_key,
+    carrier_key,
+    origin_airport_key,
+    dest_airport_key,
+    route_key,
+    flight_status_key,
+    flight_number,
+    scheduled_dep_time,
+    scheduled_dep_hour,
+    scheduled_dep_minute,
+    cancellation_code,
+    dep_delay,
+    arr_delay,
+    dep_delay_minutes,
+    arr_delay_minutes,
+    taxi_out_minutes,
+    taxi_in_minutes,
+    air_time_minutes,
+    elapsed_time_minutes,
+    crs_elapsed_time_minutes,
+    distance_miles,
+    is_dep_delayed15,
+    is_arr_delayed15,
+    is_cancelled,
+    is_diverted,
+    is_completed,
+    has_delay_reason
+FROM {{ ref('int_flight_enriched') }}

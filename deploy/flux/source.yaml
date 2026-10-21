@@ -1,0 +1,11 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: bi-dss-repo
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://github.com/Royal2005-coder/bi-dss-platform.git
+  ref:
+    branch: main
+  timeout: 1m

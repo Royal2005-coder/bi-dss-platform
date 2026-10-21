@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: bi-dss
+  labels:
+    app.kubernetes.io/part-of: bi-dss
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/enforce-version: v1.30
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/audit: restricted
+  annotations:
+    kustomize.toolkit.fluxcd.io/prune: disabled

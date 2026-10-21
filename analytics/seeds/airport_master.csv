@@ -1,0 +1,381 @@
+airport_code,airport_name,city,state_code,state_name,region,region_name,country_code,latitude,longitude,data_source
+ABE,Lehigh Valley International Airport,Allentown/Bethlehem,PA,Pennsylvania,Northeast,Đông Bắc,US,40.651773,-75.442797,ourairports
+ABI,Abilene Regional Airport,Abilene,TX,Texas,South,Nam,US,32.4113006592,-99.68190002440001,ourairports
+ABQ,Albuquerque International Sunport,Albuquerque,NM,New Mexico,West,Tây,US,35.039976,-106.608925,ourairports
+ABR,Aberdeen Regional Airport,Aberdeen,SD,South Dakota,Midwest,Trung Tây,US,45.449100494384766,-98.42179870605469,ourairports
+ABY,Southwest Georgia Regional Airport,Albany,GA,Georgia,South,Nam,US,31.532946,-84.196215,ourairports
+ACK,Nantucket Memorial Airport,Nantucket,MA,Massachusetts,Northeast,Đông Bắc,US,41.25310135,-70.06020355,ourairports
+ACT,Waco Regional Airport,Waco,TX,Texas,South,Nam,US,31.611299514770508,-97.23049926757812,ourairports
+ACV,California Redwood Coast-Humboldt County Airport,Arcata/Eureka,CA,California,West,Tây,US,40.978101,-124.109,ourairports
+ACY,Atlantic City International Airport,Atlantic City,NJ,New Jersey,Northeast,Đông Bắc,US,39.456201,-74.577511,ourairports
+ADK,Adak Airport,Adak,AK,Alaska,West,Tây,US,51.883564,-176.642783,ourairports
+ADQ,Kodiak Airport,Kodiak,AK,Alaska,West,Tây,US,57.75,-152.4940033,ourairports
+AEX,Alexandria International Airport,Alexandria,LA,Louisiana,South,Nam,US,31.325828,-92.546702,ourairports
+AGS,Augusta Regional At Bush Field,Augusta,GA,Georgia,South,Nam,US,33.3699,-81.9645,ourairports
+AKN,King Salmon Airport,King Salmon,AK,Alaska,West,Tây,US,58.677845,-156.651965,ourairports
+ALB,Albany International Airport,Albany,NY,New York,Northeast,Đông Bắc,US,42.748299,-73.801697,ourairports
+ALO,Waterloo Regional Airport,Waterloo,IA,Iowa,Midwest,Trung Tây,US,42.557098388671875,-92.40029907226562,ourairports
+ALS,San Luis Valley Regional Airport/Bergman Field,Alamosa,CO,Colorado,West,Tây,US,37.434898,-105.866997,ourairports
+ALW,Walla Walla Regional Airport,Walla Walla,WA,Washington,West,Tây,US,46.09489822,-118.288002,ourairports
+AMA,Rick Husband Amarillo International Airport,Amarillo,TX,Texas,South,Nam,US,35.217857,-101.706444,ourairports
+ANC,Ted Stevens Anchorage International Airport,Anchorage,AK,Alaska,West,Tây,US,61.179004,-149.992561,ourairports
+APN,Alpena County Regional Airport,Alpena,MI,Michigan,Midwest,Trung Tây,US,45.0780983,-83.56030273,ourairports
+ART,Watertown International Airport,Watertown,NY,New York,Northeast,Đông Bắc,US,43.991901,-76.021698,ourairports
+ASE,Aspen-Pitkin County Airport (Sardy Field),Aspen,CO,Colorado,West,Tây,US,39.223202,-106.869003,ourairports
+ATL,Hartsfield Jackson Atlanta International Airport,Atlanta,GA,Georgia,South,Nam,US,33.6367,-84.428101,ourairports
+ATW,Appleton International Airport,Appleton,WI,Wisconsin,Midwest,Trung Tây,US,44.258515,-88.519,ourairports
+ATY,Watertown Regional Airport,Watertown,SD,South Dakota,Midwest,Trung Tây,US,44.91400146,-97.15470123,ourairports
+AUS,Austin Bergstrom International Airport,Austin,TX,Texas,South,Nam,US,30.197535,-97.662015,ourairports
+AVL,Asheville Regional Airport,Asheville,NC,North Carolina,South,Nam,US,35.435488,-82.541853,ourairports
+AVP,Wilkes-Barre/Scranton International Airport,Wilkes-Barre/Scranton,PA,Pennsylvania,Northeast,Đông Bắc,US,41.337064,-75.724232,ourairports
+AZA,Mesa Gateway Airport,Mesa,AZ,Arizona,West,Tây,US,33.3078,-111.654999,ourairports
+AZO,Kalamazoo/Battle Creek International Airport,Kalamazoo,MI,Michigan,Midwest,Trung Tây,US,42.232105,-85.549637,ourairports
+BDL,Bradley International Airport,Hartford,CT,Connecticut,Northeast,Đông Bắc,US,41.938555,-72.688016,ourairports
+BET,Bethel Airport,Bethel,AK,Alaska,West,Tây,US,60.77980042,-161.8379974,ourairports
+BFF,Western Neb. Rgnl/William B. Heilig Airport,Scottsbluff,NE,Nebraska,Midwest,Trung Tây,US,41.87400055,-103.5960007,ourairports
+BFL,Meadows Field,Bakersfield,CA,California,West,Tây,US,35.433601,-119.056999,ourairports
+BFM,Mobile Downtown Airport,Mobile,AL,Alabama,South,Nam,US,30.626800537100003,-88.06809997559999,ourairports
+BGM,Greater Binghamton/Edwin A Link field,Binghamton,NY,New York,Northeast,Đông Bắc,US,42.20869827,-75.97979736,ourairports
+BGR,Bangor International Airport,Bangor,ME,Maine,Northeast,Đông Bắc,US,44.806364,-68.826668,ourairports
+BHM,Birmingham-Shuttlesworth International Airport,Birmingham,AL,Alabama,South,Nam,US,33.562877,-86.750712,ourairports
+BIH,Eastern Sierra Regional Airport,Bishop,CA,California,West,Tây,US,37.3731,-118.363998,ourairports
+BIL,Billings Logan International Airport,Billings,MT,Montana,West,Tây,US,45.808932,-108.541242,ourairports
+BIS,Bismarck Municipal Airport,Bismarck,ND,North Dakota,Midwest,Trung Tây,US,46.772734,-100.746874,ourairports
+BJI,Bemidji Regional Airport,Bemidji,MN,Minnesota,Midwest,Trung Tây,US,47.50939941,-94.93370056,ourairports
+BKG,Branson Airport,Branson,MO,Missouri,Midwest,Trung Tây,US,36.532082,-93.200544,ourairports
+BLI,Bellingham International Airport,Bellingham,WA,Washington,West,Tây,US,48.79280090332031,-122.53800201416016,ourairports
+BLV,Scott AFB/Midamerica Airport,Belleville,IL,Illinois,Midwest,Trung Tây,US,38.5452,-89.835197,ourairports
+BMI,Central Illinois Regional Airport at Bloomington-Normal,Bloomington/Normal,IL,Illinois,Midwest,Trung Tây,US,40.4771,-88.915901,ourairports
+BNA,Nashville International Airport,Nashville,TN,Tennessee,South,Nam,US,36.1245,-86.6782,ourairports
+BOI,Boise Air Terminal/Gowen Field,Boise,ID,Idaho,West,Tây,US,43.5644,-116.223,ourairports
+BOS,Boston Logan International Airport,Boston,MA,Massachusetts,Northeast,Đông Bắc,US,42.36197,-71.0079,ourairports
+BPT,Jack Brooks Regional Airport,Beaumont/Port Arthur,TX,Texas,South,Nam,US,29.9508,-94.020699,ourairports
+BQK,Brunswick Golden Isles Airport,Brunswick,GA,Georgia,South,Nam,US,31.258801,-81.466499,ourairports
+BQN,Rafael Hernández International Airport,Aguadilla,PR,Puerto Rico,South,Nam,PR,18.4949,-67.129402,ourairports
+BRD,Brainerd Lakes Regional Airport,Brainerd,MN,Minnesota,Midwest,Trung Tây,US,46.402861,-94.129727,ourairports
+BRO,Brownsville South Padre Island International Airport,Brownsville,TX,Texas,South,Nam,US,25.907238,-97.425235,ourairports
+BRW,Wiley Post Will Rogers Memorial Airport,Utqiaġvik,AK,Alaska,West,Tây,US,71.285402,-156.766008,ourairports
+BTM,Bert Mooney Airport,Butte,MT,Montana,West,Tây,US,45.95479965209961,-112.49700164794922,ourairports
+BTR,Baton Rouge Metropolitan Airport,Baton Rouge,LA,Louisiana,South,Nam,US,30.533199,-91.149597,ourairports
+BTV,Patrick Leahy Burlington International Airport,Burlington,VT,Vermont,Northeast,Đông Bắc,US,44.471901,-73.153297,ourairports
+BUF,Buffalo Niagara International Airport,Buffalo,NY,New York,Northeast,Đông Bắc,US,42.940498,-78.732201,ourairports
+BUR,Hollywood Burbank/Bob Hope Airport,Burbank,CA,California,West,Tây,US,34.202834,-118.35805,ourairports
+BWI,Baltimore/Washington International Thurgood Marshall Airport,Baltimore,MD,Maryland,South,Nam,US,39.1754,-76.668297,ourairports
+BZN,Bozeman Yellowstone International Airport,Bozeman,MT,Montana,West,Tây,US,45.778853,-111.153711,ourairports
+CAE,Columbia Metropolitan Airport,Columbia,SC,South Carolina,South,Nam,US,33.938172,-81.123022,ourairports
+CAK,Akron Canton Regional Airport,Akron,OH,Ohio,Midwest,Trung Tây,US,40.916099548339844,-81.44219970703125,ourairports
+CDB,Cold Bay Airport,Cold Bay,AK,Alaska,West,Tây,US,55.207871,-162.725029,ourairports
+CDC,Cedar City Regional Airport,Cedar City,UT,Utah,West,Tây,US,37.70100021362305,-113.0989990234375,ourairports
+CDV,Merle K (Mudhole) Smith Airport,Cordova,AK,Alaska,West,Tây,US,60.491798,-145.477997,ourairports
+CGI,Cape Girardeau Regional Airport,Cape Girardeau,MO,Missouri,Midwest,Trung Tây,US,37.2253,-89.570801,ourairports
+CHA,Chattanooga Metropolitan Airport (Lovell Field),Chattanooga,TN,Tennessee,South,Nam,US,35.035301,-85.203796,ourairports
+CHO,Charlottesville Albemarle Airport,Charlottesville,VA,Virginia,South,Nam,US,38.13859939575195,-78.4529037475586,ourairports
+CHS,Charleston International Airport,Charleston,SC,South Carolina,South,Nam,US,32.896159,-80.038151,ourairports
+CID,The Eastern Iowa Airport,Cedar Rapids,IA,Iowa,Midwest,Trung Tây,US,41.884701,-91.7108,ourairports
+CIU,Chippewa County International Airport,Kincheloe,MI,Michigan,Midwest,Trung Tây,US,46.242038,-84.462082,ourairports
+CKB,North Central West Virginia Airport,Bridgeport,WV,West Virginia,South,Nam,US,39.2966,-80.228104,ourairports
+CLE,Cleveland Hopkins International Airport,Cleveland,OH,Ohio,Midwest,Trung Tây,US,41.411701,-81.8498,ourairports
+CLL,Easterwood Field,College Station,TX,Texas,South,Nam,US,30.5886,-96.3638,ourairports
+CLT,Charlotte Douglas International Airport,Charlotte,NC,North Carolina,South,Nam,US,35.2140007019043,-80.94309997558594,ourairports
+CMH,John Glenn Columbus International Airport,Columbus,OH,Ohio,Midwest,Trung Tây,US,39.998001,-82.891899,ourairports
+CMI,University of Illinois Willard Airport,Savoy,IL,Illinois,Midwest,Trung Tây,US,40.039819,-88.276249,ourairports
+CMX,Houghton County Memorial Airport,Hancock,MI,Michigan,Midwest,Trung Tây,US,47.168399810791016,-88.48909759521484,ourairports
+CNY,Canyonlands Regional Airport,Moab,UT,Utah,West,Tây,US,38.755001,-109.754997,ourairports
+COD,Yellowstone Regional Airport,Cody,WY,Wyoming,West,Tây,US,44.520199,-109.024002,ourairports
+COS,City of Colorado Springs Municipal Airport,Colorado Springs,CO,Colorado,West,Tây,US,38.805801,-104.700996,ourairports
+COU,Columbia Regional Airport,Columbia,MO,Missouri,Midwest,Trung Tây,US,38.8181,-92.219597,ourairports
+CPR,Casper-Natrona County International Airport,Casper,WY,Wyoming,West,Tây,US,42.907381,-106.461609,ourairports
+CRP,Corpus Christi International Airport,Corpus Christi,TX,Texas,South,Nam,US,27.770399,-97.501198,ourairports
+CRW,Yeager Airport,Charleston,WV,West Virginia,South,Nam,US,38.3731,-81.593201,ourairports
+CSG,Columbus Airport,Columbus,GA,Georgia,South,Nam,US,32.516415,-84.939602,ourairports
+CVG,Cincinnati Northern Kentucky International Airport,Cincinnati / Covington,KY,Kentucky,South,Nam,US,39.048801,-84.667801,ourairports
+CWA,Central Wisconsin Airport,Mosinee,WI,Wisconsin,Midwest,Trung Tây,US,44.777448,-89.670238,ourairports
+CYS,Cheyenne Regional Jerry Olson Field,Cheyenne,WY,Wyoming,West,Tây,US,41.155701,-104.811997,ourairports
+DAB,Daytona Beach International Airport,Daytona Beach,FL,Florida,South,Nam,US,29.18255,-81.059464,ourairports
+DAL,Dallas Love Field,Dallas,TX,Texas,South,Nam,US,32.844776,-96.847653,ourairports
+DAY,James M. Cox Dayton International Airport,Dayton,OH,Ohio,Midwest,Trung Tây,US,39.902401,-84.219398,ourairports
+DBQ,Dubuque Regional Airport,Dubuque,IA,Iowa,Midwest,Trung Tây,US,42.402,-90.709503,ourairports
+DCA,Ronald Reagan Washington National Airport,Washington,DC,District of Columbia,South,Nam,US,38.8521,-77.037697,ourairports
+DDC,Dodge City Regional Airport,Dodge City,KS,Kansas,Midwest,Trung Tây,US,37.76340103149414,-99.9655990600586,ourairports
+DEC,Decatur Airport,Decatur,IL,Illinois,Midwest,Trung Tây,US,39.834598541259766,-88.8656997680664,ourairports
+DEN,Denver International Airport,Denver,CO,Colorado,West,Tây,US,39.860027,-104.673792,ourairports
+DFW,Dallas Fort Worth International Airport,Dallas-Fort Worth,TX,Texas,South,Nam,US,32.896801,-97.038002,ourairports
+DHN,Dothan Regional Airport,Dothan,AL,Alabama,South,Nam,US,31.321300506591797,-85.44960021972656,ourairports
+DIK,Dickinson Theodore Roosevelt Regional Airport,Dickinson,ND,North Dakota,Midwest,Trung Tây,US,46.797533,-102.801905,ourairports
+DLG,Dillingham Airport,Dillingham,AK,Alaska,West,Tây,US,59.04470062,-158.5050049,ourairports
+DLH,Duluth International Airport,Duluth,MN,Minnesota,Midwest,Trung Tây,US,46.841873,-92.198746,ourairports
+DRO,Durango La Plata County Airport,Durango,CO,Colorado,West,Tây,US,37.151501,-107.753998,ourairports
+DRT,Del Rio International Airport,Del Rio,TX,Texas,South,Nam,US,29.3742008209,-100.927001953,ourairports
+DSM,Des Moines International Airport,Des Moines,IA,Iowa,Midwest,Trung Tây,US,41.534027,-93.656719,ourairports
+DTW,Detroit Metropolitan Wayne County Airport,Detroit,MI,Michigan,Midwest,Trung Tây,US,42.21377,-83.353786,ourairports
+DVL,Devils Lake Regional Airport,Devils Lake,ND,North Dakota,Midwest,Trung Tây,US,48.115454,-98.908796,ourairports
+EAR,Kearney Regional Airport,Kearney,NE,Nebraska,Midwest,Trung Tây,US,40.727001,-99.006798,ourairports
+EAT,Pangborn Memorial Airport,Wenatchee,WA,Washington,West,Tây,US,47.398899,-120.207001,ourairports
+EAU,Chippewa Valley Regional Airport,Eau Claire,WI,Wisconsin,Midwest,Trung Tây,US,44.86579895019531,-91.48429870605469,ourairports
+ECP,Northwest Florida Beaches International Airport,Panama City Beach,FL,Florida,South,Nam,US,30.357106,-85.795414,ourairports
+EGE,Eagle County Regional Airport,Eagle,CO,Colorado,West,Tây,US,39.64260101,-106.9179993,ourairports
+EKO,Elko Regional Airport,Elko,NV,Nevada,West,Tây,US,40.82490158081055,-115.79199981689453,ourairports
+ELM,Elmira Corning Regional Airport,Elmira/Corning,NY,New York,Northeast,Đông Bắc,US,42.1599006652832,-76.8916015625,ourairports
+ELP,El Paso International Airport,El Paso,TX,Texas,South,Nam,US,31.809908,-106.375607,ourairports
+ERI,Erie International Tom Ridge Field,Erie,PA,Pennsylvania,Northeast,Đông Bắc,US,42.083127,-80.173867,ourairports
+ESC,Delta County Airport,Escanaba,MI,Michigan,Midwest,Trung Tây,US,45.723199,-87.088623,ourairports
+EUG,Eugene Airport,Eugene,OR,Oregon,West,Tây,US,44.124599,-123.211998,ourairports
+EVV,Evansville Regional Airport,Evansville,IN,Indiana,Midwest,Trung Tây,US,38.0369987488,-87.5324020386,ourairports
+EWN,Coastal Carolina Regional Airport,New Bern,NC,North Carolina,South,Nam,US,35.0730018616,-77.04290008539999,ourairports
+EWR,Newark Liberty International Airport,Newark,NJ,New Jersey,Northeast,Đông Bắc,US,40.6894,-74.170545,ourairports
+EYW,Key West International Airport,Key West,FL,Florida,South,Nam,US,24.556119,-81.759579,ourairports
+FAI,Fairbanks International Airport,Fairbanks,AK,Alaska,West,Tây,US,64.815102,-147.856003,ourairports
+FAR,Hector International Airport,Fargo,ND,North Dakota,Midwest,Trung Tây,US,46.9207,-96.815804,ourairports
+FAT,Fresno Yosemite International Airport,Fresno,CA,California,West,Tây,US,36.775767,-119.718018,ourairports
+FAY,Fayetteville Regional Airport - Grannis Field,Fayetteville,NC,North Carolina,South,Nam,US,34.991199,-78.880302,ourairports
+FCA,Glacier Park International Airport,Kalispell,MT,Montana,West,Tây,US,48.310501,-114.255997,ourairports
+FLG,Flagstaff Pulliam Airport,Flagstaff,AZ,Arizona,West,Tây,US,35.139757,-111.669826,ourairports
+FLL,Fort Lauderdale Hollywood International Airport,Fort Lauderdale,FL,Florida,South,Nam,US,26.072599,-80.152702,ourairports
+FLO,Florence Regional Airport,Florence,SC,South Carolina,South,Nam,US,34.18539810180664,-79.7238998413086,ourairports
+FNT,Bishop International Airport,Flint,MI,Michigan,Midwest,Trung Tây,US,42.969294,-83.743355,ourairports
+FOD,Fort Dodge Regional Airport,Fort Dodge,IA,Iowa,Midwest,Trung Tây,US,42.552624,-94.191237,ourairports
+FSD,Sioux Falls Regional Airport,Sioux Falls,SD,South Dakota,Midwest,Trung Tây,US,43.585463,-96.741152,ourairports
+FSM,Fort Smith Regional Airport,Fort Smith,AR,Arkansas,South,Nam,US,35.336601,-94.367401,ourairports
+FWA,Fort Wayne International Airport,Fort Wayne,IN,Indiana,Midwest,Trung Tây,US,40.978896,-85.194465,ourairports
+GCC,Northeast Wyoming Regional Airport,Gillette,WY,Wyoming,West,Tây,US,44.3489,-105.539001,ourairports
+GCK,Garden City Regional Airport,Garden City,KS,Kansas,Midwest,Trung Tây,US,37.9275016785,-100.723999023,ourairports
+GEG,Spokane International Airport,Spokane,WA,Washington,West,Tây,US,47.6199,-117.533997,ourairports
+GFK,Grand Forks International Airport,Grand Forks,ND,North Dakota,Midwest,Trung Tây,US,47.949299,-97.176102,ourairports
+GGG,East Texas Regional Airport,Longview,TX,Texas,South,Nam,US,32.38399887084961,-94.71150207519531,ourairports
+GJT,Grand Junction Regional Airport,Grand Junction,CO,Colorado,West,Tây,US,39.126663,-108.529387,ourairports
+GNV,Gainesville Regional Airport,Gainesville,FL,Florida,South,Nam,US,29.6900997162,-82.2717971802,ourairports
+GPT,Gulfport Biloxi International Airport,Gulfport,MS,Mississippi,South,Nam,US,30.405582,-89.069836,ourairports
+GRB,Austin Straubel International Airport,Green Bay,WI,Wisconsin,Midwest,Trung Tây,US,44.483459,-88.130805,ourairports
+GRI,Central Nebraska Regional Airport,Grand Island,NE,Nebraska,Midwest,Trung Tây,US,40.967498779296875,-98.30960083007812,ourairports
+GRK,Killeen Regional Airport / Robert Gray Army Airfield,Fort Cavazos,TX,Texas,South,Nam,US,31.0672,-97.828903,ourairports
+GRR,Gerald R. Ford International Airport,Grand Rapids,MI,Michigan,Midwest,Trung Tây,US,42.880798,-85.522797,ourairports
+GSO,Piedmont Triad International Airport,Greensboro,NC,North Carolina,South,Nam,US,36.09937,-79.937262,ourairports
+GSP,Greenville-Spartanburg International Airport,Greenville/Greer/Spartanburg,SC,South Carolina,South,Nam,US,34.895699,-82.218903,ourairports
+GST,Gustavus Airport,Gustavus,AK,Alaska,West,Tây,US,58.4253006,-135.7070007,ourairports
+GTF,Great Falls International Airport,Great Falls,MT,Montana,West,Tây,US,47.481998,-111.371002,ourairports
+GTR,Golden Triangle Regional Airport,Columbus/W Point/Starkville,MS,Mississippi,South,Nam,US,33.450298,-88.5914,ourairports
+GUC,Gunnison Crested Butte Regional Airport,Gunnison,CO,Colorado,West,Tây,US,38.534672,-106.934566,ourairports
+GUM,Antonio B. Won Pat International Airport,Hagåtña,GU,Guam,West,Tây,GU,13.485,144.797282,ourairports
+HDN,Yampa Valley Airport,Hayden,CO,Colorado,West,Tây,US,40.481201,-107.218002,ourairports
+HGR,Hagerstown Regional Richard A Henson Field,Hagerstown,MD,Maryland,South,Nam,US,39.708771,-77.728014,ourairports
+HHH,Hilton Head Airport,Hilton Head Island,SC,South Carolina,South,Nam,US,32.2244,-80.697502,ourairports
+HIB,Range Regional Airport,Hibbing,MN,Minnesota,Midwest,Trung Tây,US,47.384831,-92.836905,ourairports
+HLN,Helena Regional Airport,Helena,MT,Montana,West,Tây,US,46.6068,-111.983002,ourairports
+HNL,Daniel K. Inouye International Airport,"Honolulu, Oahu",HI,Hawaii,West,Tây,US,21.318387,-157.92567,ourairports
+HOB,Lea County Regional Airport,Hobbs,NM,New Mexico,West,Tây,US,32.6875,-103.217003,ourairports
+HOU,William P. Hobby Airport,Houston,TX,Texas,South,Nam,US,29.645336,-95.276812,ourairports
+HPN,Westchester County Airport,White Plains,NY,New York,Northeast,Đông Bắc,US,41.06700134277344,-73.70760345458984,ourairports
+HRL,Valley International Airport,Harlingen,TX,Texas,South,Nam,US,26.228500366210938,-97.65440368652344,ourairports
+HSV,Huntsville International Airport,Huntsville,AL,Alabama,South,Nam,US,34.636244,-86.774378,ourairports
+HTS,Tri-State Airport / Milton J. Ferguson Field,Huntington,WV,West Virginia,South,Nam,US,38.366699,-82.557999,ourairports
+HVN,Tweed New Haven Airport,New Haven,CT,Connecticut,Northeast,Đông Bắc,US,41.262869,-72.887694,ourairports
+HYA,Cape Cod Gateway Airport,Hyannis,MA,Massachusetts,Northeast,Đông Bắc,US,41.6693,-70.280403,ourairports
+HYS,Hays Regional Airport,Hays,KS,Kansas,Midwest,Trung Tây,US,38.844521,-99.273148,ourairports
+IAD,Washington Dulles International Airport,Dulles,VA,Virginia,South,Nam,US,38.9445,-77.455803,ourairports
+IAG,Niagara Falls International Airport,Niagara Falls,NY,New York,Northeast,Đông Bắc,US,43.1073,-78.946198,ourairports
+IAH,George Bush Intercontinental Airport,Houston,TX,Texas,South,Nam,US,29.9844,-95.3414,ourairports
+ICT,Wichita Dwight D. Eisenhower National Airport,Wichita,KS,Kansas,Midwest,Trung Tây,US,37.650314,-97.428583,ourairports
+IDA,Idaho Falls Regional Airport,Idaho Falls,ID,Idaho,West,Tây,US,43.514599,-112.070999,ourairports
+ILG,Wilmington Airport,Wilmington,DE,Delaware,South,Nam,US,39.678699,-75.606499,ourairports
+ILM,Wilmington International Airport,Wilmington,NC,North Carolina,South,Nam,US,34.272345,-77.905117,ourairports
+IMT,Ford Airport,Kingsford,MI,Michigan,Midwest,Trung Tây,US,45.81911,-88.114557,ourairports
+IND,Indianapolis International Airport,Indianapolis,IN,Indiana,Midwest,Trung Tây,US,39.7173,-86.294403,ourairports
+INL,Falls International Airport,International Falls,MN,Minnesota,Midwest,Trung Tây,US,48.566200256347656,-93.4030990600586,ourairports
+IPT,Williamsport Regional Airport,Williamsport,PA,Pennsylvania,Northeast,Đông Bắc,US,41.242126,-76.92245,ourairports
+ISN,Williston Basin International Airport,Williston,ND,North Dakota,Midwest,Trung Tây,US,48.2594,-103.7510,manual
+ISP,Long Island MacArthur Airport,Islip,NY,New York,Northeast,Đông Bắc,US,40.796324,-73.101703,ourairports
+ITH,Ithaca Tompkins Regional Airport,Ithaca,NY,New York,Northeast,Đông Bắc,US,42.49100112915039,-76.4583969116211,ourairports
+ITO,Hilo International Airport,Hilo,HI,Hawaii,West,Tây,US,19.72135,-155.045428,ourairports
+JAC,Jackson Hole Airport,Jackson,WY,Wyoming,West,Tây,US,43.6073,-110.737999,ourairports
+JAN,Jackson-Medgar Wiley Evers International Airport,Jackson,MS,Mississippi,South,Nam,US,32.311199,-90.075897,ourairports
+JAX,Jacksonville International Airport,Jacksonville,FL,Florida,South,Nam,US,30.492469,-81.687813,ourairports
+JFK,John F. Kennedy International Airport,New York,NY,New York,Northeast,Đông Bắc,US,40.639447,-73.779317,ourairports
+JLN,Joplin Regional Airport,Joplin,MO,Missouri,Midwest,Trung Tây,US,37.151798,-94.498299,ourairports
+JMS,Jamestown Regional Airport,Jamestown,ND,North Dakota,Midwest,Trung Tây,US,46.92969894,-98.67819977,ourairports
+JNU,Juneau International Airport,Juneau,AK,Alaska,West,Tây,US,58.354935,-134.574416,ourairports
+JST,John Murtha Johnstown Cambria County Airport,Johnstown,PA,Pennsylvania,Northeast,Đông Bắc,US,40.31610107421875,-78.83390045166016,ourairports
+KOA,Ellison Onizuka Kona International Airport at Keāhole,Kailua-Kona,HI,Hawaii,West,Tây,US,19.738783,-156.045603,ourairports
+KTN,Ketchikan International Airport,Ketchikan,AK,Alaska,West,Tây,US,55.35559845,-131.7140045,ourairports
+LAN,Capital Region International Airport,Lansing,MI,Michigan,Midwest,Trung Tây,US,42.777582,-84.585721,ourairports
+LAR,Laramie Regional Airport,Laramie,WY,Wyoming,West,Tây,US,41.31209945678711,-105.67500305175781,ourairports
+LAS,Harry Reid International Airport,Las Vegas,NV,Nevada,West,Tây,US,36.083361,-115.151817,ourairports
+LAW,Lawton Fort Sill Regional Airport,Lawton,OK,Oklahoma,South,Nam,US,34.567699,-98.416603,ourairports
+LAX,Los Angeles International Airport,Los Angeles,CA,California,West,Tây,US,33.942501,-118.407997,ourairports
+LBB,Lubbock Preston Smith International Airport,Lubbock,TX,Texas,South,Nam,US,33.663601,-101.822998,ourairports
+LBE,Arnold Palmer Regional Airport,Latrobe,PA,Pennsylvania,Northeast,Đông Bắc,US,40.275902,-79.4048,ourairports
+LBF,North Platte Regional Airport Lee Bird Field,North Platte,NE,Nebraska,Midwest,Trung Tây,US,41.12620163,-100.6839981,ourairports
+LBL,Liberal Mid-America Regional Airport,Liberal,KS,Kansas,Midwest,Trung Tây,US,37.0442009,-100.9599991,ourairports
+LCH,Lake Charles Regional Airport,Lake Charles,LA,Louisiana,South,Nam,US,30.126100540161133,-93.22329711914062,ourairports
+LCK,Rickenbacker International Airport,Columbus,OH,Ohio,Midwest,Trung Tây,US,39.813801,-82.927803,ourairports
+LEX,Blue Grass Airport,Lexington,KY,Kentucky,South,Nam,US,38.035066,-84.606738,ourairports
+LFT,Lafayette Regional Airport,Lafayette,LA,Louisiana,South,Nam,US,30.205299,-91.987602,ourairports
+LGA,LaGuardia Airport,New York,NY,New York,Northeast,Đông Bắc,US,40.777199,-73.872597,ourairports
+LGB,Long Beach International Airport,Long Beach,CA,California,West,Tây,US,33.816523,-118.149891,ourairports
+LIH,Lihue Airport,"Lihue, Kauai",HI,Hawaii,West,Tây,US,21.974393,-159.337146,ourairports
+LIT,Bill & Hillary Clinton National Airport/Adams Field,Little Rock,AR,Arkansas,South,Nam,US,34.729222,-92.223591,ourairports
+LNK,Lincoln Airport,Lincoln,NE,Nebraska,Midwest,Trung Tây,US,40.844882,-96.76178,ourairports
+LRD,Laredo International Airport,Laredo,TX,Texas,South,Nam,US,27.5438,-99.461601,ourairports
+LSE,La Crosse Regional Airport,La Crosse,WI,Wisconsin,Midwest,Trung Tây,US,43.879002,-91.256699,ourairports
+LWB,Greenbrier Valley Airport,Lewisburg,WV,West Virginia,South,Nam,US,37.857914,-80.400438,ourairports
+LWS,Lewiston Nez Perce County Airport,Lewiston,ID,Idaho,West,Tây,US,46.3745002746582,-117.01499938964844,ourairports
+LYH,Lynchburg Regional Airport - Preston Glenn Field,Lynchburg,VA,Virginia,South,Nam,US,37.326698,-79.200401,ourairports
+MAF,Midland International Air and Space Port,Midland,TX,Texas,South,Nam,US,31.942499,-102.202003,ourairports
+MBS,MBS International Airport,Freeland,MI,Michigan,Midwest,Trung Tây,US,43.533181,-84.083104,ourairports
+MCI,Kansas City International Airport,Kansas City,MO,Missouri,Midwest,Trung Tây,US,39.301699,-94.713893,ourairports
+MCO,Orlando International Airport,Orlando,FL,Florida,South,Nam,US,28.429399490356445,-81.30899810791016,ourairports
+MCW,Mason City Municipal Airport,Mason City,IA,Iowa,Midwest,Trung Tây,US,43.159801,-93.329716,ourairports
+MDT,Harrisburg International Airport,Harrisburg,PA,Pennsylvania,Northeast,Đông Bắc,US,40.192838,-76.762333,ourairports
+MDW,Chicago Midway International Airport,Chicago,IL,Illinois,Midwest,Trung Tây,US,41.785999,-87.752403,ourairports
+MEI,Key Field / Meridian Regional Airport,Meridian,MS,Mississippi,South,Nam,US,32.3326,-88.7519,ourairports
+MEM,Frederick W. Smith International Airport,Memphis,TN,Tennessee,South,Nam,US,35.043845,-89.97634,ourairports
+MFE,McAllen Miller International Airport,McAllen,TX,Texas,South,Nam,US,26.176141,-98.237965,ourairports
+MFR,Rogue Valley International-Medford Airport,Medford,OR,Oregon,West,Tây,US,42.374199,-122.873001,ourairports
+MGM,Montgomery Regional (Dannelly Field) Airport,Montgomery,AL,Alabama,South,Nam,US,32.300598,-86.393997,ourairports
+MHK,Manhattan Regional Airport,Manhattan,KS,Kansas,Midwest,Trung Tây,US,39.14099884033203,-96.6707992553711,ourairports
+MHT,Manchester-Boston Regional Airport,Manchester,NH,New Hampshire,Northeast,Đông Bắc,US,42.932598,-71.435699,ourairports
+MIA,Miami International Airport,Miami,FL,Florida,South,Nam,US,25.796011,-80.289751,ourairports
+MKE,General Mitchell International Airport,Milwaukee,WI,Wisconsin,Midwest,Trung Tây,US,42.947201,-87.896599,ourairports
+MKG,Muskegon County Airport,Muskegon,MI,Michigan,Midwest,Trung Tây,US,43.169498,-86.238197,ourairports
+MLB,Melbourne Orlando International Airport,Melbourne,FL,Florida,South,Nam,US,28.102009,-80.641088,ourairports
+MLI,Quad City International Airport,Moline,IL,Illinois,Midwest,Trung Tây,US,41.448502,-90.5075,ourairports
+MLU,Monroe Regional Airport,Monroe,LA,Louisiana,South,Nam,US,32.510899,-92.037697,ourairports
+MMH,Mammoth Yosemite Airport,Mammoth Lakes,CA,California,West,Tây,US,37.625381,-118.84306,ourairports
+MOB,Mobile Regional Airport,Mobile,AL,Alabama,South,Nam,US,30.6912,-88.242798,ourairports
+MOT,Minot International Airport,Minot,ND,North Dakota,Midwest,Trung Tây,US,48.25801,-101.279123,ourairports
+MQT,Marquette Sawyer Regional Airport,Gwinn,MI,Michigan,Midwest,Trung Tây,US,46.351498,-87.395884,ourairports
+MRY,Monterey Regional Airport,Monterey,CA,California,West,Tây,US,36.586777,-121.844183,ourairports
+MSN,Dane County Regional Truax Field,Madison,WI,Wisconsin,Midwest,Trung Tây,US,43.1399,-89.337502,ourairports
+MSO,Missoula Montana Airport,Missoula,MT,Montana,West,Tây,US,46.915816,-114.091107,ourairports
+MSP,Minneapolis–Saint Paul International Airport / Wold–Chamberlain Field,Minneapolis,MN,Minnesota,Midwest,Trung Tây,US,44.880081,-93.221741,ourairports
+MSY,Louis Armstrong New Orleans International Airport,New Orleans,LA,Louisiana,South,Nam,US,29.993401,-90.264673,ourairports
+MTJ,Montrose Regional Airport,Montrose,CO,Colorado,West,Tây,US,38.5098,-107.893997,ourairports
+MVY,Martha's Vineyard Airport,Martha's Vineyard,MA,Massachusetts,Northeast,Đông Bắc,US,41.3931007385,-70.6143035889,ourairports
+MYR,Myrtle Beach International Airport,Myrtle Beach,SC,South Carolina,South,Nam,US,33.679699,-78.928299,ourairports
+OAJ,Albert J Ellis Airport,Richlands,NC,North Carolina,South,Nam,US,34.829201,-77.612099,ourairports
+OAK,Oakland San Francisco Bay Airport,Oakland,CA,California,West,Tây,US,37.720085,-122.221184,ourairports
+OGD,Ogden Hinckley Airport,Ogden,UT,Utah,West,Tây,US,41.195899963379,-112.0120010376,ourairports
+OGG,Kahului International Airport,Kahului,HI,Hawaii,West,Tây,US,20.896263,-156.431837,ourairports
+OGS,Ogdensburg International Airport,Ogdensburg,NY,New York,Northeast,Đông Bắc,US,44.6819,-75.4655,ourairports
+OKC,OKC Will Rogers World Airport,Oklahoma City,OK,Oklahoma,South,Nam,US,35.393388,-97.598248,ourairports
+OMA,Eppley Airfield,Omaha,NE,Nebraska,Midwest,Trung Tây,US,41.3032,-95.894096,ourairports
+OME,Nome Airport,Nome,AK,Alaska,West,Tây,US,64.51219940185547,-165.44500732421875,ourairports
+ONT,Ontario International Airport,Ontario,CA,California,West,Tây,US,34.056,-117.600998,ourairports
+ORD,Chicago O'Hare International Airport,Chicago,IL,Illinois,Midwest,Trung Tây,US,41.9786,-87.9048,ourairports
+ORF,Norfolk International Airport,Norfolk,VA,Virginia,South,Nam,US,36.895341,-76.201,ourairports
+ORH,Worcester Regional Airport,Worcester,MA,Massachusetts,Northeast,Đông Bắc,US,42.2673,-71.875702,ourairports
+OTH,Southwest Oregon Regional Airport,North Bend,OR,Oregon,West,Tây,US,43.41709899902344,-124.24600219726562,ourairports
+OTZ,Ralph Wien Memorial Airport,Kotzebue,AK,Alaska,West,Tây,US,66.88469696,-162.598999,ourairports
+OWB,Owensboro Daviess County Airport,Owensboro,KY,Kentucky,South,Nam,US,37.74010086,-87.16680145,ourairports
+PAE,Seattle Paine Field International Airport,Everett,WA,Washington,West,Tây,US,47.9063,-122.281998,ourairports
+PAH,Barkley Regional Airport,Paducah,KY,Kentucky,South,Nam,US,37.06079864501953,-88.7738037109375,ourairports
+PBG,Plattsburgh International Airport,Plattsburgh,NY,New York,Northeast,Đông Bắc,US,44.650902,-73.468102,ourairports
+PBI,Palm Beach International Airport,West Palm Beach,FL,Florida,South,Nam,US,26.683201,-80.095596,manual
+PDX,Portland International Airport,Portland,OR,Oregon,West,Tây,US,45.588699,-122.598,ourairports
+PGD,Punta Gorda Airport,Punta Gorda,FL,Florida,South,Nam,US,26.9202,-81.990501,ourairports
+PGV,Pitt-Greenville Airport,Greenville,NC,North Carolina,South,Nam,US,35.635535,-77.384262,ourairports
+PHF,Newport News Williamsburg International Airport,Newport News,VA,Virginia,South,Nam,US,37.131901,-76.492996,ourairports
+PHL,Philadelphia International Airport,Philadelphia,PA,Pennsylvania,Northeast,Đông Bắc,US,39.871899,-75.241096,ourairports
+PHX,Phoenix Sky Harbor International Airport,Phoenix,AZ,Arizona,West,Tây,US,33.435302,-112.005905,ourairports
+PIA,General Wayne A. Downing Peoria International Airport,Peoria,IL,Illinois,Midwest,Trung Tây,US,40.663841,-89.692631,ourairports
+PIB,Hattiesburg Laurel Regional Airport,Moselle,MS,Mississippi,South,Nam,US,31.4671,-89.337097,ourairports
+PIE,St. Petersburg Clearwater International Airport,Pinellas Park,FL,Florida,South,Nam,US,27.9102,-82.687401,ourairports
+PIH,Pocatello Regional Airport,Pocatello,ID,Idaho,West,Tây,US,42.9098014831543,-112.59600067138672,ourairports
+PIR,Pierre Regional Airport,Pierre,SD,South Dakota,Midwest,Trung Tây,US,44.38270187,-100.2860031,ourairports
+PIT,Pittsburgh International Airport,Pittsburgh,PA,Pennsylvania,Northeast,Đông Bắc,US,40.491501,-80.232903,ourairports
+PLN,Pellston Regional Airport of Emmet County Airport,Pellston,MI,Michigan,Midwest,Trung Tây,US,45.57089996,-84.79669952,ourairports
+PNS,Pensacola International Airport,Pensacola,FL,Florida,South,Nam,US,30.472718,-87.186639,ourairports
+PPG,Pago Pago International Airport,Pago Pago,AS,American Samoa,West,Tây,AS,-14.331,-170.710007,ourairports
+PRC,Prescott Regional Airport - Ernest A. Love Field,Prescott,AZ,Arizona,West,Tây,US,34.653502,-112.419883,ourairports
+PSC,Tri Cities Airport,Pasco,WA,Washington,West,Tây,US,46.264702,-119.119003,ourairports
+PSE,Mercedita International Airport,Ponce,PR,Puerto Rico,South,Nam,PR,18.008301,-66.563004,ourairports
+PSG,Petersburg James A Johnson Airport,Petersburg,AK,Alaska,West,Tây,US,56.80170059,-132.9450073,ourairports
+PSM,Portsmouth International Airport at Pease,Portsmouth,NH,New Hampshire,Northeast,Đông Bắc,US,43.0779,-70.823303,ourairports
+PSP,Palm Springs International Airport,Palm Springs,CA,California,West,Tây,US,33.8297,-116.507004,ourairports
+PUB,Pueblo Memorial Airport,Pueblo,CO,Colorado,West,Tây,US,38.289101,-104.497002,ourairports
+PUW,Pullman-Moscow Regional Airport,Pullman,WA,Washington,West,Tây,US,46.741601,-117.11163,ourairports
+PVD,Rhode Island T. F. Green International Airport,Providence/Warwick,RI,Rhode Island,Northeast,Đông Bắc,US,41.725038,-71.425668,ourairports
+PVU,Provo Municipal Airport,Provo,UT,Utah,West,Tây,US,40.218894,-111.722445,ourairports
+PWM,Portland International Jetport,Portland,ME,Maine,Northeast,Đông Bắc,US,43.646198,-70.309303,ourairports
+RAP,Rapid City Regional Airport,Rapid City,SD,South Dakota,Midwest,Trung Tây,US,44.0452995300293,-103.05699920654297,ourairports
+RDD,Redding Municipal Airport,Redding,CA,California,West,Tây,US,40.50899887,-122.2929993,ourairports
+RDM,Roberts Field,Redmond,OR,Oregon,West,Tây,US,44.254101,-121.150002,ourairports
+RDU,Raleigh-Durham International Airport,Raleigh/Durham,NC,North Carolina,South,Nam,US,35.878659,-78.7873,ourairports
+RFD,Chicago Rockford International Airport,Chicago/Rockford,IL,Illinois,Midwest,Trung Tây,US,42.1954,-89.097198,ourairports
+RHI,Rhinelander Oneida County Airport,Rhinelander,WI,Wisconsin,Midwest,Trung Tây,US,45.63119888305664,-89.46749877929688,ourairports
+RIC,Richmond International Airport,Richmond,VA,Virginia,South,Nam,US,37.505199,-77.319702,ourairports
+RIW,Central Wyoming Regional Airport,Riverton,WY,Wyoming,West,Tây,US,43.064201,-108.459999,ourairports
+RKS,Southwest Wyoming Regional Airport,Rock Springs,WY,Wyoming,West,Tây,US,41.5942,-109.065001,ourairports
+RNO,Reno Tahoe International Airport,Reno,NV,Nevada,West,Tây,US,39.4991,-119.767998,ourairports
+ROA,Roanoke–Blacksburg Regional Airport,Roanoke,VA,Virginia,South,Nam,US,37.3255,-79.975403,ourairports
+ROC,Frederick Douglass Greater Rochester International Airport,Rochester,NY,New York,Northeast,Đông Bắc,US,43.1189,-77.672401,ourairports
+ROW,Roswell Air Center Airport,Roswell,NM,New Mexico,West,Tây,US,33.301601,-104.530998,ourairports
+RST,Rochester International Airport,Rochester,MN,Minnesota,Midwest,Trung Tây,US,43.908298,-92.5,ourairports
+RSW,Southwest Florida International Airport,Fort Myers,FL,Florida,South,Nam,US,26.534685,-81.752816,ourairports
+SAF,Santa Fe Municipal Airport,Santa Fe,NM,New Mexico,West,Tây,US,35.6171,-106.088997,ourairports
+SAN,San Diego International Airport,San Diego,CA,California,West,Tây,US,32.733601,-117.190002,ourairports
+SAT,San Antonio International Airport,San Antonio,TX,Texas,South,Nam,US,29.533701,-98.469803,ourairports
+SAV,Savannah Hilton Head International Airport,Savannah,GA,Georgia,South,Nam,US,32.126591,-81.19998,ourairports
+SBA,Santa Barbara Municipal Airport,Santa Barbara,CA,California,West,Tây,US,34.426201,-119.839996,ourairports
+SBN,South Bend International Airport,South Bend,IN,Indiana,Midwest,Trung Tây,US,41.708304,-86.316922,ourairports
+SBP,San Luis County Regional Airport,San Luis Obispo,CA,California,West,Tây,US,35.236801147499996,-120.641998291,ourairports
+SCC,Deadhorse Airport,Deadhorse,AK,Alaska,West,Tây,US,70.19470215,-148.4649963,ourairports
+SCE,State College Regional Airport,State College,PA,Pennsylvania,Northeast,Đông Bắc,US,40.849374,-77.84852,ourairports
+SCK,Stockton Metropolitan Airport,Stockton,CA,California,West,Tây,US,37.893279,-121.238079,ourairports
+SDF,Louisville Muhammad Ali International Airport,Louisville,KY,Kentucky,South,Nam,US,38.1706,-85.735076,ourairports
+SEA,Seattle–Tacoma International Airport,Seattle,WA,Washington,West,Tây,US,47.447943,-122.310276,ourairports
+SFB,Orlando Sanford International Airport,Orlando,FL,Florida,South,Nam,US,28.774277,-81.234626,ourairports
+SFO,San Francisco International Airport,San Francisco,CA,California,West,Tây,US,37.619806,-122.374821,ourairports
+SGF,Springfield Branson National Airport,Springfield,MO,Missouri,Midwest,Trung Tây,US,37.245047,-93.388596,ourairports
+SGU,St George Regional Airport,St George,UT,Utah,West,Tây,US,37.036389,-113.510306,ourairports
+SHD,Shenandoah Valley Regional Airport,Weyers Cave,VA,Virginia,South,Nam,US,38.263802,-78.8964,ourairports
+SHR,Sheridan County Airport,Sheridan,WY,Wyoming,West,Tây,US,44.76919937133789,-106.9800033569336,ourairports
+SHV,Shreveport Regional Airport,Shreveport,LA,Louisiana,South,Nam,US,32.444747,-93.826741,ourairports
+SIT,Sitka Rocky Gutierrez Airport,Sitka,AK,Alaska,West,Tây,US,57.04710006713867,-135.36199951171875,ourairports
+SJC,Mineta San Jose International Airport,San Jose,CA,California,West,Tây,US,37.362452,-121.929188,ourairports
+SJT,San Angelo Regional Mathis Field,San Angelo,TX,Texas,South,Nam,US,31.35770034790039,-100.49600219726562,ourairports
+SJU,Luis Munoz Marin International Airport,San Juan,PR,Puerto Rico,South,Nam,PR,18.4394,-66.001801,ourairports
+SLC,Salt Lake City International Airport,Salt Lake City,UT,Utah,West,Tây,US,40.78886,-111.979866,ourairports
+SLN,Salina Municipal Airport,Salina,KS,Kansas,Midwest,Trung Tây,US,38.79100036621094,-97.6521987915039,ourairports
+SMF,Sacramento International Airport,Sacramento,CA,California,West,Tây,US,38.6954,-121.591003,ourairports
+SMX,Santa Maria Public Airport Captain G Allan Hancock Field,Santa Maria,CA,California,West,Tây,US,34.898899,-120.457001,ourairports
+SNA,John Wayne Orange County International Airport,Santa Ana,CA,California,West,Tây,US,33.675063,-117.869281,ourairports
+SPI,Abraham Lincoln Capital Airport,Springfield,IL,Illinois,Midwest,Trung Tây,US,39.844101,-89.677902,ourairports
+SPN,Saipan International Airport,"I Fadang, Saipan",MP,Northern Mariana Islands,West,Tây,MP,15.119384,145.728848,ourairports
+SPS,Wichita Falls Municipal Airport / Sheppard Air Force Base,Wichita Falls,TX,Texas,South,Nam,US,33.9888,-98.491898,ourairports
+SRQ,Sarasota Bradenton International Airport,Sarasota/Bradenton,FL,Florida,South,Nam,US,27.394631,-82.554359,ourairports
+STC,Saint Cloud Regional Airport,Saint Cloud,MN,Minnesota,Midwest,Trung Tây,US,45.5466,-94.059898,ourairports
+STL,St. Louis Lambert International Airport,St Louis,MO,Missouri,Midwest,Trung Tây,US,38.748697,-90.370003,ourairports
+STS,Charles M. Schulz Sonoma County Airport,Santa Rosa,CA,California,West,Tây,US,38.50899887,-122.8130035,ourairports
+STT,Cyril E. King Airport,Charlotte Amalie,VI,U.S. Virgin Islands,South,Nam,VI,18.337091,-64.977251,ourairports
+STX,Henry E. Rohlsen Airport,Christiansted,VI,U.S. Virgin Islands,South,Nam,VI,17.701413,-64.802608,ourairports
+SUN,Friedman Memorial Airport,Hailey,ID,Idaho,West,Tây,US,43.50439835,-114.2959976,ourairports
+SUX,Sioux Gateway Airport / Brigadier General Bud Day Field,Sioux City,IA,Iowa,Midwest,Trung Tây,US,42.397605,-96.382237,ourairports
+SWF,New York Stewart International Airport,Newburgh,NY,New York,Northeast,Đông Bắc,US,41.50421,-74.108901,ourairports
+SWO,Stillwater Regional Airport,Stillwater,OK,Oklahoma,South,Nam,US,36.162132,-97.085581,ourairports
+SYR,Syracuse Hancock International Airport,Syracuse,NY,New York,Northeast,Đông Bắc,US,43.11119842529297,-76.1063003540039,ourairports
+TBN,Waynesville-St. Robert Regional Airport-Forney Field,Fort Leonard Wood,MO,Missouri,Midwest,Trung Tây,US,37.7416,-92.140701,ourairports
+TLH,Tallahassee International Airport,Tallahassee,FL,Florida,South,Nam,US,30.401209,-84.35433,ourairports
+TOL,Eugene F. Kranz Toledo Express Airport,Toledo,OH,Ohio,Midwest,Trung Tây,US,41.5868,-83.8078,ourairports
+TPA,Tampa International Airport,Tampa,FL,Florida,South,Nam,US,27.9755,-82.533203,ourairports
+TRI,Tri-Cities Regional TN/VA Airport,Blountville,TN,Tennessee,South,Nam,US,36.475201,-82.407401,ourairports
+TTN,Trenton Mercer Airport,Ewing Township,NJ,New Jersey,Northeast,Đông Bắc,US,40.276699,-74.813499,ourairports
+TUL,Tulsa International Airport,Tulsa,OK,Oklahoma,South,Nam,US,36.197084,-95.886225,ourairports
+TUS,Tucson International Airport,Tucson,AZ,Arizona,West,Tây,US,32.115004,-110.938053,ourairports
+TVC,Cherry Capital Airport,Traverse City,MI,Michigan,Midwest,Trung Tây,US,44.741402,-85.582199,ourairports
+TWF,Joslin Field Magic Valley Regional Airport,Twin Falls,ID,Idaho,West,Tây,US,42.4818,-114.487999,ourairports
+TXK,Texarkana Regional Airport (Webb Field),Texarkana,AR,Arkansas,South,Nam,US,33.453701,-93.990997,ourairports
+TYR,Tyler Pounds Regional Airport,Tyler,TX,Texas,South,Nam,US,32.35409927368164,-95.40239715576172,ourairports
+TYS,McGhee Tyson Airport,Knoxville/Maryville,TN,Tennessee,South,Nam,US,35.811001,-83.994003,ourairports
+UIN,Quincy Regional Airport Baldwin Field,Quincy,IL,Illinois,Midwest,Trung Tây,US,39.942699,-91.194603,ourairports
+USA,Concord-Padgett Regional Airport,Concord,NC,North Carolina,South,Nam,US,35.387798,-80.709099,ourairports
+VCT,Victoria Regional Airport,Victoria,TX,Texas,South,Nam,US,28.85260009765625,-96.91850280761719,ourairports
+VEL,Vernal Regional Airport,Vernal,UT,Utah,West,Tây,US,40.436214,-109.511661,ourairports
+VLD,Valdosta Regional Airport,Valdosta,GA,Georgia,South,Nam,US,30.782499313354492,-83.27670288085938,ourairports
+VPS,Destin-Fort Walton Beach Airport,Valparaiso,FL,Florida,South,Nam,US,30.481315,-86.515839,ourairports
+WRG,Wrangell Airport,Wrangell,AK,Alaska,West,Tây,US,56.48429871,-132.3699951,ourairports
+WYS,Yellowstone Airport,West Yellowstone,MT,Montana,West,Tây,US,44.6884,-111.117996,ourairports
+XNA,Northwest Arkansas National Airport,Fayetteville/Springdale/Rogers,AR,Arkansas,South,Nam,US,36.281898,-94.306801,ourairports
+XWA,Williston Basin International Airport,Williston,ND,North Dakota,Midwest,Trung Tây,US,48.260863,-103.75116,ourairports
+YAK,Yakutat Airport,Yakutat,AK,Alaska,West,Tây,US,59.508717,-139.660435,ourairports
+YKM,Yakima Air Terminal McAllister Field,Yakima,WA,Washington,West,Tây,US,46.56819916,-120.5439987,ourairports
+YUM,Yuma International Airport / Marine Corps Air Station Yuma,Yuma,AZ,Arizona,West,Tây,US,32.650938,-114.609375,ourairports

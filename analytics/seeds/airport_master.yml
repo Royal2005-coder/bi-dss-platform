@@ -1,0 +1,7 @@
+version: 2
+
+seeds:
+  - name: airport_master
+    description: "Danh mục 380 sân bay trong toàn bộ flights_sample_3m.csv, làm giàu từ OurAirports (public domain) và Census region; PBI/ISN được override thủ công."
+    config:
+      schema: seeds

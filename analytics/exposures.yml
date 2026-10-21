@@ -1,0 +1,19 @@
+version: 2
+
+exposures:
+  - name: powerbi_flight_delay
+    type: dashboard
+    maturity: high
+    description: "Mô hình Power BI FactFlight + FactDelayReason cho phân tích chậm/hủy chuyến 2022-2023."
+    depends_on:
+      - ref('fact_flight')
+      - ref('fact_delay_reason')
+      - ref('dim_date')
+      - ref('dim_carrier')
+      - ref('dim_airport')
+      - ref('dim_route')
+      - ref('dim_delay_reason')
+      - ref('dim_flight_status')
+    owner:
+      name: "BI & DSS"
+      email: "bi-dss@example.local"

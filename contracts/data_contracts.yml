@@ -1,0 +1,215 @@
+version: 1
+owner: "BI & DSS"
+generated_at: "2026-10-21"
+namespace: bi-dss
+description: "Data contract registry cho star schema Flight Delay 2022-2023; được kiểm tra tự động sau mỗi lần dbt build."
+
+contracts:
+  - id: dim_date
+    table: marts.dim_date
+    grain: "one row per calendar date"
+    primary_key: date_key
+    expected_rows: 730
+    columns:
+      date_key: INTEGER
+      full_date: DATE
+      year: INTEGER
+      quarter: INTEGER
+      quarter_name: VARCHAR
+      month: INTEGER
+      month_name: VARCHAR
+      month_year: VARCHAR
+      day_of_month: INTEGER
+      day_of_year: INTEGER
+      week_of_year: INTEGER
+      weekday_number: INTEGER
+      weekday_name: VARCHAR
+      is_weekend: BOOLEAN
+      season: VARCHAR
+    rules:
+      - {type: not_null, column: full_date}
+      - {type: accepted_values, column: year, values: [2022, 2023]}
+      - {type: accepted_values, column: season, values: ["Xuân", "Hạ", "Thu", "Đông"]}
+
+  - id: dim_carrier
+    table: marts.dim_carrier
+    grain: "one row per carrier_code"
+    primary_key: carrier_key
+    expected_rows: 17
+    columns:
+      carrier_key: INTEGER
+      carrier_code: VARCHAR
+      carrier_name: VARCHAR
+      dot_code: INTEGER
+      airline_dot: VARCHAR
+    rules:
+      - {type: not_null, column: carrier_code}
+      - {type: unique, column: carrier_code}
+      - {type: not_null, column: carrier_name}
+
+  - id: dim_airport
+    table: marts.dim_airport
+    grain: "one row per airport_code"
+    primary_key: airport_key
+    expected_rows: 370
+    columns:
+      airport_key: INTEGER
+      airport_code: VARCHAR
+      airport_name: VARCHAR
+      city: VARCHAR
+      state_code: VARCHAR
+      state_name: VARCHAR
+      region: VARCHAR
+      region_name: VARCHAR
+      country_code: VARCHAR
+      latitude: DOUBLE
+      longitude: DOUBLE
+      data_source: VARCHAR
+    rules:
+      - {type: not_null, column: airport_code}
+      - {type: unique, column: airport_code}
+      - {type: not_null, column: state_code}
+      - {type: not_null, column: region}
+      - {type: accepted_values, column: region, values: ["Northeast", "Midwest", "South", "West"]}
+      - {type: accepted_values, column: data_source, values: ["ourairports", "manual", "fallback_raw_city", "missing"]}
+
+  - id: dim_route
+    table: marts.dim_route
+    grain: "one row per origin_code, dest_code"
+    primary_key: route_key
+    expected_rows: 6820
+    columns:
+      route_key: INTEGER
+      origin_code: VARCHAR
+      dest_code: VARCHAR
+      route_name: VARCHAR
+      origin_airport_key: INTEGER
+      dest_airport_key: INTEGER
+      distance_miles: DOUBLE
+      distance_group: VARCHAR
+      distance_group_order: INTEGER
+    rules:
+      - {type: not_null, column: origin_code}
+      - {type: not_null, column: dest_code}
+      - {type: unique, column: route_name}
+      - {type: not_null, column: distance_miles}
+      - {type: accepted_values, column: distance_group, values: ["0–499 dặm", "500–999 dặm", "1000–1499 dặm", "1500–1999 dặm", "2000+ dặm"]}
+      - {type: foreign_key, column: origin_airport_key, ref_table: marts.dim_airport, ref_column: airport_key}
+      - {type: foreign_key, column: dest_airport_key, ref_table: marts.dim_airport, ref_column: airport_key}
+
+  - id: dim_delay_reason
+    table: marts.dim_delay_reason
+    grain: "one row per delay_reason_code"
+    primary_key: delay_reason_key
+    expected_rows: 5
+    columns:
+      delay_reason_key: INTEGER
+      delay_reason_code: VARCHAR
+      delay_reason_name: VARCHAR
+      description: VARCHAR
+      source_column: VARCHAR
+      sort_order: INTEGER
+    rules:
+      - {type: not_null, column: delay_reason_code}
+      - {type: unique, column: delay_reason_code}
+      - {type: accepted_values, column: delay_reason_code, values: ["CARRIER", "WEATHER", "NAS", "SECURITY", "LATE_AIRCRAFT"]}
+
+  - id: dim_flight_status
+    table: marts.dim_flight_status
+    grain: "one row per flight_status_code"
+    primary_key: flight_status_key
+    expected_rows: 4
+    columns:
+      flight_status_key: INTEGER
+      flight_status_code: VARCHAR
+      flight_status_name: VARCHAR
+      description: VARCHAR
+      is_completed: BOOLEAN
+      is_disrupted: BOOLEAN
+      sort_order: INTEGER
+    rules:
+      - {type: not_null, column: flight_status_code}
+      - {type: unique, column: flight_status_code}
+      - {type: accepted_values, column: flight_status_code, values: ["On-time", "Delayed", "Cancelled", "Diverted"]}
+
+  - id: fact_flight
+    table: marts.fact_flight
+    grain: "one row per flight 2022-2023"
+    primary_key: flight_key
+    expected_rows: 1151344
+    columns:
+      flight_key: BIGINT
+      date_key: INTEGER
+      carrier_key: INTEGER
+      origin_airport_key: INTEGER
+      dest_airport_key: INTEGER
+      route_key: INTEGER
+      flight_status_key: INTEGER
+      flight_number: INTEGER
+      scheduled_dep_time: INTEGER
+      scheduled_dep_hour: INTEGER
+      scheduled_dep_minute: INTEGER
+      cancellation_code: VARCHAR
+      dep_delay: DOUBLE
+      arr_delay: DOUBLE
+      dep_delay_minutes: DOUBLE
+      arr_delay_minutes: DOUBLE
+      taxi_out_minutes: DOUBLE
+      taxi_in_minutes: DOUBLE
+      air_time_minutes: DOUBLE
+      elapsed_time_minutes: DOUBLE
+      crs_elapsed_time_minutes: DOUBLE
+      distance_miles: DOUBLE
+      is_dep_delayed15: INTEGER
+      is_arr_delayed15: INTEGER
+      is_cancelled: INTEGER
+      is_diverted: INTEGER
+      is_completed: INTEGER
+      has_delay_reason: INTEGER
+    rules:
+      - {type: not_null, column: date_key}
+      - {type: not_null, column: carrier_key}
+      - {type: not_null, column: origin_airport_key}
+      - {type: not_null, column: dest_airport_key}
+      - {type: not_null, column: route_key}
+      - {type: not_null, column: flight_status_key}
+      - {type: not_null, column: distance_miles}
+      - {type: not_null, column: is_completed}
+      - {type: accepted_values, column: is_dep_delayed15, values: [0, 1]}
+      - {type: accepted_values, column: is_arr_delayed15, values: [0, 1]}
+      - {type: accepted_values, column: is_cancelled, values: [0, 1]}
+      - {type: accepted_values, column: is_diverted, values: [0, 1]}
+      - {type: accepted_values, column: is_completed, values: [0, 1]}
+      - {type: accepted_values, column: has_delay_reason, values: [0, 1]}
+      - {type: foreign_key, column: date_key, ref_table: marts.dim_date, ref_column: date_key}
+      - {type: foreign_key, column: carrier_key, ref_table: marts.dim_carrier, ref_column: carrier_key}
+      - {type: foreign_key, column: origin_airport_key, ref_table: marts.dim_airport, ref_column: airport_key}
+      - {type: foreign_key, column: dest_airport_key, ref_table: marts.dim_airport, ref_column: airport_key}
+      - {type: foreign_key, column: route_key, ref_table: marts.dim_route, ref_column: route_key}
+      - {type: foreign_key, column: flight_status_key, ref_table: marts.dim_flight_status, ref_column: flight_status_key}
+
+  - id: fact_delay_reason
+    table: marts.fact_delay_reason
+    grain: "one row per flight_key x delay_reason_key with delay_minutes > 0"
+    primary_key: delay_fact_key
+    expected_rows: 397131
+    columns:
+      delay_fact_key: BIGINT
+      flight_key: BIGINT
+      date_key: INTEGER
+      carrier_key: INTEGER
+      origin_airport_key: INTEGER
+      delay_reason_key: INTEGER
+      delay_minutes: DOUBLE
+    rules:
+      - {type: not_null, column: flight_key}
+      - {type: not_null, column: date_key}
+      - {type: not_null, column: carrier_key}
+      - {type: not_null, column: origin_airport_key}
+      - {type: not_null, column: delay_reason_key}
+      - {type: positive, column: delay_minutes}
+      - {type: foreign_key, column: flight_key, ref_table: marts.fact_flight, ref_column: flight_key}
+      - {type: foreign_key, column: date_key, ref_table: marts.dim_date, ref_column: date_key}
+      - {type: foreign_key, column: carrier_key, ref_table: marts.dim_carrier, ref_column: carrier_key}
+      - {type: foreign_key, column: origin_airport_key, ref_table: marts.dim_airport, ref_column: airport_key}
+      - {type: foreign_key, column: delay_reason_key, ref_table: marts.dim_delay_reason, ref_column: delay_reason_key}

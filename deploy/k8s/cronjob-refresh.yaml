@@ -1,0 +1,147 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: bi-dss-refresh
+  namespace: bi-dss
+  labels:
+    app.kubernetes.io/name: bi-dss-refresh
+    app.kubernetes.io/part-of: bi-dss
+    app.kubernetes.io/version: "1.0.0"
+spec:
+  schedule: "0 2 * * *"
+  suspend: true
+  concurrencyPolicy: Forbid
+  startingDeadlineSeconds: 600
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      activeDeadlineSeconds: 3600
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: bi-dss-refresh
+            app.kubernetes.io/part-of: bi-dss
+        spec:
+          restartPolicy: Never
+          automountServiceAccountToken: false
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+            seccompProfile:
+              type: RuntimeDefault
+          initContainers:
+            - name: wait-for-data
+              image: bi-dss-toolbox:1.0.0
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/bash", "-lc"]
+              args:
+                - |
+                  until [ -f /data/raw/flights_sample_3m.csv ]; do
+                    echo "waiting-for-raw-data"
+                    sleep 15
+                  done
+              securityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: ["ALL"]
+                readOnlyRootFilesystem: true
+              resources:
+                requests:
+                  cpu: 50m
+                  memory: 64Mi
+                limits:
+                  cpu: 200m
+                  memory: 256Mi
+              volumeMounts:
+                - name: data
+                  mountPath: /data
+            - name: fetch-source
+              image: bi-dss-toolbox:1.0.0
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/bash", "-lc"]
+              args:
+                - |
+                  set -eu
+                  rm -rf /workspace/project
+                  git clone --depth 1 --branch main https://github.com/Royal2005-coder/bi-dss-platform.git /workspace/project
+              env:
+                - name: HOME
+                  value: /tmp
+              securityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: ["ALL"]
+                readOnlyRootFilesystem: true
+              resources:
+                requests:
+                  cpu: 100m
+                  memory: 128Mi
+                limits:
+                  cpu: 500m
+                  memory: 512Mi
+              volumeMounts:
+                - name: project
+                  mountPath: /workspace/project
+                - name: tmp
+                  mountPath: /tmp
+          containers:
+            - name: dbt-build
+              image: bi-dss-toolbox:1.0.0
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/bash", "-lc"]
+              args:
+                - |
+                  set -euo pipefail
+                  mkdir -p /data/warehouse /data/exports/powerbi /data/artifacts/dbt
+                  cd /workspace/project/analytics
+                  dbt build --profiles-dir profiles --target prod --no-use-colors
+                  cp -r target/. /data/artifacts/dbt/
+                  cd /workspace/project
+                  python pipelines/export_powerbi.py
+                  python pipelines/validate_contracts.py
+              env:
+                - name: BI_DUCKDB_PATH
+                  value: /data/warehouse/warehouse.duckdb
+                - name: BI_RAW_CSV
+                  value: /data/raw/flights_sample_3m.csv
+                - name: BI_EXPORT_DIR
+                  value: /data/exports/powerbi
+                - name: BI_CONTRACTS
+                  value: /workspace/project/contracts/data_contracts.yml
+                - name: BI_CONTRACT_REPORT
+                  value: /data/exports/powerbi/contract_report.json
+                - name: HOME
+                  value: /tmp
+                - name: DBT_PROFILES_DIR
+                  value: /workspace/project/analytics/profiles
+              securityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: ["ALL"]
+                readOnlyRootFilesystem: true
+              resources:
+                requests:
+                  cpu: 500m
+                  memory: 1Gi
+                limits:
+                  cpu: "4"
+                  memory: 4Gi
+              volumeMounts:
+                - name: data
+                  mountPath: /data
+                - name: project
+                  mountPath: /workspace/project
+                - name: tmp
+                  mountPath: /tmp
+          volumes:
+            - name: data
+              persistentVolumeClaim:
+                claimName: bi-dss-data
+            - name: project
+              emptyDir: {}
+            - name: tmp
+              emptyDir: {}
