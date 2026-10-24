@@ -30,7 +30,7 @@ SELECT
     fs.flight_status_key,
     k.flight_number,
     CASE WHEN k.crs_dep_time = 2400 THEN 0 ELSE k.crs_dep_time END AS scheduled_dep_time,
-    CAST((CASE WHEN k.crs_dep_time = 2400 THEN 0 ELSE k.crs_dep_time END) / 100 AS INTEGER) AS scheduled_dep_hour,
+    CAST(FLOOR((CASE WHEN k.crs_dep_time = 2400 THEN 0 ELSE k.crs_dep_time END) / 100) AS INTEGER) AS scheduled_dep_hour,
     CAST(MOD(CASE WHEN k.crs_dep_time = 2400 THEN 0 ELSE k.crs_dep_time END, 100) AS INTEGER) AS scheduled_dep_minute,
     k.cancellation_code,
     k.dep_delay,

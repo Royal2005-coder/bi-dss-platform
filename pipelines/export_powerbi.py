@@ -17,24 +17,34 @@ TABLES = [
     ("DimDelayReason", "dim_delay_reason", "delay_reason_key"),
     ("DimFlightStatus", "dim_flight_status", "flight_status_key"),
     ("FactFlight", "fact_flight", "flight_key"),
-    ("FactDelayReason", "fact_delay_reason", "delay_fact_key"),
+    ("FactDelay", "fact_delay_reason", "delay_fact_key"),
 ]
+# Only conformed dimensions filter facts. Airport destination is an inactive role.
 RELATIONSHIPS = [
-    ("FactFlight", "DateKey", "DimDate", "DateKey", "many_to_one", True, ""),
-    ("FactFlight", "CarrierKey", "DimCarrier", "CarrierKey", "many_to_one", True, ""),
-    ("FactFlight", "OriginAirportKey", "DimAirport", "AirportKey", "many_to_one", True, ""),
-    ("FactFlight", "DestAirportKey", "DimAirport", "AirportKey", "many_to_one", True, ""),
-    ("FactFlight", "RouteKey", "DimRoute", "RouteKey", "many_to_one", True, ""),
-    ("FactFlight", "FlightStatusKey", "DimFlightStatus", "FlightStatusKey", "many_to_one", True, ""),
-    ("FactDelayReason", "DateKey", "DimDate", "DateKey", "many_to_one", True, ""),
-    ("FactDelayReason", "CarrierKey", "DimCarrier", "CarrierKey", "many_to_one", True, ""),
-    ("FactDelayReason", "OriginAirportKey", "DimAirport", "AirportKey", "many_to_one", True, ""),
-    ("FactDelayReason", "DelayReasonKey", "DimDelayReason", "DelayReasonKey", "many_to_one", True, ""),
-    ("FactDelayReason", "FlightKey", "FactFlight", "FlightKey", "many_to_one", False,
-     "fact-to-fact, optional; enable for drill-through"),
-    ("DimRoute", "OriginAirportKey", "DimAirport", "AirportKey", "many_to_one", True, ""),
-    ("DimRoute", "DestAirportKey", "DimAirport", "AirportKey", "many_to_one", True, ""),
+    ("FactFlight", "DateKey", "DimDate", "DateKey", "many_to_one", True, "Single", ""),
+    ("FactFlight", "CarrierKey", "DimCarrier", "CarrierKey", "many_to_one", True, "Single", ""),
+    ("FactFlight", "OriginAirportKey", "DimAirport", "AirportKey", "many_to_one", True, "Single", ""),
+    ("FactFlight", "DestAirportKey", "DimAirport", "AirportKey", "many_to_one", False, "Single", "Destination role: use USERELATIONSHIP and disable origin role"),
+    ("FactFlight", "RouteKey", "DimRoute", "RouteKey", "many_to_one", True, "Single", ""),
+    ("FactFlight", "FlightStatusKey", "DimFlightStatus", "FlightStatusKey", "many_to_one", True, "Single", ""),
+    ("FactDelay", "DateKey", "DimDate", "DateKey", "many_to_one", True, "Single", ""),
+    ("FactDelay", "CarrierKey", "DimCarrier", "CarrierKey", "many_to_one", True, "Single", ""),
+    ("FactDelay", "OriginAirportKey", "DimAirport", "AirportKey", "many_to_one", True, "Single", ""),
+    ("FactDelay", "DelayReasonKey", "DimDelayReason", "DelayReasonKey", "many_to_one", True, "Single", ""),
 ]
+
+COLUMN_ALIASES = {
+    "state_code": "State",
+    "flight_status_code": "StatusCode",
+    "flight_status_name": "StatusName",
+    "delay_reason_code": "Code",
+    "delay_reason_name": "ReasonName",
+    "excess_delay_minutes": "Excess_Delay_Minutes",
+}
+
+
+def export_column(name):
+    return COLUMN_ALIASES.get(name, "".join(token.capitalize() for token in name.split("_")))
 
 
 def sha256(path):
@@ -61,7 +71,8 @@ def main():
                 "to_column": r[3],
                 "cardinality": r[4],
                 "active": r[5],
-                "note": r[6],
+                "cross_filter_direction": r[6],
+                "note": r[7],
             }
             for r in RELATIONSHIPS
         ],
@@ -69,7 +80,7 @@ def main():
     for name, table, order_by in TABLES:
         path = os.path.join(OUT, f"{name}.csv")
         cur = con.execute(f"SELECT * FROM marts.{table} ORDER BY {order_by}")
-        columns = [d[0] for d in cur.description]
+        columns = [export_column(d[0]) for d in cur.description]
         n = 0
         with open(path, "w", newline="", encoding="utf-8-sig") as fh:
             writer = csv.writer(fh, lineterminator="\n")
@@ -93,7 +104,7 @@ def main():
     rel_path = os.path.join(OUT, "powerbi_relationships.csv")
     with open(rel_path, "w", newline="", encoding="utf-8-sig") as fh:
         writer = csv.writer(fh, lineterminator="\n")
-        writer.writerow(["FromTable", "FromColumn", "ToTable", "ToColumn", "Cardinality", "Active", "Note"])
+        writer.writerow(["FromTable", "FromColumn", "ToTable", "ToColumn", "Cardinality", "Active", "CrossFilterDirection", "Note"])
         writer.writerows(RELATIONSHIPS)
     manifest["relationships_file"] = os.path.basename(rel_path)
     with open(os.path.join(OUT, "_manifest.json"), "w", encoding="utf8") as fh:

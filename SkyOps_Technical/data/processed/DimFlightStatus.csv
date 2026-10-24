@@ -1,0 +1,5 @@
+﻿FlightStatusKey,StatusCode,StatusName,Description,IsCompleted,IsDisrupted,SortOrder
+1,On-time,Đúng giờ,Chuyến bay hạ cánh sớm hơn hoặc chậm dưới 15 phút so với lịch,True,False,1
+2,Delayed,Chậm chuyến,Chuyến bay hạ cánh chậm từ 15 phút trở lên so với lịch,True,True,2
+3,Cancelled,Hủy chuyến,Chuyến bay bị hủy và không thực hiện hành trình,False,True,3
+4,Diverted,Chuyển hướng,"Chuyến bay chuyển hướng, không hạ cánh tại sân bay dự kiến",False,True,4

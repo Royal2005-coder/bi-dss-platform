@@ -1,0 +1,43 @@
+// Tạo từng measure riêng; tạo 01_core_kpis.dax trước. Chưa thực thi trong Power BI.
+// Format string cho các measure phút: #,0.00; Delay Cause %: 0.00%.
+
+// Trung bình phút chậm không âm; không phải trung bình độ lệch có dấu DepDelay.
+// Mẫu số: chuyến không hủy, có DepDelay; vẫn gồm diverted và chuyến sớm/đúng giờ (0 phút).
+Avg Dep Delay =
+CALCULATE (
+    AVERAGE ( FactFlight[DepDelayMinutes] ),
+    KEEPFILTERS ( FactFlight[IsCancelled] = 0 ),
+    KEEPFILTERS ( NOT ISBLANK ( FactFlight[DepDelay] ) )
+)
+
+// Mẫu số: Eligible Arrivals, gồm chuyến sớm/đúng giờ có clipped delay = 0.
+Avg Arr Delay =
+CALCULATE (
+    AVERAGE ( FactFlight[ArrDelayMinutes] ),
+    KEEPFILTERS ( FactFlight[IsCancelled] = 0 ),
+    KEEPFILTERS ( FactFlight[IsDiverted] = 0 ),
+    KEEPFILTERS ( NOT ISBLANK ( FactFlight[ArrDelay] ) )
+)
+
+// DimAirport lọc sân bay ĐẾN riêng trong measure này, không đồng thời ép sân bay đi.
+// Không đổi vai trò sân bay cho FactDelay; không dùng measure này cho phút nguyên nhân.
+Avg Arr Delay (Destination) =
+CALCULATE (
+    [Avg Arr Delay],
+    CROSSFILTER ( DimAirport[AirportKey], FactFlight[OriginAirportKey], NONE ),
+    USERELATIONSHIP ( DimAirport[AirportKey], FactFlight[DestAirportKey] )
+)
+
+// Tổng phút nguyên nhân được ghi nhận ở grain chuyến × nguyên nhân; không phải tổng ArrDelay.
+Total Delay Minutes =
+SUM ( FactDelay[DelayMinutes] )
+
+// Mẫu số bỏ mọi filter của dimension nguyên nhân, giữ filter ngày/hãng/sân bay đi.
+Delay Cause % =
+DIVIDE (
+    [Total Delay Minutes],
+    CALCULATE (
+        [Total Delay Minutes],
+        REMOVEFILTERS ( DimDelayReason )
+    )
+)

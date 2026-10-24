@@ -16,3 +16,9 @@ artifacts/
 *.zip
 
 output_6.2-6.3/
+
+# Version the small, verified Power BI extract, never the raw 3M-row source.
+!SkyOps_Technical/data/
+SkyOps_Technical/data/*
+!SkyOps_Technical/data/processed/
+!SkyOps_Technical/data/processed/**

@@ -1,0 +1,1497 @@
+{
+  "run_at": "2026-10-24T18:24:07.286378",
+  "contracts_file": "C:/Users/ADMIN/Downloads/BI&DSS/team_repo/contracts/data_contracts.yml",
+  "database": "C:/Users/ADMIN/Downloads/BI&DSS/team_repo/warehouse.duckdb",
+  "checks": 186,
+  "failures": 0,
+  "results": [
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "table_exists",
+      "status": "PASS",
+      "observed": "1",
+      "expected": "1"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:date_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:full_date",
+      "status": "PASS",
+      "observed": "DATE",
+      "expected": "DATE"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:year",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:quarter",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:quarter_name",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:month",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:month_name",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:month_year",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:day_of_month",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:day_of_year",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:week_of_year",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:weekday_number",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:weekday_name",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:is_weekend",
+      "status": "PASS",
+      "observed": "BOOLEAN",
+      "expected": "BOOLEAN"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "type:season",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "no_extra_columns",
+      "status": "PASS",
+      "observed": "",
+      "expected": ""
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "row_count",
+      "status": "PASS",
+      "observed": "730",
+      "expected": "730"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "pk_not_null:date_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "pk_unique:date_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "not_null:full_date",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "accepted_values:year",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "2022, 2023"
+    },
+    {
+      "contract_id": "dim_date",
+      "table": "marts.dim_date",
+      "rule": "accepted_values:season",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "'Xuân', 'Hạ', 'Thu', 'Đông'"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "table_exists",
+      "status": "PASS",
+      "observed": "1",
+      "expected": "1"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "type:carrier_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "type:carrier_code",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "type:carrier_name",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "type:dot_code",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "type:airline_dot",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "no_extra_columns",
+      "status": "PASS",
+      "observed": "",
+      "expected": ""
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "row_count",
+      "status": "PASS",
+      "observed": "17",
+      "expected": "17"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "pk_not_null:carrier_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "pk_unique:carrier_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "not_null:carrier_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "unique:carrier_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_carrier",
+      "table": "marts.dim_carrier",
+      "rule": "not_null:carrier_name",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "table_exists",
+      "status": "PASS",
+      "observed": "1",
+      "expected": "1"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:airport_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:airport_code",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:airport_name",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:city",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:state_code",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:state_name",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:region",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:region_name",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:country_code",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:latitude",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:longitude",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "type:data_source",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "no_extra_columns",
+      "status": "PASS",
+      "observed": "",
+      "expected": ""
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "row_count",
+      "status": "PASS",
+      "observed": "370",
+      "expected": "370"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "pk_not_null:airport_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "pk_unique:airport_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "not_null:airport_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "unique:airport_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "not_null:state_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "not_null:region",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "accepted_values:region",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "'Northeast', 'Midwest', 'South', 'West'"
+    },
+    {
+      "contract_id": "dim_airport",
+      "table": "marts.dim_airport",
+      "rule": "accepted_values:data_source",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "'ourairports', 'manual', 'fallback_raw_city', 'missing'"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "table_exists",
+      "status": "PASS",
+      "observed": "1",
+      "expected": "1"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "type:route_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "type:origin_code",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "type:dest_code",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "type:route_name",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "type:origin_airport_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "type:dest_airport_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "type:distance_miles",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "type:distance_group",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "type:distance_group_order",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "no_extra_columns",
+      "status": "PASS",
+      "observed": "",
+      "expected": ""
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "row_count",
+      "status": "PASS",
+      "observed": "6820",
+      "expected": "6820"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "pk_not_null:route_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "pk_unique:route_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "not_null:origin_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "not_null:dest_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "unique:route_name",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "not_null:distance_miles",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "accepted_values:distance_group",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "'0–499 dặm', '500–999 dặm', '1000–1499 dặm', '1500–1999 dặm', '2000+ dặm'"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "foreign_key:origin_airport_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_route",
+      "table": "marts.dim_route",
+      "rule": "foreign_key:dest_airport_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "table_exists",
+      "status": "PASS",
+      "observed": "1",
+      "expected": "1"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "type:delay_reason_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "type:delay_reason_code",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "type:delay_reason_name",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "type:description",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "type:source_column",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "type:sort_order",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "no_extra_columns",
+      "status": "PASS",
+      "observed": "",
+      "expected": ""
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "row_count",
+      "status": "PASS",
+      "observed": "5",
+      "expected": "5"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "pk_not_null:delay_reason_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "pk_unique:delay_reason_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "not_null:delay_reason_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "unique:delay_reason_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_delay_reason",
+      "table": "marts.dim_delay_reason",
+      "rule": "accepted_values:delay_reason_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "'CARRIER', 'WEATHER', 'NAS', 'SECURITY', 'LATE_AIRCRAFT'"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "table_exists",
+      "status": "PASS",
+      "observed": "1",
+      "expected": "1"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "type:flight_status_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "type:flight_status_code",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "type:flight_status_name",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "type:description",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "type:is_completed",
+      "status": "PASS",
+      "observed": "BOOLEAN",
+      "expected": "BOOLEAN"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "type:is_disrupted",
+      "status": "PASS",
+      "observed": "BOOLEAN",
+      "expected": "BOOLEAN"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "type:sort_order",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "no_extra_columns",
+      "status": "PASS",
+      "observed": "",
+      "expected": ""
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "row_count",
+      "status": "PASS",
+      "observed": "4",
+      "expected": "4"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "pk_not_null:flight_status_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "pk_unique:flight_status_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "not_null:flight_status_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "unique:flight_status_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "dim_flight_status",
+      "table": "marts.dim_flight_status",
+      "rule": "accepted_values:flight_status_code",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "'On-time', 'Delayed', 'Cancelled', 'Diverted'"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "table_exists",
+      "status": "PASS",
+      "observed": "1",
+      "expected": "1"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:flight_key",
+      "status": "PASS",
+      "observed": "BIGINT",
+      "expected": "BIGINT"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:date_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:carrier_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:origin_airport_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:dest_airport_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:route_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:flight_status_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:flight_number",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:scheduled_dep_time",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:scheduled_dep_hour",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:scheduled_dep_minute",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:cancellation_code",
+      "status": "PASS",
+      "observed": "VARCHAR",
+      "expected": "VARCHAR"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:dep_delay",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:arr_delay",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:dep_delay_minutes",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:arr_delay_minutes",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:excess_delay_minutes",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:taxi_out_minutes",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:taxi_in_minutes",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:air_time_minutes",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:elapsed_time_minutes",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:crs_elapsed_time_minutes",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:distance_miles",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:is_dep_delayed15",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:is_arr_delayed15",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:is_cancelled",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:is_diverted",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:is_completed",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "type:has_delay_reason",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "no_extra_columns",
+      "status": "PASS",
+      "observed": "",
+      "expected": ""
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "row_count",
+      "status": "PASS",
+      "observed": "1151344",
+      "expected": "1151344"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "pk_not_null:flight_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "pk_unique:flight_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "not_null:date_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "not_null:carrier_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "not_null:origin_airport_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "not_null:dest_airport_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "not_null:route_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "not_null:flight_status_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "not_null:distance_miles",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "not_null:is_completed",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "accepted_values:is_dep_delayed15",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0, 1"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "accepted_values:is_arr_delayed15",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0, 1"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "accepted_values:is_cancelled",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0, 1"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "accepted_values:is_diverted",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0, 1"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "accepted_values:is_completed",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0, 1"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "accepted_values:has_delay_reason",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0, 1"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "foreign_key:date_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "foreign_key:carrier_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "foreign_key:origin_airport_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "foreign_key:dest_airport_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "foreign_key:route_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_flight",
+      "table": "marts.fact_flight",
+      "rule": "foreign_key:flight_status_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "table_exists",
+      "status": "PASS",
+      "observed": "1",
+      "expected": "1"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "type:delay_fact_key",
+      "status": "PASS",
+      "observed": "BIGINT",
+      "expected": "BIGINT"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "type:flight_key",
+      "status": "PASS",
+      "observed": "BIGINT",
+      "expected": "BIGINT"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "type:date_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "type:carrier_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "type:origin_airport_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "type:delay_reason_key",
+      "status": "PASS",
+      "observed": "INTEGER",
+      "expected": "INTEGER"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "type:delay_minutes",
+      "status": "PASS",
+      "observed": "DOUBLE",
+      "expected": "DOUBLE"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "no_extra_columns",
+      "status": "PASS",
+      "observed": "",
+      "expected": ""
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "row_count",
+      "status": "PASS",
+      "observed": "397131",
+      "expected": "397131"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "pk_not_null:delay_fact_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "pk_unique:delay_fact_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "not_null:flight_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "not_null:date_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "not_null:carrier_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "not_null:origin_airport_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "not_null:delay_reason_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "positive:delay_minutes",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "> 0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "foreign_key:flight_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "foreign_key:date_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "foreign_key:carrier_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "foreign_key:origin_airport_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    },
+    {
+      "contract_id": "fact_delay_reason",
+      "table": "marts.fact_delay_reason",
+      "rule": "foreign_key:delay_reason_key",
+      "status": "PASS",
+      "observed": "0",
+      "expected": "0"
+    }
+  ]
+}
