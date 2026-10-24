@@ -1,0 +1,4 @@
+SkyOps_Technical/data/processed/FactFlight.csv filter=lfs diff=lfs merge=lfs -text
+*.csv -text
+*.dax text eol=lf
+*.py text eol=lf

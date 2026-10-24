@@ -1,0 +1,888 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "DimDate: primary key NULL/duplicate",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimDate: schema",
+      "observed": [
+        "DateKey",
+        "FullDate",
+        "Year",
+        "Quarter",
+        "QuarterName",
+        "Month",
+        "MonthName",
+        "MonthYear",
+        "DayOfMonth",
+        "DayOfYear",
+        "WeekOfYear",
+        "WeekdayNumber",
+        "WeekdayName",
+        "IsWeekend",
+        "Season"
+      ],
+      "expected": [
+        "DateKey",
+        "FullDate",
+        "Year",
+        "Quarter",
+        "QuarterName",
+        "Month",
+        "MonthName",
+        "MonthYear",
+        "DayOfMonth",
+        "DayOfYear",
+        "WeekOfYear",
+        "WeekdayNumber",
+        "WeekdayName",
+        "IsWeekend",
+        "Season"
+      ],
+      "passed": true
+    },
+    {
+      "check": "DimDate: full values vs dbt (symmetric difference)",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimCarrier: primary key NULL/duplicate",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimCarrier: schema",
+      "observed": [
+        "CarrierKey",
+        "CarrierCode",
+        "CarrierName",
+        "DotCode",
+        "AirlineDot"
+      ],
+      "expected": [
+        "CarrierKey",
+        "CarrierCode",
+        "CarrierName",
+        "DotCode",
+        "AirlineDot"
+      ],
+      "passed": true
+    },
+    {
+      "check": "DimCarrier: full values vs dbt (symmetric difference)",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimAirport: primary key NULL/duplicate",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimAirport: schema",
+      "observed": [
+        "AirportKey",
+        "AirportCode",
+        "AirportName",
+        "City",
+        "State",
+        "StateName",
+        "Region",
+        "RegionName",
+        "CountryCode",
+        "Latitude",
+        "Longitude",
+        "DataSource"
+      ],
+      "expected": [
+        "AirportKey",
+        "AirportCode",
+        "AirportName",
+        "City",
+        "State",
+        "StateName",
+        "Region",
+        "RegionName",
+        "CountryCode",
+        "Latitude",
+        "Longitude",
+        "DataSource"
+      ],
+      "passed": true
+    },
+    {
+      "check": "DimAirport: full values vs dbt (symmetric difference)",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimRoute: primary key NULL/duplicate",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimRoute: schema",
+      "observed": [
+        "RouteKey",
+        "OriginCode",
+        "DestCode",
+        "RouteName",
+        "OriginAirportKey",
+        "DestAirportKey",
+        "DistanceMiles",
+        "DistanceGroup",
+        "DistanceGroupOrder"
+      ],
+      "expected": [
+        "RouteKey",
+        "OriginCode",
+        "DestCode",
+        "RouteName",
+        "OriginAirportKey",
+        "DestAirportKey",
+        "DistanceMiles",
+        "DistanceGroup",
+        "DistanceGroupOrder"
+      ],
+      "passed": true
+    },
+    {
+      "check": "DimRoute: full values vs dbt (symmetric difference)",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimDelayReason: primary key NULL/duplicate",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimDelayReason: schema",
+      "observed": [
+        "DelayReasonKey",
+        "Code",
+        "ReasonName",
+        "Description",
+        "SourceColumn",
+        "SortOrder"
+      ],
+      "expected": [
+        "DelayReasonKey",
+        "Code",
+        "ReasonName",
+        "Description",
+        "SourceColumn",
+        "SortOrder"
+      ],
+      "passed": true
+    },
+    {
+      "check": "DimDelayReason: full values vs dbt (symmetric difference)",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimFlightStatus: primary key NULL/duplicate",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimFlightStatus: schema",
+      "observed": [
+        "FlightStatusKey",
+        "StatusCode",
+        "StatusName",
+        "Description",
+        "IsCompleted",
+        "IsDisrupted",
+        "SortOrder"
+      ],
+      "expected": [
+        "FlightStatusKey",
+        "StatusCode",
+        "StatusName",
+        "Description",
+        "IsCompleted",
+        "IsDisrupted",
+        "SortOrder"
+      ],
+      "passed": true
+    },
+    {
+      "check": "DimFlightStatus: full values vs dbt (symmetric difference)",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactFlight: primary key NULL/duplicate",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactFlight: schema",
+      "observed": [
+        "FlightKey",
+        "DateKey",
+        "CarrierKey",
+        "OriginAirportKey",
+        "DestAirportKey",
+        "RouteKey",
+        "FlightStatusKey",
+        "FlightNumber",
+        "ScheduledDepTime",
+        "ScheduledDepHour",
+        "ScheduledDepMinute",
+        "CancellationCode",
+        "DepDelay",
+        "ArrDelay",
+        "DepDelayMinutes",
+        "ArrDelayMinutes",
+        "Excess_Delay_Minutes",
+        "TaxiOutMinutes",
+        "TaxiInMinutes",
+        "AirTimeMinutes",
+        "ElapsedTimeMinutes",
+        "CrsElapsedTimeMinutes",
+        "DistanceMiles",
+        "IsDepDelayed15",
+        "IsArrDelayed15",
+        "IsCancelled",
+        "IsDiverted",
+        "IsCompleted",
+        "HasDelayReason"
+      ],
+      "expected": [
+        "FlightKey",
+        "DateKey",
+        "CarrierKey",
+        "OriginAirportKey",
+        "DestAirportKey",
+        "RouteKey",
+        "FlightStatusKey",
+        "FlightNumber",
+        "ScheduledDepTime",
+        "ScheduledDepHour",
+        "ScheduledDepMinute",
+        "CancellationCode",
+        "DepDelay",
+        "ArrDelay",
+        "DepDelayMinutes",
+        "ArrDelayMinutes",
+        "Excess_Delay_Minutes",
+        "TaxiOutMinutes",
+        "TaxiInMinutes",
+        "AirTimeMinutes",
+        "ElapsedTimeMinutes",
+        "CrsElapsedTimeMinutes",
+        "DistanceMiles",
+        "IsDepDelayed15",
+        "IsArrDelayed15",
+        "IsCancelled",
+        "IsDiverted",
+        "IsCompleted",
+        "HasDelayReason"
+      ],
+      "passed": true
+    },
+    {
+      "check": "FactFlight: full values vs dbt (symmetric difference)",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactDelay: primary key NULL/duplicate",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactDelay: schema",
+      "observed": [
+        "DelayFactKey",
+        "FlightKey",
+        "DateKey",
+        "CarrierKey",
+        "OriginAirportKey",
+        "DelayReasonKey",
+        "DelayMinutes"
+      ],
+      "expected": [
+        "DelayFactKey",
+        "FlightKey",
+        "DateKey",
+        "CarrierKey",
+        "OriginAirportKey",
+        "DelayReasonKey",
+        "DelayMinutes"
+      ],
+      "passed": true
+    },
+    {
+      "check": "FactDelay: full values vs dbt (symmetric difference)",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactFlight.DateKey: FK DimDate.DateKey",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactFlight.CarrierKey: FK DimCarrier.CarrierKey",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactFlight.OriginAirportKey: FK DimAirport.AirportKey",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactFlight.DestAirportKey: FK DimAirport.AirportKey",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactFlight.RouteKey: FK DimRoute.RouteKey",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactFlight.FlightStatusKey: FK DimFlightStatus.FlightStatusKey",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactDelay.DateKey: FK DimDate.DateKey",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactDelay.CarrierKey: FK DimCarrier.CarrierKey",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactDelay.OriginAirportKey: FK DimAirport.AirportKey",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactDelay.DelayReasonKey: FK DimDelayReason.DelayReasonKey",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactDelay: FlightKey orphan",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactDelay: shared keys agree with flight",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactDelay: positive minutes",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactDelay: flight-reason grain",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactFlight: years 2022-2023",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactFlight: scheduled hour/minute",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactFlight: excess minutes/nulls",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "FactDelay: per-flight arrival reconciliation",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimDelayReason: five BTS causes",
+      "observed": 5,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "check": "DimDate: continuous complete calendar",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "DimAirport: geography/name missing",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "relationships: exact canonical roles and directions",
+      "observed": [
+        [
+          "FactFlight",
+          "DateKey",
+          "DimDate",
+          "DateKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactFlight",
+          "CarrierKey",
+          "DimCarrier",
+          "CarrierKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactFlight",
+          "OriginAirportKey",
+          "DimAirport",
+          "AirportKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactFlight",
+          "DestAirportKey",
+          "DimAirport",
+          "AirportKey",
+          "many_to_one",
+          "False",
+          "Single",
+          "Destination role: use USERELATIONSHIP and disable origin role"
+        ],
+        [
+          "FactFlight",
+          "RouteKey",
+          "DimRoute",
+          "RouteKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactFlight",
+          "FlightStatusKey",
+          "DimFlightStatus",
+          "FlightStatusKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactDelay",
+          "DateKey",
+          "DimDate",
+          "DateKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactDelay",
+          "CarrierKey",
+          "DimCarrier",
+          "CarrierKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactDelay",
+          "OriginAirportKey",
+          "DimAirport",
+          "AirportKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactDelay",
+          "DelayReasonKey",
+          "DimDelayReason",
+          "DelayReasonKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ]
+      ],
+      "expected": [
+        [
+          "FactFlight",
+          "DateKey",
+          "DimDate",
+          "DateKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactFlight",
+          "CarrierKey",
+          "DimCarrier",
+          "CarrierKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactFlight",
+          "OriginAirportKey",
+          "DimAirport",
+          "AirportKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactFlight",
+          "DestAirportKey",
+          "DimAirport",
+          "AirportKey",
+          "many_to_one",
+          "False",
+          "Single",
+          "Destination role: use USERELATIONSHIP and disable origin role"
+        ],
+        [
+          "FactFlight",
+          "RouteKey",
+          "DimRoute",
+          "RouteKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactFlight",
+          "FlightStatusKey",
+          "DimFlightStatus",
+          "FlightStatusKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactDelay",
+          "DateKey",
+          "DimDate",
+          "DateKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactDelay",
+          "CarrierKey",
+          "DimCarrier",
+          "CarrierKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactDelay",
+          "OriginAirportKey",
+          "DimAirport",
+          "AirportKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ],
+        [
+          "FactDelay",
+          "DelayReasonKey",
+          "DimDelayReason",
+          "DelayReasonKey",
+          "many_to_one",
+          "True",
+          "Single",
+          ""
+        ]
+      ],
+      "passed": true
+    }
+  ],
+  "tables": [
+    {
+      "table": "DimDate",
+      "file": "DimDate.csv",
+      "rows": 730,
+      "columns": [
+        "DateKey",
+        "FullDate",
+        "Year",
+        "Quarter",
+        "QuarterName",
+        "Month",
+        "MonthName",
+        "MonthYear",
+        "DayOfMonth",
+        "DayOfYear",
+        "WeekOfYear",
+        "WeekdayNumber",
+        "WeekdayName",
+        "IsWeekend",
+        "Season"
+      ],
+      "bytes": 61328,
+      "sha256": "3330dfbc6c1ef9efc5dd583b6b9127ab4e23728aebc7ed2a9ffd77f53317be09"
+    },
+    {
+      "table": "DimCarrier",
+      "file": "DimCarrier.csv",
+      "rows": 17,
+      "columns": [
+        "CarrierKey",
+        "CarrierCode",
+        "CarrierName",
+        "DotCode",
+        "AirlineDot"
+      ],
+      "bytes": 976,
+      "sha256": "c2532691b628f98af1bf3c66c5b8464046df8ba32a8479b400ed32c6a7aa6c1b"
+    },
+    {
+      "table": "DimAirport",
+      "file": "DimAirport.csv",
+      "rows": 370,
+      "columns": [
+        "AirportKey",
+        "AirportCode",
+        "AirportName",
+        "City",
+        "State",
+        "StateName",
+        "Region",
+        "RegionName",
+        "CountryCode",
+        "Latitude",
+        "Longitude",
+        "DataSource"
+      ],
+      "bytes": 42964,
+      "sha256": "7b2f12528e211805e02a4571d3cb18a4c8545dce76c418de74c03bb23ba21870"
+    },
+    {
+      "table": "DimRoute",
+      "file": "DimRoute.csv",
+      "rows": 6820,
+      "columns": [
+        "RouteKey",
+        "OriginCode",
+        "DestCode",
+        "RouteName",
+        "OriginAirportKey",
+        "DestAirportKey",
+        "DistanceMiles",
+        "DistanceGroup",
+        "DistanceGroupOrder"
+      ],
+      "bytes": 363801,
+      "sha256": "7ac30bf6120f9cae1d3370ad3f62c192abb2174b9d89127521c199a65def1ba6"
+    },
+    {
+      "table": "DimDelayReason",
+      "file": "DimDelayReason.csv",
+      "rows": 5,
+      "columns": [
+        "DelayReasonKey",
+        "Code",
+        "ReasonName",
+        "Description",
+        "SourceColumn",
+        "SortOrder"
+      ],
+      "bytes": 621,
+      "sha256": "f68deaf5785122d9e97627729d9a431b63e2d7c490ffa3b461d161fc07952d19"
+    },
+    {
+      "table": "DimFlightStatus",
+      "file": "DimFlightStatus.csv",
+      "rows": 4,
+      "columns": [
+        "FlightStatusKey",
+        "StatusCode",
+        "StatusName",
+        "Description",
+        "IsCompleted",
+        "IsDisrupted",
+        "SortOrder"
+      ],
+      "bytes": 543,
+      "sha256": "018b1e0615c715e708d7ebdfc32270ea108b0003a1768307d950e12b2f95bc95"
+    },
+    {
+      "table": "FactFlight",
+      "file": "FactFlight.csv",
+      "rows": 1151344,
+      "columns": [
+        "FlightKey",
+        "DateKey",
+        "CarrierKey",
+        "OriginAirportKey",
+        "DestAirportKey",
+        "RouteKey",
+        "FlightStatusKey",
+        "FlightNumber",
+        "ScheduledDepTime",
+        "ScheduledDepHour",
+        "ScheduledDepMinute",
+        "CancellationCode",
+        "DepDelay",
+        "ArrDelay",
+        "DepDelayMinutes",
+        "ArrDelayMinutes",
+        "Excess_Delay_Minutes",
+        "TaxiOutMinutes",
+        "TaxiInMinutes",
+        "AirTimeMinutes",
+        "ElapsedTimeMinutes",
+        "CrsElapsedTimeMinutes",
+        "DistanceMiles",
+        "IsDepDelayed15",
+        "IsArrDelayed15",
+        "IsCancelled",
+        "IsDiverted",
+        "IsCompleted",
+        "HasDelayReason"
+      ],
+      "bytes": 133680300,
+      "sha256": "a162d447f28963cd8e65879e5b902a50608a0e98eb3604730db4cf357a311c55"
+    },
+    {
+      "table": "FactDelay",
+      "file": "FactDelay.csv",
+      "rows": 397131,
+      "columns": [
+        "DelayFactKey",
+        "FlightKey",
+        "DateKey",
+        "CarrierKey",
+        "OriginAirportKey",
+        "DelayReasonKey",
+        "DelayMinutes"
+      ],
+      "bytes": 14625849,
+      "sha256": "313cddcf79ef9ca7cf260ba56ae0af611ce4b984fff4dd870f61b436dc6a0cb7"
+    }
+  ],
+  "metrics": {
+    "total_flights": 1151344,
+    "eligible_arrivals": 1122174,
+    "on_time_flights": 877047,
+    "delayed_flights": 245127,
+    "cancelled_flights": 26257,
+    "diverted_flights": 2911,
+    "avg_dep_delay_minutes": 16.173942104032843,
+    "avg_arr_delay_minutes": 16.04516679231563,
+    "excess_delay_minutes": 13138688,
+    "min_date_key": 20220101,
+    "max_date_key": 20230831,
+    "otp_rate": 0.7815606135946832,
+    "cancellation_rate": 0.02280552119957198,
+    "total_delay_cause_minutes": 16815593.0
+  },
+  "delay_causes": [
+    {
+      "code": "CARRIER",
+      "rows": 144963,
+      "minutes": 6358363.0
+    },
+    {
+      "code": "LATE_AIRCRAFT",
+      "rows": 124104,
+      "minutes": 6572047.0
+    },
+    {
+      "code": "NAS",
+      "rows": 113161,
+      "minutes": 2935192.0
+    },
+    {
+      "code": "SECURITY",
+      "rows": 1276,
+      "minutes": 34742.0
+    },
+    {
+      "code": "WEATHER",
+      "rows": 13627,
+      "minutes": 915249.0
+    }
+  ],
+  "sql_comparison": true,
+  "dax_runtime_verified": false
+}

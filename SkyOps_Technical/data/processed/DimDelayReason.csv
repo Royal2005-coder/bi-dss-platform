@@ -1,0 +1,6 @@
+﻿DelayReasonKey,Code,ReasonName,Description,SourceColumn,SortOrder
+1,CARRIER,Hãng hàng không,Chậm do hãng vận chuyển (Carrier Delay),DELAY_DUE_CARRIER,1
+2,WEATHER,Thời tiết,Chậm do điều kiện thời tiết cực đoan (Weather Delay),DELAY_DUE_WEATHER,2
+3,NAS,Hệ thống không lưu,Chậm do hệ thống kiểm soát không lưu (NAS Delay),DELAY_DUE_NAS,3
+4,SECURITY,An ninh,Chậm do an ninh hàng không (Security Delay),DELAY_DUE_SECURITY,4
+5,LATE_AIRCRAFT,Tàu bay đến muộn,Chậm do tàu bay của chuyến trước đến muộn (Late Aircraft Delay),DELAY_DUE_LATE_AIRCRAFT,5

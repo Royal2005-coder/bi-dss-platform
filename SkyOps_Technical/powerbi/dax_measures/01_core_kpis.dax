@@ -1,0 +1,47 @@
+// Tạo từng measure riêng bằng Modeling > New measure; không dán cả tệp vào DAX Query View.
+// Các định nghĩa này chưa được thực thi trong Power BI. Format string đặt trong Measure tools.
+
+// Format: #,0
+Total Flights =
+COALESCE ( COUNTROWS ( FactFlight ), 0 )
+
+// Format: #,0
+// Thiếu ArrDelay gốc không đủ điều kiện OTP; không dựa vào nhãn On-time của dimension.
+Eligible Arrivals =
+COALESCE (
+    CALCULATE (
+        COUNTROWS ( FactFlight ),
+        KEEPFILTERS ( FactFlight[IsCancelled] = 0 ),
+        KEEPFILTERS ( FactFlight[IsDiverted] = 0 ),
+        KEEPFILTERS ( NOT ISBLANK ( FactFlight[ArrDelay] ) )
+    ),
+    0
+)
+
+// Format: #,0
+On Time Flights =
+COALESCE (
+    CALCULATE (
+        [Eligible Arrivals],
+        KEEPFILTERS ( FactFlight[ArrDelay] < 15 )
+    ),
+    0
+)
+
+// Format: 0.00%
+OTP Rate =
+DIVIDE ( [On Time Flights], [Eligible Arrivals] )
+
+// Format: #,0
+Cancelled Flights =
+COALESCE (
+    CALCULATE (
+        COUNTROWS ( FactFlight ),
+        KEEPFILTERS ( FactFlight[IsCancelled] = 1 )
+    ),
+    0
+)
+
+// Format: 0.00%
+Cancellation Rate =
+DIVIDE ( [Cancelled Flights], [Total Flights] )

@@ -1,0 +1,279 @@
+{
+  "scope": {
+    "years": [
+      2022,
+      2023
+    ],
+    "min_date_key": 20220101,
+    "max_date_key": 20230831
+  },
+  "encoding": "utf-8-sig",
+  "tables": [
+    {
+      "table": "DimDate",
+      "file": "DimDate.csv",
+      "rows": 730,
+      "columns": [
+        "DateKey",
+        "FullDate",
+        "Year",
+        "Quarter",
+        "QuarterName",
+        "Month",
+        "MonthName",
+        "MonthYear",
+        "DayOfMonth",
+        "DayOfYear",
+        "WeekOfYear",
+        "WeekdayNumber",
+        "WeekdayName",
+        "IsWeekend",
+        "Season"
+      ],
+      "bytes": 61328,
+      "sha256": "3330dfbc6c1ef9efc5dd583b6b9127ab4e23728aebc7ed2a9ffd77f53317be09"
+    },
+    {
+      "table": "DimCarrier",
+      "file": "DimCarrier.csv",
+      "rows": 17,
+      "columns": [
+        "CarrierKey",
+        "CarrierCode",
+        "CarrierName",
+        "DotCode",
+        "AirlineDot"
+      ],
+      "bytes": 976,
+      "sha256": "c2532691b628f98af1bf3c66c5b8464046df8ba32a8479b400ed32c6a7aa6c1b"
+    },
+    {
+      "table": "DimAirport",
+      "file": "DimAirport.csv",
+      "rows": 370,
+      "columns": [
+        "AirportKey",
+        "AirportCode",
+        "AirportName",
+        "City",
+        "State",
+        "StateName",
+        "Region",
+        "RegionName",
+        "CountryCode",
+        "Latitude",
+        "Longitude",
+        "DataSource"
+      ],
+      "bytes": 42964,
+      "sha256": "7b2f12528e211805e02a4571d3cb18a4c8545dce76c418de74c03bb23ba21870"
+    },
+    {
+      "table": "DimRoute",
+      "file": "DimRoute.csv",
+      "rows": 6820,
+      "columns": [
+        "RouteKey",
+        "OriginCode",
+        "DestCode",
+        "RouteName",
+        "OriginAirportKey",
+        "DestAirportKey",
+        "DistanceMiles",
+        "DistanceGroup",
+        "DistanceGroupOrder"
+      ],
+      "bytes": 363801,
+      "sha256": "7ac30bf6120f9cae1d3370ad3f62c192abb2174b9d89127521c199a65def1ba6"
+    },
+    {
+      "table": "DimDelayReason",
+      "file": "DimDelayReason.csv",
+      "rows": 5,
+      "columns": [
+        "DelayReasonKey",
+        "Code",
+        "ReasonName",
+        "Description",
+        "SourceColumn",
+        "SortOrder"
+      ],
+      "bytes": 621,
+      "sha256": "f68deaf5785122d9e97627729d9a431b63e2d7c490ffa3b461d161fc07952d19"
+    },
+    {
+      "table": "DimFlightStatus",
+      "file": "DimFlightStatus.csv",
+      "rows": 4,
+      "columns": [
+        "FlightStatusKey",
+        "StatusCode",
+        "StatusName",
+        "Description",
+        "IsCompleted",
+        "IsDisrupted",
+        "SortOrder"
+      ],
+      "bytes": 543,
+      "sha256": "018b1e0615c715e708d7ebdfc32270ea108b0003a1768307d950e12b2f95bc95"
+    },
+    {
+      "table": "FactFlight",
+      "file": "FactFlight.csv",
+      "rows": 1151344,
+      "columns": [
+        "FlightKey",
+        "DateKey",
+        "CarrierKey",
+        "OriginAirportKey",
+        "DestAirportKey",
+        "RouteKey",
+        "FlightStatusKey",
+        "FlightNumber",
+        "ScheduledDepTime",
+        "ScheduledDepHour",
+        "ScheduledDepMinute",
+        "CancellationCode",
+        "DepDelay",
+        "ArrDelay",
+        "DepDelayMinutes",
+        "ArrDelayMinutes",
+        "Excess_Delay_Minutes",
+        "TaxiOutMinutes",
+        "TaxiInMinutes",
+        "AirTimeMinutes",
+        "ElapsedTimeMinutes",
+        "CrsElapsedTimeMinutes",
+        "DistanceMiles",
+        "IsDepDelayed15",
+        "IsArrDelayed15",
+        "IsCancelled",
+        "IsDiverted",
+        "IsCompleted",
+        "HasDelayReason"
+      ],
+      "bytes": 133680300,
+      "sha256": "a162d447f28963cd8e65879e5b902a50608a0e98eb3604730db4cf357a311c55"
+    },
+    {
+      "table": "FactDelay",
+      "file": "FactDelay.csv",
+      "rows": 397131,
+      "columns": [
+        "DelayFactKey",
+        "FlightKey",
+        "DateKey",
+        "CarrierKey",
+        "OriginAirportKey",
+        "DelayReasonKey",
+        "DelayMinutes"
+      ],
+      "bytes": 14625849,
+      "sha256": "313cddcf79ef9ca7cf260ba56ae0af611ce4b984fff4dd870f61b436dc6a0cb7"
+    }
+  ],
+  "relationships_file": "powerbi_relationships.csv",
+  "relationships": [
+    {
+      "FromTable": "FactFlight",
+      "FromColumn": "DateKey",
+      "ToTable": "DimDate",
+      "ToColumn": "DateKey",
+      "Cardinality": "many_to_one",
+      "Active": "True",
+      "CrossFilterDirection": "Single",
+      "Note": ""
+    },
+    {
+      "FromTable": "FactFlight",
+      "FromColumn": "CarrierKey",
+      "ToTable": "DimCarrier",
+      "ToColumn": "CarrierKey",
+      "Cardinality": "many_to_one",
+      "Active": "True",
+      "CrossFilterDirection": "Single",
+      "Note": ""
+    },
+    {
+      "FromTable": "FactFlight",
+      "FromColumn": "OriginAirportKey",
+      "ToTable": "DimAirport",
+      "ToColumn": "AirportKey",
+      "Cardinality": "many_to_one",
+      "Active": "True",
+      "CrossFilterDirection": "Single",
+      "Note": ""
+    },
+    {
+      "FromTable": "FactFlight",
+      "FromColumn": "DestAirportKey",
+      "ToTable": "DimAirport",
+      "ToColumn": "AirportKey",
+      "Cardinality": "many_to_one",
+      "Active": "False",
+      "CrossFilterDirection": "Single",
+      "Note": "Destination role: use USERELATIONSHIP and disable origin role"
+    },
+    {
+      "FromTable": "FactFlight",
+      "FromColumn": "RouteKey",
+      "ToTable": "DimRoute",
+      "ToColumn": "RouteKey",
+      "Cardinality": "many_to_one",
+      "Active": "True",
+      "CrossFilterDirection": "Single",
+      "Note": ""
+    },
+    {
+      "FromTable": "FactFlight",
+      "FromColumn": "FlightStatusKey",
+      "ToTable": "DimFlightStatus",
+      "ToColumn": "FlightStatusKey",
+      "Cardinality": "many_to_one",
+      "Active": "True",
+      "CrossFilterDirection": "Single",
+      "Note": ""
+    },
+    {
+      "FromTable": "FactDelay",
+      "FromColumn": "DateKey",
+      "ToTable": "DimDate",
+      "ToColumn": "DateKey",
+      "Cardinality": "many_to_one",
+      "Active": "True",
+      "CrossFilterDirection": "Single",
+      "Note": ""
+    },
+    {
+      "FromTable": "FactDelay",
+      "FromColumn": "CarrierKey",
+      "ToTable": "DimCarrier",
+      "ToColumn": "CarrierKey",
+      "Cardinality": "many_to_one",
+      "Active": "True",
+      "CrossFilterDirection": "Single",
+      "Note": ""
+    },
+    {
+      "FromTable": "FactDelay",
+      "FromColumn": "OriginAirportKey",
+      "ToTable": "DimAirport",
+      "ToColumn": "AirportKey",
+      "Cardinality": "many_to_one",
+      "Active": "True",
+      "CrossFilterDirection": "Single",
+      "Note": ""
+    },
+    {
+      "FromTable": "FactDelay",
+      "FromColumn": "DelayReasonKey",
+      "ToTable": "DimDelayReason",
+      "ToColumn": "DelayReasonKey",
+      "Cardinality": "many_to_one",
+      "Active": "True",
+      "CrossFilterDirection": "Single",
+      "Note": ""
+    }
+  ],
+  "validation_report": "validation_report.json"
+}

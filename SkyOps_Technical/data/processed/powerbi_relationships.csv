@@ -1,0 +1,11 @@
+﻿FromTable,FromColumn,ToTable,ToColumn,Cardinality,Active,CrossFilterDirection,Note
+FactFlight,DateKey,DimDate,DateKey,many_to_one,True,Single,
+FactFlight,CarrierKey,DimCarrier,CarrierKey,many_to_one,True,Single,
+FactFlight,OriginAirportKey,DimAirport,AirportKey,many_to_one,True,Single,
+FactFlight,DestAirportKey,DimAirport,AirportKey,many_to_one,False,Single,Destination role: use USERELATIONSHIP and disable origin role
+FactFlight,RouteKey,DimRoute,RouteKey,many_to_one,True,Single,
+FactFlight,FlightStatusKey,DimFlightStatus,FlightStatusKey,many_to_one,True,Single,
+FactDelay,DateKey,DimDate,DateKey,many_to_one,True,Single,
+FactDelay,CarrierKey,DimCarrier,CarrierKey,many_to_one,True,Single,
+FactDelay,OriginAirportKey,DimAirport,AirportKey,many_to_one,True,Single,
+FactDelay,DelayReasonKey,DimDelayReason,DelayReasonKey,many_to_one,True,Single,

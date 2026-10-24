@@ -17,6 +17,9 @@ SELECT
     arr_delay,
     dep_delay_minutes,
     arr_delay_minutes,
+    CASE WHEN arr_delay_minutes IS NOT NULL
+         THEN GREATEST(arr_delay_minutes - 15, 0)
+    END AS excess_delay_minutes,
     taxi_out_minutes,
     taxi_in_minutes,
     air_time_minutes,

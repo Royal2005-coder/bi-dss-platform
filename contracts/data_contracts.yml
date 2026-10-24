@@ -154,6 +154,7 @@ contracts:
       arr_delay: DOUBLE
       dep_delay_minutes: DOUBLE
       arr_delay_minutes: DOUBLE
+      excess_delay_minutes: DOUBLE
       taxi_out_minutes: DOUBLE
       taxi_in_minutes: DOUBLE
       air_time_minutes: DOUBLE

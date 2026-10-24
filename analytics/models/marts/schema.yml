@@ -519,6 +519,10 @@ models:
     data_type: DOUBLE
     description: Số phút hạ cánh muộn (>=0); NULL nếu hủy/chuyển hướng hoặc thiếu.
     tests: []
+  - name: excess_delay_minutes
+    data_type: DOUBLE
+    description: Phút trễ đến vượt ngưỡng 15 phút; MAX(arr_delay_minutes - 15, 0), giữ NULL khi không đo được.
+    tests: []
   - name: taxi_out_minutes
     data_type: DOUBLE
     description: Thời gian taxi ra (phút).
