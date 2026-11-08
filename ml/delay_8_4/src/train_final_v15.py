@@ -11,7 +11,8 @@ Protocol (fixed before test is scored)
              out-of-sample scores. Test = July + August scored by their own month model.
   DSS      : Bayes cost threshold, Wilson-validated hard-stop rules, OCC capacity per carrier-hour,
              adaptive conformal sets (daily update with outcomes known by D-1), SHAP reason codes.
-Env: BI_WORK_DIR, BI_OUT_DIR, BI_TRAIN_YEARS (default 2019,2021,2022,2023), BI_USE_CATBOOST (0/1).
+Env: BI_WORK_DIR, BI_OUT_DIR, BI_TRAIN_YEARS (default 2019,2021,2022,2023),
+     BI_LEARNERS (default xgb,lgb,cat; Colab free: xgb,cat - LightGBM is CPU-only).
 """
 from __future__ import annotations
 
@@ -39,7 +40,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 WORK = os.environ.get("BI_WORK_DIR", os.path.join(HERE, "..", "work"))
 OUT = os.environ.get("BI_OUT_DIR", os.path.join(HERE, "..", "outputs_v15"))
 YEARS = tuple(int(y) for y in os.environ.get("BI_TRAIN_YEARS", "2019,2021,2022,2023").split(","))
-USE_CAT = os.environ.get("BI_USE_CATBOOST", "1") == "1"
+LEARNERS = [k for k in os.environ.get("BI_LEARNERS", "xgb,lgb,cat").split(",") if k in ("xgb", "lgb", "cat")]
 SEED = 42
 VAL_START, JUL, AUG, TEST_END = 20230501, 20230701, 20230801, 20230831
 REFIT_SCALE = 1.15
@@ -188,7 +189,7 @@ def main() -> None:
     n_tr, n_va, n_jul, n_aug = (int(np.searchsorted(dk, d)) for d in (VAL_START, JUL, AUG, TEST_END + 1))
     log(f"years={YEARS} labelled={len(y)} train={n_tr} val={n_va - n_tr} jul={n_jul - n_va} aug={n_aug - n_jul} "
         f"unlabelled_scored={len(M.X_unl)} features={len(M.cols)} matrix={X.nbytes / 1e9:.1f}GB")
-    kinds = ["xgb", "lgb"] + (["cat"] if USE_CAT else [])
+    kinds = LEARNERS
     Xtr, ytr, Xva, yva = X[:n_tr], y[:n_tr], X[n_tr:n_va], y[n_tr:n_va]
     Xte, yte = X[n_va:n_aug], y[n_va:n_aug]
 
