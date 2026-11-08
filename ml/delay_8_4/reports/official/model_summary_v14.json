@@ -1,0 +1,160 @@
+{
+  "generated_at": "2026-11-08T15:46:46.960293+00:00",
+  "runtime_sec": 524.2,
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+    "device": "cuda",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.7.0",
+    "sklearn": "1.9.1"
+  },
+  "target": "is_arr_delayed15 = 1 (FAA: arrival delay >= 15 min), completed flights",
+  "prediction_time": "T_pred = CRS departure - 60 min",
+  "split": {
+    "train": "2022-01-01..2023-04-30",
+    "validation": "2023-05-01..2023-06-30",
+    "test": "2023-07-01..2023-08-31"
+  },
+  "rows": {
+    "total": 1151344,
+    "labelled": 1122174,
+    "train": 886031,
+    "validation": 116223,
+    "test": 119920
+  },
+  "feature_count": 280,
+  "feature_family_counts": {
+    "Lịch CRS & lịch sử ≤ D-1": 132,
+    "Nowcast mạng lưới T-60": 100,
+    "Thời tiết ngày bay": 24,
+    "Nowcast sân bay T-60": 17,
+    "Lịch sử tàu bay (inbound)": 7
+  },
+  "banned_post_event": [
+    "dep_delay/arr_delay of the flight",
+    "taxi_out",
+    "taxi_in",
+    "wheels_off/on",
+    "air_time",
+    "actual elapsed_time",
+    "cancelled/diverted of the flight",
+    "delay_due_* causes"
+  ],
+  "stage1_selection": {
+    "xgb_best_iter": 2052,
+    "lgb_best_iter": 743,
+    "val": {
+      "n": 116223,
+      "positives": 26003,
+      "auc": 0.7522739378681073,
+      "ap": 0.48957510150748335,
+      "brier": 0.14586524676989193,
+      "logloss": 0.4551985022053123,
+      "threshold": 0.25,
+      "tn": 68884,
+      "fp": 21336,
+      "fn": 10267,
+      "tp": 15736,
+      "precision": 0.4244712990936556,
+      "recall": 0.6051609429681191,
+      "f1": 0.49896155370590567,
+      "accuracy": 0.7280830816619774
+    },
+    "test": {
+      "n": 119920,
+      "positives": 30290,
+      "auc": 0.7415891381268954,
+      "ap": 0.5105835327797484,
+      "brier": 0.15972427069692047,
+      "logloss": 0.49051656133904836,
+      "threshold": 0.25,
+      "tn": 61906,
+      "fp": 27724,
+      "fn": 10076,
+      "tp": 20214,
+      "precision": 0.4216696566398264,
+      "recall": 0.6673489600528227,
+      "f1": 0.5167970547630004,
+      "accuracy": 0.6847898599066043
+    },
+    "val_auc_xgb": 0.7508529013069473,
+    "val_auc_lgb": 0.7510707195228133,
+    "test_auc_xgb": 0.740844958992302,
+    "test_auc_lgb": 0.7410580963291846
+  },
+  "stage2_production": {
+    "xgb_iter": 2359,
+    "lgb_iter": 854,
+    "test": {
+      "n": 119920,
+      "positives": 30290,
+      "auc": 0.7442770729023654,
+      "ap": 0.5145776428179483,
+      "brier": 0.15942398682549952,
+      "logloss": 0.48975839695301887,
+      "threshold": 0.25,
+      "tn": 59824,
+      "fp": 29806,
+      "fn": 9315,
+      "tp": 20975,
+      "precision": 0.41304818731415294,
+      "recall": 0.6924727632882139,
+      "f1": 0.5174476693268864,
+      "accuracy": 0.6737741827885256
+    },
+    "test_auc_ci95": [
+      0.7412566305773519,
+      0.7473425847183136
+    ],
+    "test_at_0.5": {
+      "n": 119920,
+      "positives": 30290,
+      "auc": 0.7442770729023654,
+      "ap": 0.5145776428179483,
+      "brier": 0.15942398682549952,
+      "logloss": 0.48975839695301887,
+      "threshold": 0.5,
+      "tn": 84042,
+      "fp": 5588,
+      "fn": 21527,
+      "tp": 8763,
+      "precision": 0.6106194690265486,
+      "recall": 0.28930340046219877,
+      "f1": 0.39259873210725565,
+      "accuracy": 0.7738909272848565
+    }
+  },
+  "test_auc_by_carrier": {
+    "9E": 0.692657179735744,
+    "AA": 0.7174037183891426,
+    "AS": 0.6680554470570874,
+    "B6": 0.7372466517814594,
+    "DL": 0.7244336515467013,
+    "F9": 0.7074187319574964,
+    "G4": 0.7235777120072349,
+    "HA": 0.6889011766121994,
+    "MQ": 0.7083312864842182,
+    "NK": 0.7388692353883888,
+    "OH": 0.706419783015368,
+    "OO": 0.6988186530964738,
+    "UA": 0.732181341891328,
+    "WN": 0.7703303246746493,
+    "YX": 0.7314356253177021
+  },
+  "test_auc_by_month": {
+    "7": 0.7515026830515094,
+    "8": 0.7276351204945152
+  },
+  "csv": {
+    "path": "DSS_Flight_Prediction.csv",
+    "bytes": 140143306,
+    "sha256": "2d13dfc521dcc17a34059e7c69fa6cc6391943955a9312f81bb358b45b5e669d",
+    "tier_counts": {
+      "P4": 399722,
+      "P3": 364812,
+      "P1": 210955,
+      "P2": 175855
+    }
+  }
+}

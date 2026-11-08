@@ -1,0 +1,70 @@
+{
+  "learner": "XGBoost GPU hist",
+  "params": {
+    "objective": "binary:logistic",
+    "eval_metric": "auc",
+    "tree_method": "hist",
+    "device": "cuda",
+    "max_depth": 8,
+    "eta": 0.05,
+    "subsample": 0.8,
+    "colsample_bytree": 0.6,
+    "min_child_weight": 20,
+    "reg_lambda": 10.0,
+    "max_bin": 256,
+    "seed": 42
+  },
+  "split": {
+    "train": "<=2023-04-30",
+    "val": "2023-05-01..2023-06-30",
+    "test": ">=2023-07-01"
+  },
+  "A0_D-1_strict": {
+    "n_feat": 132,
+    "best_iter": 101,
+    "val_auc": 0.720328701990655,
+    "test_auc": 0.7097412102143116,
+    "test_ap": 0.45364419564287184,
+    "sec": 26.4
+  },
+  "A1_D-1_weather": {
+    "n_feat": 156,
+    "best_iter": 272,
+    "val_auc": 0.7355347164937136,
+    "test_auc": 0.7269007979578714,
+    "test_ap": 0.47760960704360755,
+    "sec": 39.7
+  },
+  "B1_T-60_aircraft": {
+    "n_feat": 163,
+    "best_iter": 263,
+    "val_auc": 0.7374425169280086,
+    "test_auc": 0.7296040990864944,
+    "test_ap": 0.48632524350650347,
+    "sec": 42.0
+  },
+  "B2_T-60_full": {
+    "n_feat": 180,
+    "best_iter": 393,
+    "val_auc": 0.7459016569571508,
+    "test_auc": 0.7365037430392736,
+    "test_ap": 0.5099880753560323,
+    "sec": 55.0
+  },
+  "B1_T-120_aircraft": {
+    "n_feat": 163,
+    "best_iter": 205,
+    "val_auc": 0.73669945429365,
+    "test_auc": 0.728777322396572,
+    "test_ap": 0.4841897901911262,
+    "sec": 40.5
+  },
+  "B2_T-120_full": {
+    "n_feat": 180,
+    "best_iter": 366,
+    "val_auc": 0.7429758746354087,
+    "test_auc": 0.7335841274684631,
+    "test_ap": 0.5012804380564702,
+    "sec": 56.3
+  }
+}

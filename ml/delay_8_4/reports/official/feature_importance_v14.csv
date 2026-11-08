@@ -1,0 +1,281 @@
+﻿feature,gain_share,family
+car_dep_r15_120,0.059559993595942134,Nowcast mạng lưới T-60
+reg_dep_r15_120,0.03559901772563616,Nowcast mạng lưới T-60
+carrier_hour_30d,0.021884759797097267,Lịch CRS & lịch sử ≤ D-1
+wx_precip_sum_both,0.02168794858123285,Thời tiết ngày bay
+cr_dep_r15_360,0.018956824788821547,Nowcast mạng lưới T-60
+o_backlog,0.018242259588259077,Nowcast sân bay T-60
+origin_wx_weather_code_max,0.016799372025178054,Thời tiết ngày bay
+car_dep_r15_360,0.01677789114242796,Nowcast mạng lưới T-60
+car_dep_mean_120,0.015941490666000147,Nowcast mạng lưới T-60
+wx_bad_hours_both,0.015831477380319543,Thời tiết ngày bay
+cr_dep_r15_120,0.014045247588641344,Nowcast mạng lưới T-60
+reg_dep_r15_60,0.013484344227053855,Nowcast mạng lưới T-60
+turn_slack_lb,0.012860476335336764,Lịch sử tàu bay (inbound)
+o_arr_r15_day,0.012514003014449448,Nowcast sân bay T-60
+carrier_prev_day,0.010825939634794194,Lịch CRS & lịch sử ≤ D-1
+car_dep_r15_60,0.010637673569827347,Nowcast mạng lưới T-60
+wx_bad_any,0.010488138477652351,Thời tiết ngày bay
+in_delay_lb,0.010460226712093436,Lịch sử tàu bay (inbound)
+d_arr_r15_day,0.010310408407297971,Nowcast sân bay T-60
+carrier_origin_prior,0.010137004313526958,Lịch CRS & lịch sử ≤ D-1
+route_fn_arr_mean,0.009425855850646196,Lịch CRS & lịch sử ≤ D-1
+origin_wx_temp_mean,0.009303757242430889,Thời tiết ngày bay
+carrier_origin_30d,0.009286661487659555,Lịch CRS & lịch sử ≤ D-1
+carrier_hour_prior,0.009281209686974493,Lịch CRS & lịch sử ≤ D-1
+carrier_route_prior,0.008267925949406455,Lịch CRS & lịch sử ≤ D-1
+car_arr_r15_120,0.007226421374857317,Nowcast mạng lưới T-60
+d_dep_r15_day,0.0068431406667953006,Nowcast sân bay T-60
+carrier_hour_7d,0.006646601611226505,Lịch CRS & lịch sử ≤ D-1
+dest_hour_prior,0.006464126903563645,Lịch CRS & lịch sử ≤ D-1
+o_dep_r15_day,0.006094071812307871,Nowcast sân bay T-60
+o_arr_mean_60,0.006025589647578134,Nowcast sân bay T-60
+carrier_origin_7d,0.005893078748036622,Lịch CRS & lịch sử ≤ D-1
+in_cancel_known,0.005657798472769271,Lịch sử tàu bay (inbound)
+nat_dep_r15_60,0.005647558519964567,Nowcast mạng lưới T-60
+car_arr_mean_120,0.005544830891098404,Nowcast mạng lưới T-60
+dest_hour_30d,0.00550365254058926,Lịch CRS & lịch sử ≤ D-1
+o_dep_r15_180,0.005499547029268297,Nowcast sân bay T-60
+dest_wx_weather_code_max,0.005450118740954177,Thời tiết ngày bay
+origin_hour_30d,0.005406765768960818,Lịch CRS & lịch sử ≤ D-1
+o_dep_mean_day,0.005242494764888967,Nowcast sân bay T-60
+o_cancel_180,0.005205327963747888,Nowcast sân bay T-60
+dest_prev_day,0.0049445981313288555,Lịch CRS & lịch sử ≤ D-1
+carrier_route_30d,0.004663890480405573,Lịch CRS & lịch sử ≤ D-1
+carrier_month_prev_day,0.004655399031177129,Lịch CRS & lịch sử ≤ D-1
+car_dep_r15_720,0.004541253773141135,Nowcast mạng lưới T-60
+dest_wx_precip_sum,0.004496667531175457,Thời tiết ngày bay
+day_of_year,0.004488636978305146,Lịch CRS & lịch sử ≤ D-1
+sched_arr_minute_of_day,0.004485548007969947,Lịch CRS & lịch sử ≤ D-1
+carrier_dest_7d,0.004466107619283814,Lịch CRS & lịch sử ≤ D-1
+d_arr_mean_60,0.004432013396979155,Nowcast sân bay T-60
+dest_wx_temp_mean,0.00437907065488342,Thời tiết ngày bay
+origin_wx_bad_hours,0.004250200325868056,Thời tiết ngày bay
+cr_cancel_rate_360,0.004115776317127982,Nowcast mạng lưới T-60
+o_dep_mean_180,0.004108639023494171,Nowcast sân bay T-60
+in_dep_delay_known,0.00409769366489552,Lịch sử tàu bay (inbound)
+wx_wind_max_both,0.004097161233522861,Thời tiết ngày bay
+fn_arr_mean,0.0040565367343104375,Lịch CRS & lịch sử ≤ D-1
+pace_mph,0.00402974045864339,Lịch CRS & lịch sử ≤ D-1
+reg_dep_mean_120,0.003998064138887088,Nowcast mạng lưới T-60
+cr_arr_r15_360,0.003941008964695892,Nowcast mạng lưới T-60
+origin_lon,0.0038709536103167666,Lịch CRS & lịch sử ≤ D-1
+car_cancel_rate_360,0.003752599686461003,Nowcast mạng lưới T-60
+scheduled_dep_time,0.0037324567205519648,Lịch CRS & lịch sử ≤ D-1
+dep_hour_cos,0.0036818565756694356,Lịch CRS & lịch sử ≤ D-1
+dest_wx_precip_max,0.00362863510174047,Thời tiết ngày bay
+carrier_origin_prev_day,0.0035979323930583167,Lịch CRS & lịch sử ≤ D-1
+carrier_dest_prev_day,0.003578772773527762,Lịch CRS & lịch sử ≤ D-1
+dest_lat,0.0034797783414602964,Lịch CRS & lịch sử ≤ D-1
+d_dep_mean_60,0.0034409975495982292,Nowcast sân bay T-60
+origin_wx_precip_sum,0.003412942429507157,Thời tiết ngày bay
+dest_hub_flights,0.0034066253292350745,Lịch CRS & lịch sử ≤ D-1
+nat_dep_n_120,0.003319450932533075,Nowcast mạng lưới T-60
+dep_minute_of_day,0.003310260242576275,Lịch CRS & lịch sử ≤ D-1
+origin_hour_prior,0.003234888252879723,Lịch CRS & lịch sử ≤ D-1
+car_arr_mean_360,0.00321661266601227,Nowcast mạng lưới T-60
+doy_cos,0.003192806955233385,Lịch CRS & lịch sử ≤ D-1
+dest_wx_wind_max,0.0031906960776290324,Thời tiết ngày bay
+dest_lon,0.003172013136880556,Lịch CRS & lịch sử ≤ D-1
+doy_sin,0.003134085564850352,Lịch CRS & lịch sử ≤ D-1
+carrier_dest_prior,0.003121907047092071,Lịch CRS & lịch sử ≤ D-1
+dest_wx_gust_max,0.003074215263713543,Thời tiết ngày bay
+scheduled_arr_hour,0.0030698836804956007,Lịch CRS & lịch sử ≤ D-1
+week_of_year,0.003052153112794208,Lịch CRS & lịch sử ≤ D-1
+cr_arr_r15_720,0.0030074076336535347,Nowcast mạng lưới T-60
+nat_dep_n_360,0.002976428241281505,Nowcast mạng lưới T-60
+carrier_day_flights,0.0029686079750090633,Lịch CRS & lịch sử ≤ D-1
+nat_dep_n_60,0.002958189674889197,Nowcast mạng lưới T-60
+origin_prev_day,0.0029534076426693655,Lịch CRS & lịch sử ≤ D-1
+reg_cancel_rate_360,0.0029532942945337333,Nowcast mạng lưới T-60
+cr_arr_mean_720,0.0029498213574839895,Nowcast mạng lưới T-60
+dep_hour_sin,0.002854260323309793,Lịch CRS & lịch sử ≤ D-1
+carrier_route_7d,0.002852401123783774,Lịch CRS & lịch sử ≤ D-1
+origin_wx_cloud_mean,0.002851571233183863,Thời tiết ngày bay
+cr_arr_mean_360,0.0028107017052688304,Nowcast mạng lưới T-60
+dest_wx_bad_hours,0.002803779291703161,Thời tiết ngày bay
+dest_day_flights,0.0027300768740048673,Lịch CRS & lịch sử ≤ D-1
+carrier_route_rate,0.002698287520416628,Lịch CRS & lịch sử ≤ D-1
+scheduled_dep_hour,0.0026638046662669215,Lịch CRS & lịch sử ≤ D-1
+car_dep_mean_360,0.0026607172889339037,Nowcast mạng lưới T-60
+origin_wx_gust_max,0.002659039502990165,Thời tiết ngày bay
+o_dep_mean_60,0.002655672291100776,Nowcast sân bay T-60
+d_arr_r15_60,0.002622509861813657,Nowcast sân bay T-60
+distance_miles,0.002611421132961529,Lịch CRS & lịch sử ≤ D-1
+dest_wx_cloud_mean,0.002606943280634059,Thời tiết ngày bay
+route_prior,0.0025823976470695092,Lịch CRS & lịch sử ≤ D-1
+cr_dep_mean_120,0.00258151673844924,Nowcast mạng lưới T-60
+nat_dep_r15_120,0.00256726438083593,Nowcast mạng lưới T-60
+cr_arr_mean_120,0.0025485172936940497,Nowcast mạng lưới T-60
+carrier_code,0.00251454227762145,Lịch CRS & lịch sử ≤ D-1
+origin_lat,0.0025064784083386415,Lịch CRS & lịch sử ≤ D-1
+origin_month_prev_day,0.0025010575331168797,Lịch CRS & lịch sử ≤ D-1
+nat_cancel_rate_360,0.0025009423634237606,Nowcast mạng lưới T-60
+carrier_dest_30d,0.002487294645231345,Lịch CRS & lịch sử ≤ D-1
+reg_arr_mean_720,0.002486986090018158,Nowcast mạng lưới T-60
+car_arr_mean_720,0.0024708689083067885,Nowcast mạng lưới T-60
+crs_elapsed_time_minutes,0.00245260286165935,Lịch CRS & lịch sử ≤ D-1
+nat_arr_n_720,0.0024491150159432,Nowcast mạng lưới T-60
+o_dep_r15_60,0.0024387290539211125,Nowcast sân bay T-60
+flight_number_rate,0.0024307710886338,Lịch CRS & lịch sử ≤ D-1
+dest_rate_n,0.0024126741073669453,Lịch CRS & lịch sử ≤ D-1
+weekday_sin,0.0024124077175544743,Lịch CRS & lịch sử ≤ D-1
+cr_dep_r15_720,0.0024123655258828387,Nowcast mạng lưới T-60
+origin_wx_precip_max,0.002398239855086156,Thời tiết ngày bay
+day_of_month,0.002382596935538242,Lịch CRS & lịch sử ≤ D-1
+carrier_hour_prev_day,0.0023652109978688973,Lịch CRS & lịch sử ≤ D-1
+reg_arr_mean_360,0.0023037652148018184,Nowcast mạng lưới T-60
+weekday_number,0.002281434267531851,Lịch CRS & lịch sử ≤ D-1
+reg_arr_mean_60,0.002258023612458056,Nowcast mạng lưới T-60
+cr_dep_mean_360,0.0022550221814991948,Nowcast mạng lưới T-60
+reg_arr_r15_720,0.002235836299187852,Nowcast mạng lưới T-60
+carrier_rate_n,0.002229819683521386,Lịch CRS & lịch sử ≤ D-1
+cr_dep_mean_60,0.0022057975670272323,Nowcast mạng lưới T-60
+carrier_month_7d,0.002194620115007752,Lịch CRS & lịch sử ≤ D-1
+reg_arr_mean_120,0.002163818315417445,Nowcast mạng lưới T-60
+car_arr_n_720,0.0021413470913217206,Nowcast mạng lưới T-60
+reg_dep_mean_60,0.002132843490290793,Nowcast mạng lưới T-60
+origin_wx_wind_max,0.002123605299443742,Thời tiết ngày bay
+origin_weekday_prior,0.002076005366097904,Lịch CRS & lịch sử ≤ D-1
+dest_hour_7d,0.002060973185829717,Lịch CRS & lịch sử ≤ D-1
+month,0.002059332726832646,Lịch CRS & lịch sử ≤ D-1
+origin_hour_7d,0.002054724082774893,Lịch CRS & lịch sử ≤ D-1
+reg_arr_r15_120,0.0020481022776320038,Nowcast mạng lưới T-60
+nat_arr_mean_720,0.002046312597146207,Nowcast mạng lưới T-60
+reg_arr_n_720,0.0020217495282143336,Nowcast mạng lưới T-60
+car_dep_mean_60,0.0019619847793252952,Nowcast mạng lưới T-60
+origin_hour_rate_n,0.0019550080295928345,Lịch CRS & lịch sử ≤ D-1
+dest_state,0.0019524398145007056,Lịch CRS & lịch sử ≤ D-1
+weekday_cos,0.0019507089999827587,Lịch CRS & lịch sử ≤ D-1
+dest_7d,0.0019412252363615074,Lịch CRS & lịch sử ≤ D-1
+car_arr_mean_60,0.0019391787627641237,Nowcast mạng lưới T-60
+route_distance,0.0019306585256697192,Lịch CRS & lịch sử ≤ D-1
+car_arr_r15_720,0.0019253081450445382,Nowcast mạng lưới T-60
+carrier_weekday_30d,0.00190992338170876,Lịch CRS & lịch sử ≤ D-1
+carrier_weekday_prior,0.001906394063774913,Lịch CRS & lịch sử ≤ D-1
+origin_rate_n,0.001886254845065425,Lịch CRS & lịch sử ≤ D-1
+sched_turn_min,0.0018824449266064895,Lịch sử tàu bay (inbound)
+carrier_weekday_prev_day,0.001873903850198904,Lịch CRS & lịch sử ≤ D-1
+cr_arr_mean_60,0.0018638872240322327,Nowcast mạng lưới T-60
+nat_arr_r15_720,0.001846572399844944,Nowcast mạng lưới T-60
+carrier_weekday_7d,0.0018455293302367009,Lịch CRS & lịch sử ≤ D-1
+origin_weekday_30d,0.0018425995994389328,Lịch CRS & lịch sử ≤ D-1
+car_dep_n_720,0.0018253456293416588,Nowcast mạng lưới T-60
+dest,0.0018224512277453357,Lịch CRS & lịch sử ≤ D-1
+reg_arr_r15_360,0.001817947103735585,Nowcast mạng lưới T-60
+carrier_prior,0.0018073538025329687,Lịch CRS & lịch sử ≤ D-1
+carrier_7d,0.0018044059085404165,Lịch CRS & lịch sử ≤ D-1
+origin_hub_flights,0.0017987163627306885,Lịch CRS & lịch sử ≤ D-1
+reg_arr_r15_60,0.0017973802650975584,Nowcast mạng lưới T-60
+dest_rate,0.0017813832036859812,Lịch CRS & lịch sử ≤ D-1
+route_fn_delayed,0.0017803654252511465,Lịch CRS & lịch sử ≤ D-1
+car_arr_r15_360,0.0017724289275540227,Nowcast mạng lưới T-60
+dest_30d,0.0017550684748212785,Lịch CRS & lịch sử ≤ D-1
+carrier_30d,0.001754376409771735,Lịch CRS & lịch sử ≤ D-1
+is_morning_peak,0.0017516379748099347,Lịch CRS & lịch sử ≤ D-1
+reg_dep_mean_720,0.0017431794494890346,Nowcast mạng lưới T-60
+carrier_rate,0.0017206057765631558,Lịch CRS & lịch sử ≤ D-1
+origin_prior,0.001719470922636121,Lịch CRS & lịch sử ≤ D-1
+reg_dep_r15_720,0.0017171562487914686,Nowcast mạng lưới T-60
+dest_arr_in_hour,0.0017066641326013588,Lịch CRS & lịch sử ≤ D-1
+origin_30d,0.0017012483204809658,Lịch CRS & lịch sử ≤ D-1
+dest_prior,0.0017010431194664092,Lịch CRS & lịch sử ≤ D-1
+origin_hour_rate,0.0016919244461630159,Lịch CRS & lịch sử ≤ D-1
+car_dep_n_360,0.0016717304206440844,Nowcast mạng lưới T-60
+route_30d,0.0016598464124691992,Lịch CRS & lịch sử ≤ D-1
+is_red_eye,0.0016561035143456554,Lịch CRS & lịch sử ≤ D-1
+origin_day_flights,0.0016497327823633925,Lịch CRS & lịch sử ≤ D-1
+reg_dep_n_120,0.0016435852703787376,Nowcast mạng lưới T-60
+cr_arr_n_720,0.0016411510501808926,Nowcast mạng lưới T-60
+nat_dep_n_720,0.0016397127763779972,Nowcast mạng lưới T-60
+carrier_route_rate_n,0.0016355887764879838,Lịch CRS & lịch sử ≤ D-1
+carrier_month_prior,0.00163194724393543,Lịch CRS & lịch sử ≤ D-1
+reg_dep_n_360,0.0016254454696321978,Nowcast mạng lưới T-60
+origin_rate,0.0016225045463323878,Lịch CRS & lịch sử ≤ D-1
+reg_dep_n_720,0.0016211635576017461,Nowcast mạng lưới T-60
+nat_dep_mean_720,0.0016126776820356162,Nowcast mạng lưới T-60
+o_cancel_day,0.001609986429482786,Nowcast sân bay T-60
+origin_month_prior,0.0016097830355982046,Lịch CRS & lịch sử ≤ D-1
+nat_arr_mean_360,0.0016096867839798237,Nowcast mạng lưới T-60
+nat_arr_mean_60,0.0016059061194885356,Nowcast mạng lưới T-60
+reg_arr_n_360,0.0015983255777512755,Nowcast mạng lưới T-60
+origin_weekday_7d,0.0015976044413330147,Lịch CRS & lịch sử ≤ D-1
+nat_dep_r15_720,0.0015922036885826487,Nowcast mạng lưới T-60
+nat_dep_r15_360,0.001585868278575322,Nowcast mạng lưới T-60
+nat_dep_mean_120,0.0015838065549491282,Nowcast mạng lưới T-60
+nat_arr_mean_120,0.0015813028284529635,Nowcast mạng lưới T-60
+car_arr_n_360,0.0015800360059403228,Nowcast mạng lưới T-60
+origin,0.0015787402974351032,Lịch CRS & lịch sử ≤ D-1
+origin_state,0.0015772692868440432,Lịch CRS & lịch sử ≤ D-1
+origin_month_7d,0.0015659852705119815,Lịch CRS & lịch sử ≤ D-1
+cr_dep_mean_720,0.0015604400867539263,Nowcast mạng lưới T-60
+route_rate,0.0015603062022290168,Lịch CRS & lịch sử ≤ D-1
+reg_dep_r15_360,0.0015575261199248353,Nowcast mạng lưới T-60
+origin_month_30d,0.0015491459034539766,Lịch CRS & lịch sử ≤ D-1
+nat_arr_n_360,0.0015313791601975634,Nowcast mạng lưới T-60
+nat_arr_n_120,0.0015021978871472583,Nowcast mạng lưới T-60
+nat_arr_r15_120,0.0014964664213982435,Nowcast mạng lưới T-60
+car_arr_r15_60,0.0014822343833598979,Nowcast mạng lưới T-60
+route_rate_n,0.0014786621467297917,Lịch CRS & lịch sử ≤ D-1
+nat_arr_r15_360,0.0014750151493362952,Nowcast mạng lưới T-60
+nat_arr_n_60,0.0014700492393097142,Nowcast mạng lưới T-60
+nat_dep_mean_360,0.001465745966933764,Nowcast mạng lưới T-60
+origin_region,0.001464056499501332,Lịch CRS & lịch sử ≤ D-1
+flight_number_rate_n,0.0014585982706798043,Lịch CRS & lịch sử ≤ D-1
+carrier_month_30d,0.0014535202565336398,Lịch CRS & lịch sử ≤ D-1
+nat_dep_mean_60,0.001451211445681845,Nowcast mạng lưới T-60
+car_dep_mean_720,0.0014371296368155657,Nowcast mạng lưới T-60
+origin_7d,0.0014259596345686629,Lịch CRS & lịch sử ≤ D-1
+nat_arr_r15_60,0.0014138608031194614,Nowcast mạng lưới T-60
+origin_weekday_prev_day,0.0013911834458274186,Lịch CRS & lịch sử ≤ D-1
+fn_days,0.0013734696179273562,Lịch CRS & lịch sử ≤ D-1
+reg_dep_mean_360,0.0013638387846971413,Nowcast mạng lưới T-60
+month_cos,0.0013593098781027831,Lịch CRS & lịch sử ≤ D-1
+cr_dep_n_720,0.001349797565462549,Nowcast mạng lưới T-60
+origin_hour_flights,0.0013490037204124696,Lịch CRS & lịch sử ≤ D-1
+reg_dep_n_60,0.0013271017037009558,Nowcast mạng lưới T-60
+distance_group_order,0.0012939102257012818,Lịch CRS & lịch sử ≤ D-1
+route_fn_days,0.0012858453416411957,Lịch CRS & lịch sử ≤ D-1
+quarter,0.0012758232463084707,Lịch CRS & lịch sử ≤ D-1
+o_dep_n_60,0.001271841918805838,Nowcast sân bay T-60
+reg_arr_n_120,0.001265325037218816,Nowcast mạng lưới T-60
+cr_arr_r15_120,0.0012532991983153553,Nowcast mạng lưới T-60
+route_7d,0.0012382412125020955,Lịch CRS & lịch sử ≤ D-1
+dest_region,0.0012150850414846311,Lịch CRS & lịch sử ≤ D-1
+dest_hour_prev_day,0.0012121277389175653,Lịch CRS & lịch sử ≤ D-1
+year,0.001195998426810353,Lịch CRS & lịch sử ≤ D-1
+reg_arr_n_60,0.0011789934256664625,Nowcast mạng lưới T-60
+cr_arr_n_360,0.001163215907769193,Nowcast mạng lưới T-60
+car_dep_n_120,0.0011617077297843919,Nowcast mạng lưới T-60
+car_arr_n_120,0.0011469861001425707,Nowcast mạng lưới T-60
+scheduled_dep_minute,0.0011368630817664615,Lịch CRS & lịch sử ≤ D-1
+origin_hour_prev_day,0.0011214518454709147,Lịch CRS & lịch sử ≤ D-1
+month_sin,0.001120230519770366,Lịch CRS & lịch sử ≤ D-1
+cr_dep_r15_60,0.0011150143570477999,Nowcast mạng lưới T-60
+season,0.001101518391096656,Lịch CRS & lịch sử ≤ D-1
+cr_dep_n_360,0.001101388510982263,Nowcast mạng lưới T-60
+origin_dep_in_hour,0.0010632094999395842,Lịch CRS & lịch sử ≤ D-1
+in_status_known,0.001044402309706514,Lịch sử tàu bay (inbound)
+cr_arr_r15_60,0.0010433719686130617,Nowcast mạng lưới T-60
+car_dep_n_60,0.0010414128612735046,Nowcast mạng lưới T-60
+car_arr_n_60,0.0009796162847480376,Nowcast mạng lưới T-60
+is_evening_peak,0.000966602192180929,Lịch CRS & lịch sử ≤ D-1
+cr_dep_n_120,0.0009316004287174892,Nowcast mạng lưới T-60
+cr_arr_n_120,0.0009236574015304477,Nowcast mạng lưới T-60
+route_fn_n,0.0008824968637523887,Lịch CRS & lịch sử ≤ D-1
+same_state,0.0008645353184834634,Lịch CRS & lịch sử ≤ D-1
+cr_arr_n_60,0.0008501546316496327,Nowcast mạng lưới T-60
+route_prev_day,0.0008458153567296575,Lịch CRS & lịch sử ≤ D-1
+fn_delayed,0.0008351645484389078,Lịch CRS & lịch sử ≤ D-1
+carrier_route_prev_day,0.000807498399773914,Lịch CRS & lịch sử ≤ D-1
+is_weekend,0.0008013688919009408,Lịch CRS & lịch sử ≤ D-1
+cr_dep_n_60,0.0007807996244153239,Nowcast mạng lưới T-60
+distance_group,0.0007656019141655754,Lịch CRS & lịch sử ≤ D-1
+fn_n,0.0007484081520267941,Lịch CRS & lịch sử ≤ D-1
+route_day_flights,0.0007247185985625218,Lịch CRS & lịch sử ≤ D-1
+origin_wx_visibility_min,0.0,Thời tiết ngày bay
+dest_wx_missing,0.0,Thời tiết ngày bay
+has_inbound,0.0,Lịch sử tàu bay (inbound)
+origin_wx_missing,0.0,Thời tiết ngày bay
+dest_wx_visibility_min,0.0,Thời tiết ngày bay
+crs_elapsed_missing,0.0,Lịch CRS & lịch sử ≤ D-1

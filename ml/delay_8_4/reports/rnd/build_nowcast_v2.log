@@ -1,0 +1,2 @@
+wrote C:/Users/ADMIN/Downloads/BI&DSS/output_8.4/work/nowcast_h60.parquet rows=1151344 has_inbound=0.020 inbound_known=0.969 H=60 in 11.4s
+wrote C:/Users/ADMIN/Downloads/BI&DSS/output_8.4/work/nowcast_h120.parquet rows=1151344 has_inbound=0.020 inbound_known=0.775 H=120 in 9.9s

@@ -1,0 +1,28 @@
+{
+  "features": {
+    "n_features": 280,
+    "banned_found": [],
+    "passed": true
+  },
+  "history_sql": {
+    "windows_ending_1_preceding": 6,
+    "windows_including_current_row": 0,
+    "passed": true
+  },
+  "inbound": {
+    "rows_with_inbound": 22505,
+    "share_with_inbound": 0.01954672104948651,
+    "delay_known_without_status_flag": 0,
+    "passed": true
+  },
+  "network_bruteforce": {
+    "sample": 400,
+    "carrier_count_match": 1.0,
+    "national_count_match": 1.0,
+    "carrier_r15_max_abs_err": 2.6490953208835322e-08,
+    "self_counted": 0,
+    "future_events_counted": 0,
+    "passed": true
+  },
+  "all_passed": true
+}

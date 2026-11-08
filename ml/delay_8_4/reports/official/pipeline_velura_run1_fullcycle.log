@@ -1,0 +1,29 @@
+[run ] step 1 features_base
+wrote /home/ai1/bi-dss/rnd_8_4/delay_8_4/work/features.parquet (1151344, 86) labelled 1122174
+[done] step 1 features_base in 18s
+[run ] step 2 features_v8
+cached /home/ai1/bi-dss/rnd_8_4/delay_8_4/work/features_v8.parquet (1151344, 171)
+[done] step 2 features_v8 in 9s
+[run ] step 3 nowcast_h60
+wrote /home/ai1/bi-dss/rnd_8_4/delay_8_4/work/nowcast_h60.parquet rows=1151344 has_inbound=0.020 inbound_known=0.969 H=60 in 2.1s
+[done] step 3 nowcast_h60 in 2s
+[run ] step 4 network_h60
+tz cross-check vs CRS_ARR: 0.9999 exact match
+wrote /home/ai1/bi-dss/rnd_8_4/delay_8_4/work/network_h60_v2.parquet rows=1151344 mean nat_dep_n_120=185.1 car_dep_n_120=20.1 H=60 in 11.0s
+[done] step 4 network_h60 in 13s
+[run ] step 5 train_final_v14
+[22:13:52] device=cuda xgb=3.2.0 lgb=4.7.0 sklearn=1.9.1
+[22:13:58] rows=1151344 labelled=1122174 train=886031 val=116223 test=119920 features=280
+[0]	val-auc:0.70115
+[500]	val-auc:0.74884
+[1000]	val-auc:0.75001
+[1500]	val-auc:0.75062
+[2000]	val-auc:0.75078
+[2387]	val-auc:0.75065
+[500]	valid_0's auc: 0.750422
+[1000]	valid_0's auc: 0.750349
+[22:17:53] stage1 val AUC=0.7521 test AUC=0.7415 thr=0.245
+[22:21:56] stage2 test AUC=0.7441 CI95=[0.7410365619677758, 0.7472768033423188]
+[22:22:31] wrote /home/ai1/bi-dss/rnd_8_4/delay_8_4/outputs/DSS_Flight_Prediction.csv rows=1151344 prob range=[0.0000,1.0000]
+[22:22:33] DONE in 521s
+[done] step 5 train_final_v14 in 524s

@@ -1,0 +1,47 @@
+A0_D-1_strict {'n_feat': 132, 'best_iter': 101, 'val_auc': 0.720328701990655, 'test_auc': 0.7097412102143116, 'test_ap': 0.45364419564287184, 'sec': 26.4}
+A1_D-1_weather {'n_feat': 156, 'best_iter': 272, 'val_auc': 0.7355347164937136, 'test_auc': 0.7269007979578714, 'test_ap': 0.47760960704360755, 'sec': 39.7}
+B1_T-60_aircraft {'n_feat': 163, 'best_iter': 263, 'val_auc': 0.7374425169280086, 'test_auc': 0.7296040990864944, 'test_ap': 0.48632524350650347, 'sec': 42.0}
+B2_T-60_full {'n_feat': 180, 'best_iter': 393, 'val_auc': 0.7459016569571508, 'test_auc': 0.7365037430392736, 'test_ap': 0.5099880753560323, 'sec': 55.0}
+carrier_hour_30d              166.747360
+o_backlog                     116.347382
+origin_wx_weather_code_max     95.173615
+carrier_hour_7d                84.223152
+in_delay_lb                    81.352112
+o_arr_r15_day                  79.630341
+carrier_hour_prior             78.238983
+turn_slack_lb                  75.657356
+wx_bad_hours_both              65.702034
+wx_precip_sum_both             60.208912
+wx_bad_any                     55.633423
+carrier_prev_day               52.343891
+o_dep_mean_day                 51.916393
+o_cancel_180                   46.720627
+d_arr_r15_day                  44.507614
+d_dep_r15_day                  41.236637
+o_dep_r15_180                  40.490391
+o_dep_r15_day                  40.014248
+o_cancel_day                   39.566540
+carrier_month_prev_day         36.218472
+B1_T-120_aircraft {'n_feat': 163, 'best_iter': 205, 'val_auc': 0.73669945429365, 'test_auc': 0.728777322396572, 'test_ap': 0.4841897901911262, 'sec': 40.5}
+B2_T-120_full {'n_feat': 180, 'best_iter': 366, 'val_auc': 0.7429758746354087, 'test_auc': 0.7335841274684631, 'test_ap': 0.5012804380564702, 'sec': 56.3}
+carrier_hour_30d              180.305115
+origin_wx_weather_code_max    104.712875
+carrier_hour_7d                88.915901
+o_backlog                      88.425591
+carrier_hour_prior             86.136116
+wx_bad_hours_both              71.203438
+in_delay_lb                    70.568382
+wx_precip_sum_both             68.439896
+in_cancel_known                67.879799
+o_arr_r15_day                  64.058235
+o_cancel_day                   62.667267
+carrier_prev_day               59.406036
+turn_slack_lb                  58.314480
+o_cancel_180                   54.418179
+o_dep_mean_day                 47.318432
+o_dep_r15_180                  43.680267
+d_arr_r15_day                  41.895538
+in_dep_delay_known             40.709785
+carrier_month_prev_day         39.972740
+d_dep_r15_day                  35.688038
+wrote C:\Users\ADMIN\Downloads\BI&DSS\output_8.4\scripts\..\work\experiment_v11_ablation.json

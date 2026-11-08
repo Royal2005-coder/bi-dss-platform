@@ -1,0 +1,281 @@
+﻿Bien,Nhom,Mo_ta,Kieu,Thoi_diem_biet,Nguon,Gain_share_pct
+scheduled_dep_time,Lịch CRS,Giờ cất cánh kế hoạch CRS (hhmm),Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.373
+scheduled_dep_hour,Lịch CRS,Giờ cất cánh kế hoạch,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.266
+scheduled_dep_minute,Lịch CRS,Phút cất cánh kế hoạch,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.114
+crs_elapsed_time_minutes,Lịch CRS,Thời gian bay kế hoạch CRS (phút),Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.245
+distance_miles,Lịch CRS,Khoảng cách chuyến (dặm),Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.261
+year,Lịch CRS,Năm,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.12
+quarter,Lịch CRS,Quý,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.128
+month,Lịch CRS,Tháng,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.206
+day_of_month,Lịch CRS,Ngày trong tháng,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.238
+day_of_year,Lịch CRS,Ngày trong năm,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.449
+week_of_year,Lịch CRS,Tuần trong năm,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.305
+weekday_number,Lịch CRS,Thứ trong tuần,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.228
+is_weekend,Lịch CRS,Cờ cuối tuần,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.08
+season,Lịch CRS,Mùa của ngày bay,Phân loại,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.11
+carrier_code,Lịch CRS,Mã hãng khai thác (categorical),Phân loại,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.251
+origin,Lịch CRS,Mã sân bay đi (categorical),Phân loại,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.158
+origin_state,Lịch CRS,Bang của sân bay đi,Phân loại,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.158
+origin_region,Lịch CRS,Vùng địa lý sân bay đi,Phân loại,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.146
+origin_lat,Lịch CRS,Vĩ độ sân bay đi,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.251
+origin_lon,Lịch CRS,Kinh độ sân bay đi,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.387
+dest,Lịch CRS,Mã sân bay đến (categorical),Phân loại,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.182
+dest_state,Lịch CRS,Bang của sân bay đến,Phân loại,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.195
+dest_region,Lịch CRS,Vùng địa lý sân bay đến,Phân loại,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.122
+dest_lat,Lịch CRS,Vĩ độ sân bay đến,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.348
+dest_lon,Lịch CRS,Kinh độ sân bay đến,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.317
+route_distance,Lịch CRS,Khoảng cách tuyến chuẩn (dặm),Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.193
+distance_group,Lịch CRS,Nhóm khoảng cách tuyến,Phân loại,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.077
+distance_group_order,Lịch CRS,Thứ tự nhóm khoảng cách,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.129
+dep_minute_of_day,Lịch CRS,Phút trong ngày của giờ cất cánh KH,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.331
+sched_arr_minute_of_day,Lịch CRS,Phút trong ngày của giờ hạ cánh KH (suy từ CRS),Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.449
+scheduled_arr_hour,Lịch CRS,Giờ hạ cánh kế hoạch,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.307
+crs_elapsed_missing,Lịch CRS,Cờ thiếu thời gian bay kế hoạch,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.0
+is_red_eye,Lịch CRS,Cờ chuyến đêm (22h–6h),Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.166
+is_morning_peak,Lịch CRS,Cờ cao điểm sáng (6–9h),Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.175
+is_evening_peak,Lịch CRS,Cờ cao điểm chiều (16–20h),Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.097
+same_state,Lịch CRS,Cờ tuyến nội bang,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.086
+month_sin,Lịch CRS,Mã hóa chu kỳ sin của tháng,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.112
+month_cos,Lịch CRS,Mã hóa chu kỳ cos của tháng,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.136
+doy_sin,Lịch CRS,Mã hóa chu kỳ sin của ngày trong năm,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.313
+doy_cos,Lịch CRS,Mã hóa chu kỳ cos của ngày trong năm,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.319
+weekday_sin,Lịch CRS,Mã hóa chu kỳ sin của thứ,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.241
+weekday_cos,Lịch CRS,Mã hóa chu kỳ cos của thứ,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.195
+dep_hour_sin,Lịch CRS,Mã hóa chu kỳ sin của giờ cất cánh KH,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.285
+dep_hour_cos,Lịch CRS,Mã hóa chu kỳ cos của giờ cất cánh KH,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.368
+origin_day_flights,Lịch CRS,Số chuyến lịch trong ngày tại sân bay đi,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.165
+origin_hour_flights,Lịch CRS,Số chuyến lịch cùng giờ tại sân bay đi,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.135
+dest_day_flights,Lịch CRS,Số chuyến lịch trong ngày tới sân bay đến,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.273
+route_day_flights,Lịch CRS,Số chuyến lịch trong ngày trên tuyến,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.072
+carrier_day_flights,Lịch CRS,Số chuyến lịch trong ngày của hãng,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.297
+carrier_rate,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' lũy kế trước ngày D theo hãng (làm trơn),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.172
+carrier_rate_n,Lịch sử ≤ D-1,Số chuyến lịch sử dùng để tính tỷ lệ trễ theo hãng,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.223
+origin_rate,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' lũy kế trước ngày D theo sân bay đi (làm trơn),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.162
+origin_rate_n,Lịch sử ≤ D-1,Số chuyến lịch sử dùng để tính tỷ lệ trễ theo sân bay đi,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.189
+dest_rate,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' lũy kế trước ngày D theo sân bay đến (làm trơn),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.178
+dest_rate_n,Lịch sử ≤ D-1,Số chuyến lịch sử dùng để tính tỷ lệ trễ theo sân bay đến,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.241
+route_rate,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' lũy kế trước ngày D theo tuyến (làm trơn),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.156
+route_rate_n,Lịch sử ≤ D-1,Số chuyến lịch sử dùng để tính tỷ lệ trễ theo tuyến,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.148
+carrier_route_rate,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' lũy kế trước ngày D theo hãng × tuyến (làm trơn),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.27
+carrier_route_rate_n,Lịch sử ≤ D-1,Số chuyến lịch sử dùng để tính tỷ lệ trễ theo hãng × tuyến,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.164
+origin_hour_rate,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' lũy kế trước ngày D theo sân bay đi × giờ cất cánh KH (làm trơn),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.169
+origin_hour_rate_n,Lịch sử ≤ D-1,Số chuyến lịch sử dùng để tính tỷ lệ trễ theo sân bay đi × giờ cất cánh KH,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.196
+flight_number_rate,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' lũy kế trước ngày D theo hãng × số hiệu chuyến (làm trơn),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.243
+flight_number_rate_n,Lịch sử ≤ D-1,Số chuyến lịch sử dùng để tính tỷ lệ trễ theo hãng × số hiệu chuyến,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.146
+fn_arr_mean,Lịch sử ≤ D-1,Lần khai thác gần nhất trước D của chuyến cùng số hiệu: trễ đến trung bình (phút),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.406
+fn_delayed,Lịch sử ≤ D-1,Lần khai thác gần nhất trước D của chuyến cùng số hiệu: tỷ lệ trễ ≥15',Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.084
+fn_n,Lịch sử ≤ D-1,Lần khai thác gần nhất trước D của chuyến cùng số hiệu: số chuyến,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.075
+fn_days,Lịch sử ≤ D-1,Lần khai thác gần nhất trước D của chuyến cùng số hiệu: số ngày kể từ,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.137
+route_fn_arr_mean,Lịch sử ≤ D-1,Lần khai thác gần nhất trước D của chuyến cùng số hiệu và tuyến: trễ đến trung bình (phút),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.943
+route_fn_delayed,Lịch sử ≤ D-1,Lần khai thác gần nhất trước D của chuyến cùng số hiệu và tuyến: tỷ lệ trễ ≥15',Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.178
+route_fn_n,Lịch sử ≤ D-1,Lần khai thác gần nhất trước D của chuyến cùng số hiệu và tuyến: số chuyến,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.088
+route_fn_days,Lịch sử ≤ D-1,Lần khai thác gần nhất trước D của chuyến cùng số hiệu và tuyến: số ngày kể từ,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.129
+carrier_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),1.083
+carrier_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.18
+carrier_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.175
+carrier_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.181
+origin_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.295
+origin_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.143
+origin_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.17
+origin_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.172
+dest_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đến của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.494
+dest_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đến trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.194
+dest_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đến trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.176
+dest_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đến lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.17
+route_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo tuyến của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.085
+route_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo tuyến trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.124
+route_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo tuyến trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.166
+route_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo tuyến lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.258
+carrier_route_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × tuyến của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.081
+carrier_route_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × tuyến trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.285
+carrier_route_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × tuyến trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.466
+carrier_route_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × tuyến lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.827
+origin_hour_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × giờ cất cánh KH của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.112
+origin_hour_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × giờ cất cánh KH trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.205
+origin_hour_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × giờ cất cánh KH trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.541
+origin_hour_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × giờ cất cánh KH lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.323
+dest_hour_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đến × giờ hạ cánh KH của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.121
+dest_hour_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đến × giờ hạ cánh KH trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.206
+dest_hour_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đến × giờ hạ cánh KH trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.55
+dest_hour_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đến × giờ hạ cánh KH lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.646
+carrier_hour_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × giờ cất cánh KH của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.237
+carrier_hour_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × giờ cất cánh KH trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.665
+carrier_hour_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × giờ cất cánh KH trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),2.188
+carrier_hour_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × giờ cất cánh KH lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.928
+carrier_origin_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × sân bay đi của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.36
+carrier_origin_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × sân bay đi trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.589
+carrier_origin_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × sân bay đi trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.929
+carrier_origin_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × sân bay đi lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),1.014
+carrier_dest_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × sân bay đến của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.358
+carrier_dest_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × sân bay đến trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.447
+carrier_dest_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × sân bay đến trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.249
+carrier_dest_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × sân bay đến lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.312
+origin_month_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × tháng của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.25
+origin_month_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × tháng trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.157
+origin_month_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × tháng trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.155
+origin_month_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × tháng lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.161
+carrier_month_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × tháng của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.466
+carrier_month_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × tháng trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.219
+carrier_month_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × tháng trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.145
+carrier_month_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × tháng lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.163
+origin_weekday_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × thứ của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.139
+origin_weekday_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × thứ trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.16
+origin_weekday_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × thứ trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.184
+origin_weekday_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo sân bay đi × thứ lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.208
+carrier_weekday_prev_day,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × thứ của ngày có dữ liệu gần nhất trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.187
+carrier_weekday_7d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × thứ trong 7 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.185
+carrier_weekday_30d,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × thứ trong 30 ngày có dữ liệu trước D,Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.191
+carrier_weekday_prior,Lịch sử ≤ D-1,Tỷ lệ trễ ≥15' theo hãng × thứ lũy kế trước D (làm trơn Bayes),Số,Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING),marts.fact_flight (8.1),0.191
+origin_wx_precip_sum,Thời tiết,Tổng lượng mưa ngày (mm) tại sân bay đi,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.341
+origin_wx_precip_max,Thời tiết,Lượng mưa giờ lớn nhất (mm) tại sân bay đi,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.24
+origin_wx_wind_max,Thời tiết,Gió lớn nhất (km/h) tại sân bay đi,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.212
+origin_wx_gust_max,Thời tiết,Gió giật lớn nhất (km/h) tại sân bay đi,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.266
+origin_wx_visibility_min,Thời tiết,Tầm nhìn nhỏ nhất (m) tại sân bay đi,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.0
+origin_wx_cloud_mean,Thời tiết,Mây trung bình (%) tại sân bay đi,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.285
+origin_wx_temp_mean,Thời tiết,Nhiệt độ trung bình (°c) tại sân bay đi,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.93
+origin_wx_weather_code_max,Thời tiết,Mã thời tiết wmo nặng nhất tại sân bay đi,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,1.68
+origin_wx_bad_hours,Thời tiết,Số giờ thời tiết xấu (mưa lớn/gió giật/tầm nhìn kém/dông) tại sân bay đi,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.425
+origin_wx_missing,Thời tiết,Cờ thiếu dữ liệu thời tiết tại sân bay đi,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.0
+dest_wx_precip_sum,Thời tiết,Tổng lượng mưa ngày (mm) tại sân bay đến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.45
+dest_wx_precip_max,Thời tiết,Lượng mưa giờ lớn nhất (mm) tại sân bay đến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.363
+dest_wx_wind_max,Thời tiết,Gió lớn nhất (km/h) tại sân bay đến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.319
+dest_wx_gust_max,Thời tiết,Gió giật lớn nhất (km/h) tại sân bay đến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.307
+dest_wx_visibility_min,Thời tiết,Tầm nhìn nhỏ nhất (m) tại sân bay đến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.0
+dest_wx_cloud_mean,Thời tiết,Mây trung bình (%) tại sân bay đến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.261
+dest_wx_temp_mean,Thời tiết,Nhiệt độ trung bình (°c) tại sân bay đến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.438
+dest_wx_weather_code_max,Thời tiết,Mã thời tiết wmo nặng nhất tại sân bay đến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.545
+dest_wx_bad_hours,Thời tiết,Số giờ thời tiết xấu (mưa lớn/gió giật/tầm nhìn kém/dông) tại sân bay đến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.28
+dest_wx_missing,Thời tiết,Cờ thiếu dữ liệu thời tiết tại sân bay đến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.0
+wx_bad_hours_both,Thời tiết,Tổng giờ thời tiết xấu tại sân bay đi + đến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,1.583
+wx_wind_max_both,Thời tiết,Gió lớn nhất giữa hai đầu tuyến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,0.41
+wx_precip_sum_both,Thời tiết,Tổng mưa hai đầu tuyến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,2.169
+wx_bad_any,Thời tiết,Cờ có thời tiết xấu ở ít nhất một đầu tuyến,Số,Dự báo ngày bay (proxy: quan trắc Open-Meteo),Open-Meteo archive API,1.049
+origin_dep_in_hour,Lịch CRS,Số chuyến cất cánh lịch cùng giờ tại sân bay đi,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.106
+dest_arr_in_hour,Lịch CRS,Số chuyến hạ cánh lịch cùng giờ tại sân bay đến,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.171
+pace_mph,Lịch CRS,Tốc độ kế hoạch = khoảng cách / thời gian bay KH,Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.403
+has_inbound,Lịch sử tàu bay,Có chặng inbound cùng hãng + số hiệu hạ cánh tại sân bay đi trước giờ đi KH,Số,Sự kiện chặng inbound đã xảy ra ≤ T_pred,intermediate.int_flights_2022_2023,0.0
+sched_turn_min,Lịch sử tàu bay,Thời gian quay đầu kế hoạch giữa chặng inbound và chuyến (phút),Số,Sự kiện chặng inbound đã xảy ra ≤ T_pred,intermediate.int_flights_2022_2023,0.188
+in_status_known,Lịch sử tàu bay,Trạng thái chặng inbound đã biết tại T_pred,Số,Sự kiện chặng inbound đã xảy ra ≤ T_pred,intermediate.int_flights_2022_2023,0.104
+in_dep_delay_known,Lịch sử tàu bay,Độ trễ cất cánh chặng inbound (chỉ khi đã cất cánh trước T_pred),Số,Sự kiện chặng inbound đã xảy ra ≤ T_pred,intermediate.int_flights_2022_2023,0.41
+in_cancel_known,Lịch sử tàu bay,Chặng inbound bị hủy và đã biết tại T_pred,Số,Sự kiện chặng inbound đã xảy ra ≤ T_pred,intermediate.int_flights_2022_2023,0.566
+in_delay_lb,Lịch sử tàu bay,Cận dưới độ trễ chặng inbound đã biết tại T_pred,Số,Sự kiện chặng inbound đã xảy ra ≤ T_pred,intermediate.int_flights_2022_2023,1.046
+turn_slack_lb,Lịch sử tàu bay,Dư địa quay đầu = quay đầu KH − cận dưới trễ inbound,Số,Sự kiện chặng inbound đã xảy ra ≤ T_pred,intermediate.int_flights_2022_2023,1.286
+o_dep_n_60,Nowcast sân bay,Số chuyến đã cất cánh tại sân bay đi trong 60 phút trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.127
+o_dep_mean_60,Nowcast sân bay,Trễ trung bình các chuyến đã cất cánh tại sân bay đi trong 60 phút trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.266
+o_dep_r15_60,Nowcast sân bay,Tỷ lệ trễ ≥15' các chuyến đã cất cánh tại sân bay đi trong 60 phút trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.244
+o_dep_mean_180,Nowcast sân bay,Trễ trung bình các chuyến đã cất cánh tại sân bay đi trong 180 phút trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.411
+o_dep_r15_180,Nowcast sân bay,Tỷ lệ trễ ≥15' các chuyến đã cất cánh tại sân bay đi trong 180 phút trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.55
+o_dep_mean_day,Nowcast sân bay,Trễ trung bình các chuyến đã cất cánh tại sân bay đi từ đầu ngày trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.524
+o_dep_r15_day,Nowcast sân bay,Tỷ lệ trễ ≥15' các chuyến đã cất cánh tại sân bay đi từ đầu ngày trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.609
+o_backlog,Nowcast sân bay,Số chuyến đến giờ đi KH nhưng chưa cất cánh tại sân bay đi,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,1.824
+o_cancel_180,Nowcast sân bay,Số chuyến bị hủy tại sân bay đi trong 180 phút gần nhất,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.521
+o_cancel_day,Nowcast sân bay,Số chuyến bị hủy tại sân bay đi từ đầu ngày,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.161
+o_arr_mean_60,Nowcast sân bay,Trễ trung bình các chuyến đã hạ cánh tại sân bay đi trong 60 phút trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.603
+o_arr_r15_day,Nowcast sân bay,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh tại sân bay đi từ đầu ngày trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,1.251
+d_dep_mean_60,Nowcast sân bay,Trễ trung bình các chuyến đã cất cánh tại sân bay đến trong 60 phút trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.344
+d_dep_r15_day,Nowcast sân bay,Tỷ lệ trễ ≥15' các chuyến đã cất cánh tại sân bay đến từ đầu ngày trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.684
+d_arr_mean_60,Nowcast sân bay,Trễ trung bình các chuyến đã hạ cánh tại sân bay đến trong 60 phút trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.443
+d_arr_r15_60,Nowcast sân bay,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh tại sân bay đến trong 60 phút trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,0.262
+d_arr_r15_day,Nowcast sân bay,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh tại sân bay đến từ đầu ngày trước T_pred,Số,Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ địa phương),intermediate.int_flights_2022_2023,1.031
+nat_dep_n_60,Nowcast mạng lưới,Số chuyến đã cất cánh (toàn quốc) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.296
+nat_dep_mean_60,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (toàn quốc) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.145
+nat_dep_r15_60,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (toàn quốc) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.565
+nat_dep_n_120,Nowcast mạng lưới,Số chuyến đã cất cánh (toàn quốc) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.332
+nat_dep_mean_120,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (toàn quốc) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.158
+nat_dep_r15_120,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (toàn quốc) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.257
+nat_dep_n_360,Nowcast mạng lưới,Số chuyến đã cất cánh (toàn quốc) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.298
+nat_dep_mean_360,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (toàn quốc) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.147
+nat_dep_r15_360,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (toàn quốc) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.159
+nat_dep_n_720,Nowcast mạng lưới,Số chuyến đã cất cánh (toàn quốc) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.164
+nat_dep_mean_720,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (toàn quốc) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.161
+nat_dep_r15_720,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (toàn quốc) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.159
+nat_arr_n_60,Nowcast mạng lưới,Số chuyến đã hạ cánh (toàn quốc) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.147
+nat_arr_mean_60,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (toàn quốc) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.161
+nat_arr_r15_60,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (toàn quốc) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.141
+nat_arr_n_120,Nowcast mạng lưới,Số chuyến đã hạ cánh (toàn quốc) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.15
+nat_arr_mean_120,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (toàn quốc) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.158
+nat_arr_r15_120,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (toàn quốc) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.15
+nat_arr_n_360,Nowcast mạng lưới,Số chuyến đã hạ cánh (toàn quốc) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.153
+nat_arr_mean_360,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (toàn quốc) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.161
+nat_arr_r15_360,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (toàn quốc) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.148
+nat_arr_n_720,Nowcast mạng lưới,Số chuyến đã hạ cánh (toàn quốc) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.245
+nat_arr_mean_720,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (toàn quốc) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.205
+nat_arr_r15_720,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (toàn quốc) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.185
+nat_cancel_rate_360,Nowcast mạng lưới,Tỷ lệ hủy chuyến (toàn quốc) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.25
+car_dep_n_60,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng hãng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.104
+car_dep_mean_60,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng hãng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.196
+car_dep_r15_60,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hãng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,1.064
+car_dep_n_120,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng hãng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.116
+car_dep_mean_120,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng hãng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,1.594
+car_dep_r15_120,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hãng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,5.956
+car_dep_n_360,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng hãng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.167
+car_dep_mean_360,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng hãng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.266
+car_dep_r15_360,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hãng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,1.678
+car_dep_n_720,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng hãng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.183
+car_dep_mean_720,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng hãng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.144
+car_dep_r15_720,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hãng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.454
+car_arr_n_60,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng hãng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.098
+car_arr_mean_60,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng hãng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.194
+car_arr_r15_60,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng hãng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.148
+car_arr_n_120,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng hãng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.115
+car_arr_mean_120,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng hãng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.554
+car_arr_r15_120,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng hãng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.723
+car_arr_n_360,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng hãng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.158
+car_arr_mean_360,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng hãng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.322
+car_arr_r15_360,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng hãng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.177
+car_arr_n_720,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng hãng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.214
+car_arr_mean_720,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng hãng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.247
+car_arr_r15_720,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng hãng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.193
+car_cancel_rate_360,Nowcast mạng lưới,Tỷ lệ hủy chuyến (cùng hãng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.375
+reg_dep_n_60,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng vùng sân bay đi) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.133
+reg_dep_mean_60,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng vùng sân bay đi) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.213
+reg_dep_r15_60,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng vùng sân bay đi) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,1.348
+reg_dep_n_120,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng vùng sân bay đi) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.164
+reg_dep_mean_120,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng vùng sân bay đi) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.4
+reg_dep_r15_120,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng vùng sân bay đi) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,3.56
+reg_dep_n_360,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng vùng sân bay đi) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.163
+reg_dep_mean_360,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng vùng sân bay đi) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.136
+reg_dep_r15_360,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng vùng sân bay đi) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.156
+reg_dep_n_720,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng vùng sân bay đi) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.162
+reg_dep_mean_720,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng vùng sân bay đi) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.174
+reg_dep_r15_720,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng vùng sân bay đi) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.172
+reg_arr_n_60,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng vùng sân bay đi) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.118
+reg_arr_mean_60,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng vùng sân bay đi) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.226
+reg_arr_r15_60,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng vùng sân bay đi) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.18
+reg_arr_n_120,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng vùng sân bay đi) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.127
+reg_arr_mean_120,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng vùng sân bay đi) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.216
+reg_arr_r15_120,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng vùng sân bay đi) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.205
+reg_arr_n_360,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng vùng sân bay đi) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.16
+reg_arr_mean_360,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng vùng sân bay đi) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.23
+reg_arr_r15_360,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng vùng sân bay đi) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.182
+reg_arr_n_720,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng vùng sân bay đi) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.202
+reg_arr_mean_720,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng vùng sân bay đi) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.249
+reg_arr_r15_720,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng vùng sân bay đi) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.224
+reg_cancel_rate_360,Nowcast mạng lưới,Tỷ lệ hủy chuyến (cùng vùng sân bay đi) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.295
+cr_dep_n_60,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng hãng × vùng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.078
+cr_dep_mean_60,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng hãng × vùng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.221
+cr_dep_r15_60,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hãng × vùng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.112
+cr_dep_n_120,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng hãng × vùng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.093
+cr_dep_mean_120,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng hãng × vùng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.258
+cr_dep_r15_120,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hãng × vùng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,1.405
+cr_dep_n_360,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng hãng × vùng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.11
+cr_dep_mean_360,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng hãng × vùng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.226
+cr_dep_r15_360,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hãng × vùng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,1.896
+cr_dep_n_720,Nowcast mạng lưới,Số chuyến đã cất cánh (cùng hãng × vùng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.135
+cr_dep_mean_720,Nowcast mạng lưới,Trễ trung bình các chuyến đã cất cánh (cùng hãng × vùng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.156
+cr_dep_r15_720,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hãng × vùng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.241
+cr_arr_n_60,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng hãng × vùng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.085
+cr_arr_mean_60,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng hãng × vùng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.186
+cr_arr_r15_60,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng hãng × vùng) trong 60 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.104
+cr_arr_n_120,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng hãng × vùng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.092
+cr_arr_mean_120,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng hãng × vùng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.255
+cr_arr_r15_120,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng hãng × vùng) trong 120 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.125
+cr_arr_n_360,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng hãng × vùng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.116
+cr_arr_mean_360,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng hãng × vùng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.281
+cr_arr_r15_360,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng hãng × vùng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.394
+cr_arr_n_720,Nowcast mạng lưới,Số chuyến đã hạ cánh (cùng hãng × vùng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.164
+cr_arr_mean_720,Nowcast mạng lưới,Trễ trung bình các chuyến đã hạ cánh (cùng hãng × vùng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.295
+cr_arr_r15_720,Nowcast mạng lưới,Tỷ lệ trễ ≥15' các chuyến đã hạ cánh (cùng hãng × vùng) trong 720 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.301
+cr_cancel_rate_360,Nowcast mạng lưới,Tỷ lệ hủy chuyến (cùng hãng × vùng) trong 360 phút trước T_pred,Số,Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ UTC),intermediate.int_flights_2022_2023 + múi giờ IANA,0.412
+origin_hub_flights,Lịch CRS,Quy mô hub sân bay đi (số chuyến kỳ train),Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.18
+dest_hub_flights,Lịch CRS,Quy mô hub sân bay đến (số chuyến kỳ train),Số,Khi lịch CRS được công bố (trước ngày bay),marts.fact_flight + dim_* (8.1),0.341

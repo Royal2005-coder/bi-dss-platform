@@ -1,0 +1,6 @@
+work/
+outputs/
+data/*.duckdb
+!data/
+!data/weather_daily.parquet
+__pycache__/

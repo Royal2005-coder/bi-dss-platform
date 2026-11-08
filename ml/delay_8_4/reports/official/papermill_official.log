@@ -1,0 +1,437 @@
+Input Notebook:  dss_delay_prediction.ipynb
+Output Notebook: dss_delay_prediction_executed.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Executing notebook with kernel: python3
+Executing Cell 1---------------------------------------
+Ending Cell 1------------------------------------------
+Executing Cell 2---------------------------------------
+Ending Cell 2------------------------------------------
+Executing Cell 3---------------------------------------
+Ending Cell 3------------------------------------------
+Executing Cell 4---------------------------------------
+Ending Cell 4------------------------------------------
+Executing Cell 5---------------------------------------
+ML_DIR : /home/ai1/bi-dss/rnd_8_4/delay_8_4
+DB     : /home/ai1/bi-dss/rnd_8_4/delay_8_4/data/warehouse.duckdb exists = True (569 MB)
+Python : 3.11.18 | Linux-5.15.0-139-generic-x86_64-with-glibc2.31
+
+Ending Cell 5------------------------------------------
+Executing Cell 6---------------------------------------
+name, memory.total [MiB], memory.used [MiB]
+NVIDIA GeForce RTX 4060, 8188 MiB, 3922 MiB
+
+XGBoost CUDA: OK
+xgboost 3.2.0 | lightgbm 4.7.0 | sklearn 1.9.1 | duckdb 2.0.0
+
+Ending Cell 6------------------------------------------
+Executing Cell 7---------------------------------------
+Ending Cell 7------------------------------------------
+Executing Cell 8---------------------------------------
+Ending Cell 8------------------------------------------
+Executing Cell 9---------------------------------------
+          split   tu_ngay  den_ngay  so_chuyen  hoan_thanh  ty_le_tre15
+0       1-train  20220101  20230430     910505    886032.0       0.2131
+1  2-validation  20230501  20230630     118115    116224.0       0.2237
+2        3-test  20230701  20230831     122724    119920.0       0.2526
+Ending Cell 9------------------------------------------
+Executing Cell 10--------------------------------------
+Ending Cell 10-----------------------------------------
+Executing Cell 11--------------------------------------
+[run ] step 1 features_base
+
+wrote /home/ai1/bi-dss/rnd_8_4/delay_8_4/work/features.parquet (1151344, 86) labelled 1122174
+[done] step 1 features_base in 12s
+[run ] step 2 features_v8
+
+cached /home/ai1/bi-dss/rnd_8_4/delay_8_4/work/features_v8.parquet (1151344, 171)
+[done] step 2 features_v8 in 8s
+[run ] step 3 nowcast_h60
+
+wrote /home/ai1/bi-dss/rnd_8_4/delay_8_4/work/nowcast_h60.parquet rows=1151344 has_inbound=0.020 inbound_known=0.969 H=60 in 2.0s
+[done] step 3 nowcast_h60 in 2s
+[run ] step 4 network_h60
+
+tz cross-check vs CRS_ARR: 0.9999 exact match
+
+wrote /home/ai1/bi-dss/rnd_8_4/delay_8_4/work/network_h60_v2.parquet rows=1151344 mean nat_dep_n_120=185.1 car_dep_n_120=20.1 H=60 in 9.8s
+
+[done] step 4 network_h60 in 10s
+-> exit 0 sau 32s
+
+Ending Cell 11-----------------------------------------
+Executing Cell 12--------------------------------------
+features_v8: (1151344, 3) | nowcast_h60: (1151344, 25) | network_h60: (1151344, 101)
+Ty le chuyen co chang inbound cung so hieu (proxy tau bay): 1.955%  <- thap vi du lieu la mau ~10% nen chuoi quay vong bi dut
+So chuyen toan quoc da cat canh trong 120' truoc T_pred (TB): 185; theo hang: 20.1
+
+                           mean            std        min           max
+flight_key        575672.500000  332364.528502   1.000000  1.151344e+06
+nat_dep_n_60          94.568993      29.873943   0.000000  2.070000e+02
+nat_dep_mean_60       11.582430      14.903715 -29.000000  4.650000e+02
+nat_dep_r15_60         0.196620       0.138761   0.000000  1.000000e+00
+nat_dep_n_120        185.105469      61.519070   0.000000  3.150000e+02
+nat_dep_mean_120      11.187387      12.826289 -11.000000  2.525000e+02
+nat_dep_r15_120        0.191991       0.129973   0.000000  1.000000e+00
+nat_dep_n_360        499.504395     200.616821   0.000000  7.720000e+02
+nat_dep_mean_360      10.831879      11.343656  -5.258883  1.274677e+02
+nat_dep_r15_360        0.181785       0.114729   0.000000  8.145695e-01
+nat_dep_n_720        891.437622     290.651978   0.000000  1.509000e+03
+nat_dep_mean_720      11.945221       9.490069  -3.141510  8.598438e+01
+Ending Cell 12-----------------------------------------
+Executing Cell 13--------------------------------------
+Ending Cell 13-----------------------------------------
+Executing Cell 14--------------------------------------
+                                Thí nghiệm  Val AUC  Test AUC  \
+0          v10 (bàn giao cũ) LGBM+XGB rank   0.7364    0.7280   
+1                 A0 · CRS + lịch sử ≤ D-1   0.7203    0.7097   
+2                A1 · + thời tiết ngày bay   0.7355    0.7269   
+3   B1 · + lịch sử tàu bay (inbound) @T-60   0.7374    0.7296   
+4             B2 · + nowcast sân bay @T-60   0.7459    0.7365   
+5                                B1 @T-120   0.7367    0.7288   
+6                                B2 @T-120   0.7430    0.7336   
+7           B3 · + nowcast mạng lưới (UTC)   0.7492    0.7395   
+8   C1 · mạng lưới v2 (hãng×vùng, 60–720')   0.7496    0.7401   
+9           C2 · + trọng số gần đây (loại)   0.7484    0.7394   
+10                   LightGBM cùng bộ biến   0.7508    0.7410   
+11                     Ensemble XGB + LGBM   0.7511    0.7415   
+
+                        Ghi chú  
+0   D-1, ensemble theo thứ hạng  
+1                      132 biến  
+2                      156 biến  
+3                      163 biến  
+4                      180 biến  
+5                      163 biến  
+6                      180 biến  
+7                      219 biến  
+8                                
+9                                
+10                               
+11                               
+Ending Cell 14-----------------------------------------
+Executing Cell 15--------------------------------------
+Ending Cell 15-----------------------------------------
+Executing Cell 16--------------------------------------
+[run ] step 5 train_final_v14
+
+[22:38:02] device=cuda xgb=3.2.0 lgb=4.7.0 sklearn=1.9.1
+
+[22:38:08] rows=1151344 labelled=1122174 train=886031 val=116223 test=119920 features=280
+
+[22:42:07] stage1 val AUC=0.7523 test AUC=0.7416 thr=0.25
+
+[22:46:12] stage2 test AUC=0.7443 CI95=[0.7412566305773519, 0.7473425847183136]
+
+[22:46:46] wrote /home/ai1/bi-dss/rnd_8_4/delay_8_4/outputs/DSS_Flight_Prediction.csv rows=1151344 prob range=[0.0010,0.9990]
+
+[22:46:47] DONE in 524s
+
+[done] step 5 train_final_v14 in 526s
+-> exit 0 sau 526s
+
+Ending Cell 16-----------------------------------------
+Executing Cell 17--------------------------------------
+Test AUC stage 2 - CI95 bootstrap: [0.7413, 0.7473]
+AUC theo thang (test): {'7': 0.7515, '8': 0.7276}
+
+                       Mô hình  ROC-AUC  PR-AUC   Brier  Ngưỡng  Precision  \
+0         Stage 1 · Validation   0.7523  0.4896  0.1459    0.25     0.4245   
+1               Stage 1 · Test   0.7416  0.5106  0.1597    0.25     0.4217   
+2  Stage 2 (triển khai) · Test   0.7443  0.5146  0.1594    0.25     0.4130   
+3          Stage 2 · Test @0.5   0.7443  0.5146  0.1594    0.50     0.6106   
+
+   Recall      F1  Accuracy     TN     FP     FN     TP  
+0  0.6052  0.4990    0.7281  68884  21336  10267  15736  
+1  0.6673  0.5168    0.6848  61906  27724  10076  20214  
+2  0.6925  0.5174    0.6738  59824  29806   9315  20975  
+3  0.2893  0.3926    0.7739  84042   5588  21527   8763  
+Ending Cell 17-----------------------------------------
+Executing Cell 18--------------------------------------
+<IPython.core.display.Image object>
+<IPython.core.display.Image object>
+<IPython.core.display.Image object>
+<IPython.core.display.Image object>
+<IPython.core.display.Image object>
+<IPython.core.display.Image object>
+<IPython.core.display.Image object>
+Ending Cell 18-----------------------------------------
+Executing Cell 19--------------------------------------
+family
+Nowcast mạng lưới T-60       0.377
+Lịch CRS & lịch sử ≤ D-1     0.363
+Thời tiết ngày bay           0.126
+Nowcast sân bay T-60         0.099
+Lịch sử tàu bay (inbound)    0.036
+Name: gain_share, dtype: float64
+
+                       feature  gain_share                     family
+0              car_dep_r15_120      0.0596     Nowcast mạng lưới T-60
+1              reg_dep_r15_120      0.0356     Nowcast mạng lưới T-60
+2             carrier_hour_30d      0.0219   Lịch CRS & lịch sử ≤ D-1
+3           wx_precip_sum_both      0.0217         Thời tiết ngày bay
+4               cr_dep_r15_360      0.0190     Nowcast mạng lưới T-60
+5                    o_backlog      0.0182       Nowcast sân bay T-60
+6   origin_wx_weather_code_max      0.0168         Thời tiết ngày bay
+7              car_dep_r15_360      0.0168     Nowcast mạng lưới T-60
+8             car_dep_mean_120      0.0159     Nowcast mạng lưới T-60
+9            wx_bad_hours_both      0.0158         Thời tiết ngày bay
+10              cr_dep_r15_120      0.0140     Nowcast mạng lưới T-60
+11              reg_dep_r15_60      0.0135     Nowcast mạng lưới T-60
+12               turn_slack_lb      0.0129  Lịch sử tàu bay (inbound)
+13               o_arr_r15_day      0.0125       Nowcast sân bay T-60
+14            carrier_prev_day      0.0108   Lịch CRS & lịch sử ≤ D-1
+15              car_dep_r15_60      0.0106     Nowcast mạng lưới T-60
+16                  wx_bad_any      0.0105         Thời tiết ngày bay
+17                 in_delay_lb      0.0105  Lịch sử tàu bay (inbound)
+18               d_arr_r15_day      0.0103       Nowcast sân bay T-60
+19        carrier_origin_prior      0.0101   Lịch CRS & lịch sử ≤ D-1
+Ending Cell 19-----------------------------------------
+Executing Cell 20--------------------------------------
+Ending Cell 20-----------------------------------------
+Executing Cell 21--------------------------------------
+[run ] step 6 audit_leakage
+
+{
+  "features": {
+    "n_features": 280,
+    "banned_found": [],
+    "passed": true
+  },
+  "history_sql": {
+    "windows_ending_1_preceding": 6,
+    "windows_including_current_row": 0,
+    "passed": true
+  },
+  "inbound": {
+    "rows_with_inbound": 22505,
+    "share_with_inbound": 0.01954672104948651,
+    "delay_known_without_status_flag": 0,
+    "passed": true
+  },
+  "network_bruteforce": {
+    "sample": 400,
+    "carrier_count_match": 1.0,
+    "national_count_match": 1.0,
+    "carrier_r15_max_abs_err": 2.6490953208835322e-08,
+    "self_counted": 0,
+    "future_events_counted": 0,
+    "passed": true
+  },
+  "all_passed": true
+}
+[done] step 6 audit_leakage in 2s
+[run ] step 7 variable_dictionary
+
+wrote /home/ai1/bi-dss/rnd_8_4/delay_8_4/outputs/variable_dictionary_pre_event_v14.csv 280 features
+Nhom
+Nowcast mạng lưới    100
+Lịch sử ≤ D-1         78
+Lịch CRS              54
+Thời tiết             24
+Nowcast sân bay       17
+Lịch sử tàu bay        7
+[done] step 7 variable_dictionary in 0s
+-> exit 0 sau 2s
+{
+ "features": {
+  "n_features": 280,
+  "banned_found": [],
+  "passed": true
+ },
+ "history_sql": {
+  "windows_ending_1_preceding": 6,
+  "windows_including_current_row": 0,
+  "passed": true
+ },
+ "inbound": {
+  "rows_with_inbound": 22505,
+  "share_with_inbound": 0.01954672104948651,
+  "delay_known_without_status_flag": 0,
+  "passed": true
+ },
+ "network_bruteforce": {
+  "sample": 400,
+  "carrier_count_match": 1.0,
+  "national_count_match": 1.0,
+  "carrier_r15_max_abs_err": 2.6490953208835322e-08,
+  "self_counted": 0,
+  "future_events_counted": 0,
+  "passed": true
+ },
+ "all_passed": true
+}
+
+Ending Cell 21-----------------------------------------
+Executing Cell 22--------------------------------------
+                   so_bien  gain_pct
+Nhom                                
+Nowcast mạng lưới      100    37.671
+Lịch sử ≤ D-1           78    24.563
+Thời tiết               24    12.553
+Lịch CRS                54    11.760
+Nowcast sân bay         17     9.855
+Lịch sử tàu bay          7     3.600
+
+                           Bien               Nhom  \
+208             car_dep_r15_120  Nowcast mạng lưới   
+233             reg_dep_r15_120  Nowcast mạng lưới   
+101            carrier_hour_30d      Lịch sử ≤ D-1   
+149          wx_precip_sum_both          Thời tiết   
+261              cr_dep_r15_360  Nowcast mạng lưới   
+168                   o_backlog    Nowcast sân bay   
+134  origin_wx_weather_code_max          Thời tiết   
+211             car_dep_r15_360  Nowcast mạng lưới   
+207            car_dep_mean_120  Nowcast mạng lưới   
+147           wx_bad_hours_both          Thời tiết   
+258              cr_dep_r15_120  Nowcast mạng lưới   
+230              reg_dep_r15_60  Nowcast mạng lưới   
+160               turn_slack_lb    Lịch sử tàu bay   
+172               o_arr_r15_day    Nowcast sân bay   
+71             carrier_prev_day      Lịch sử ≤ D-1   
+
+                                                 Mo_ta Kieu  \
+208  Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hã...   Số   
+233  Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng vù...   Số   
+101  Tỷ lệ trễ ≥15' theo hãng × giờ cất cánh KH tro...   Số   
+149                             Tổng mưa hai đầu tuyến   Số   
+261  Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hã...   Số   
+168  Số chuyến đến giờ đi KH nhưng chưa cất cánh tạ...   Số   
+134          Mã thời tiết wmo nặng nhất tại sân bay đi   Số   
+211  Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hã...   Số   
+207  Trễ trung bình các chuyến đã cất cánh (cùng hã...   Số   
+147        Tổng giờ thời tiết xấu tại sân bay đi + đến   Số   
+258  Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng hã...   Số   
+230  Tỷ lệ trễ ≥15' các chuyến đã cất cánh (cùng vù...   Số   
+160  Dư địa quay đầu = quay đầu KH − cận dưới trễ i...   Số   
+172  Tỷ lệ trễ ≥15' các chuyến đã hạ cánh tại sân b...   Số   
+71   Tỷ lệ trễ ≥15' theo hãng của ngày có dữ liệu g...   Số   
+
+                                        Thoi_diem_biet  \
+208  Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ ...   
+233  Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ ...   
+101        Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING)   
+149      Dự báo ngày bay (proxy: quan trắc Open-Meteo)   
+261  Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ ...   
+168  Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ đị...   
+134      Dự báo ngày bay (proxy: quan trắc Open-Meteo)   
+211  Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ ...   
+207  Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ ...   
+147      Dự báo ngày bay (proxy: quan trắc Open-Meteo)   
+258  Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ ...   
+230  Sự kiện mạng lưới đã xảy ra ≤ T_pred (đồng hồ ...   
+160           Sự kiện chặng inbound đã xảy ra ≤ T_pred   
+172  Sự kiện tại sân bay đã xảy ra ≤ T_pred (giờ đị...   
+71         Cuối ngày D-1 (cửa sổ kết thúc 1 PRECEDING)   
+
+                                                 Nguon  Gain_share_pct  
+208  intermediate.int_flights_2022_2023 + múi giờ IANA           5.956  
+233  intermediate.int_flights_2022_2023 + múi giờ IANA           3.560  
+101                            marts.fact_flight (8.1)           2.188  
+149                             Open-Meteo archive API           2.169  
+261  intermediate.int_flights_2022_2023 + múi giờ IANA           1.896  
+168                 intermediate.int_flights_2022_2023           1.824  
+134                             Open-Meteo archive API           1.680  
+211  intermediate.int_flights_2022_2023 + múi giờ IANA           1.678  
+207  intermediate.int_flights_2022_2023 + múi giờ IANA           1.594  
+147                             Open-Meteo archive API           1.583  
+258  intermediate.int_flights_2022_2023 + múi giờ IANA           1.405  
+230  intermediate.int_flights_2022_2023 + múi giờ IANA           1.348  
+160                 intermediate.int_flights_2022_2023           1.286  
+172                 intermediate.int_flights_2022_2023           1.251  
+71                             marts.fact_flight (8.1)           1.083  
+Ending Cell 22-----------------------------------------
+Executing Cell 23--------------------------------------
+Ending Cell 23-----------------------------------------
+Executing Cell 24--------------------------------------
+1,151,344 dong | Delay_Probability [0.0010, 0.9990]
+{'P1': 210955, 'P2': 175855, 'P3': 364812, 'P4': 399722}
+SHA-256: 2d13dfc521dcc17a34059e7c69fa6cc6391943955a9312f81bb358b45b5e669d | 140.1 MB
+
+  Priority_Tier                    Tier_Name  \
+0            P1    Rủi ro cao · Tác động cao   
+1            P2   Rủi ro cao · Tác động thấp   
+2            P3   Rủi ro thấp · Tác động cao   
+3            P4  Rủi ro thấp · Tác động thấp   
+
+                                  Recommended_Action  Sort_Order  \
+0  Can thiệp ngay: bố trí tàu/tổ bay dự phòng, ưu...           1   
+1  Theo dõi sát: cảnh báo OCC, chuẩn bị phương án...           2   
+2  Giám sát định kỳ: chuyến tác động lớn, rủi ro ...           3   
+3                               Vận hành bình thường           4   
+
+   Decision_Threshold Prediction_Horizon                  Model_Version  
+0                0.25          T-60 phút  v14-ensemble-xgb-lgb-isotonic  
+1                0.25          T-60 phút  v14-ensemble-xgb-lgb-isotonic  
+2                0.25          T-60 phút  v14-ensemble-xgb-lgb-isotonic  
+3                0.25          T-60 phút  v14-ensemble-xgb-lgb-isotonic  
+   FlightKey   DateKey  CarrierKey  OriginAirportKey  DestAirportKey  \
+0          1  20220101           1                23             162   
+1          2  20220101           1               222             204   
+2          3  20220101           1                 1              23   
+3          4  20220101           1               184             105   
+4          5  20220101           1                68             204   
+5          6  20220101           1               204             229   
+6          7  20220101           1               143             105   
+7          8  20220101           1                23             362   
+
+   RouteKey  FlightNumber  FlightDate  CRSDepTime  ScheduledDepHour  ...  \
+0       224          4632  2022-01-01        1620                16  ...   
+1      3968          4640  2022-01-01        1140                11  ...   
+2         1          4644  2022-01-01         636                 6  ...   
+3      3164          4654  2022-01-01        1500                15  ...   
+4      1039          4657  2022-01-01        1110                11  ...   
+5      3592          4666  2022-01-01        1459                14  ...   
+6      2518          4682  2022-01-01         900                 9  ...   
+7       309          4685  2022-01-01        2100                21  ...   
+
+   Delay_Probability Predicted_Delayed15  Risk_Level Impact_Score  \
+0             0.3090                   1  Trung bình       0.5740   
+1             0.2892                   1  Trung bình       0.1249   
+2             0.1215                   0        Thấp       0.0717   
+3             0.1971                   0        Thấp       0.2609   
+4             0.1537                   0        Thấp       0.0960   
+5             0.4180                   1  Trung bình       0.3344   
+6             0.1102                   0        Thấp       0.0315   
+7             0.2993                   1  Trung bình       0.5175   
+
+   Priority_Score  Priority_Tier Actual_Delayed15  DatasetSplit  IsLabelled  \
+0           24.32             P1              1.0         train           1   
+1           16.26             P2              1.0         train           1   
+2            6.51             P4              0.0         train           1   
+3           12.43             P3              NaN         train           0   
+4            8.42             P4              0.0         train           1   
+5           27.89             P1              1.0         train           1   
+6            5.68             P4              0.0         train           1   
+7           22.71             P1              NaN         train           0   
+
+  RouteName  
+0   ATL-HPN  
+1   MEM-LGA  
+2   ABE-ATL  
+3   JFK-DTW  
+4   CHS-LGA  
+5   LGA-MKE  
+6   GRB-DTW  
+7   ATL-VLD  
+
+[8 rows x 24 columns]
+Ending Cell 24-----------------------------------------
+Executing Cell 25--------------------------------------
+Ending Cell 25-----------------------------------------
+Executing Cell 26--------------------------------------
+Ending Cell 26-----------------------------------------
+Executing Cell 27--------------------------------------
+{'generated_at': '2026-11-08 22:46:50',
+ 'env': {'python': '3.11.18',
+  'platform': 'Linux-5.15.0-139-generic-x86_64-with-glibc2.31',
+  'device': 'cuda',
+  'xgboost': '3.2.0',
+  'lightgbm': '4.7.0',
+  'sklearn': '1.9.1'},
+ 'inputs': {'warehouse.duckdb_bytes': 569389056},
+ 'outputs': {'DSS_Flight_Prediction.csv': '2d13dfc521dcc17a34059e7c69fa6cc6391943955a9312f81bb358b45b5e669d',
+  'DSS_Flight_Prediction_sample.csv': '77b6e4b73450d79df428b0b952a25615dd3c0b9dd5495aa3d9c1c93e2d61c1a9',
+  'DSS_Priority_Tier.csv': '0bb8b4810f16ad8b8db395067ea9244e2d09b2ea6aa60e41a04ff0022d6517ff',
+  'feature_importance_v14.csv': '22e52c11e697507a2c3d07932547e3ab75e8e675d9ded6aeb458654cbf348269',
+  'variable_dictionary_pre_event_v14.csv': 'db6719115d4ab3aa873c22c6eeb7716c759a00ee14094ae5be57f731b912d840'}}
+Ending Cell 27-----------------------------------------

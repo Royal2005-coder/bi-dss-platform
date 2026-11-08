@@ -1,0 +1,21 @@
+{
+ "generated_at": "2026-11-08 22:46:50",
+ "env": {
+  "python": "3.11.18",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "device": "cuda",
+  "xgboost": "3.2.0",
+  "lightgbm": "4.7.0",
+  "sklearn": "1.9.1"
+ },
+ "inputs": {
+  "warehouse.duckdb_bytes": 569389056
+ },
+ "outputs": {
+  "DSS_Flight_Prediction.csv": "2d13dfc521dcc17a34059e7c69fa6cc6391943955a9312f81bb358b45b5e669d",
+  "DSS_Flight_Prediction_sample.csv": "77b6e4b73450d79df428b0b952a25615dd3c0b9dd5495aa3d9c1c93e2d61c1a9",
+  "DSS_Priority_Tier.csv": "0bb8b4810f16ad8b8db395067ea9244e2d09b2ea6aa60e41a04ff0022d6517ff",
+  "feature_importance_v14.csv": "22e52c11e697507a2c3d07932547e3ab75e8e675d9ded6aeb458654cbf348269",
+  "variable_dictionary_pre_event_v14.csv": "db6719115d4ab3aa873c22c6eeb7716c759a00ee14094ae5be57f731b912d840"
+ }
+}
