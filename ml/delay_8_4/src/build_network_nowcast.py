@@ -27,8 +27,7 @@ import pandas as pd
 from timezonefinder import TimezoneFinder
 
 DB = os.environ.get("BI_DUCKDB_PATH", os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "warehouse.duckdb"))
-EPOCH = date(2022, 1, 1)
-END = date(2023, 8, 31)
+from flights_source import END, EPOCH, flights_sql  # noqa: E402
 WINDOWS = (60, 120, 360, 720)
 GROUPS = {"nat": "'ALL'", "car": "carrier_code", "reg": "origin_region",
           "cr": "carrier_code || '_' || origin_region"}
@@ -36,7 +35,8 @@ GROUPS = {"nat": "'ALL'", "car": "carrier_code", "reg": "origin_region",
 
 def utc_offsets(con: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Return (airport, flight_date, off_min) with off_min = local - UTC at local noon."""
-    ap = con.execute("SELECT airport_code, region, latitude, longitude FROM marts.dim_airport").fetchdf()
+    ap = con.execute("SELECT airport_code, COALESCE(region, 'UNK') AS region, latitude, longitude FROM seeds.airport_master "
+                     "WHERE latitude IS NOT NULL").fetchdf()
     tf = TimezoneFinder()
     ap["tz"] = [tf.timezone_at(lng=lo, lat=la) for la, lo in zip(ap.latitude, ap.longitude)]
     if ap["tz"].isna().any():
@@ -55,6 +55,10 @@ def build(out_path: str, horizon: int) -> None:
     t0 = time.time()
     con = duckdb.connect(DB, read_only=True)
     con.execute("SET threads TO 8")
+    con.execute(f"SET memory_limit = '{os.environ.get('BI_DUCKDB_MEM', '3GB')}'")
+    con.execute("SET preserve_insertion_order = false")
+    tmp = os.path.join(os.environ.get("BI_WORK_DIR", os.path.dirname(os.path.abspath(__file__))), "duckdb_tmp")
+    con.execute(f"SET temp_directory = '{tmp.replace(os.sep, '/')}'")
     off, ap = utc_offsets(con)
     con.register("off_df", off)
     con.register("ap_df", ap)
@@ -63,8 +67,7 @@ def build(out_path: str, horizon: int) -> None:
         f"""
         CREATE TEMP TABLE f AS
         SELECT
-            CAST(ROW_NUMBER() OVER (ORDER BY s.flight_date, s.carrier_code, s.flight_number,
-                                     s.origin_code, s.dest_code) AS BIGINT) AS flight_key,
+            s.flight_key,
             s.flight_date, s.carrier_code, a.region AS origin_region,
             (s.crs_dep_time // 100) * 60 + s.crs_dep_time % 100 AS dep_m,
             (s.crs_arr_time // 100) * 60 + s.crs_arr_time % 100 AS arr_m,
@@ -72,7 +75,7 @@ def build(out_path: str, horizon: int) -> None:
             date_diff('day', DATE '{EPOCH}', s.flight_date) * 1440
               + (s.crs_dep_time // 100) * 60 + s.crs_dep_time % 100 - oo.off_min AS sdep_utc,
             od.off_min AS dest_off
-        FROM intermediate.int_flights_2022_2023 s
+        FROM ({flights_sql()}) s
         JOIN ap_df a ON a.airport_code = s.origin_code
         JOIN off oo ON oo.airport = s.origin_code AND oo.flight_date = s.flight_date
         LEFT JOIN off od ON od.airport = s.dest_code AND od.flight_date = s.flight_date
@@ -128,37 +131,52 @@ def build(out_path: str, horizon: int) -> None:
             ASOF LEFT JOIN {stream} s ON s.g = q.g AND s.kt <= q.tq
         """
 
-    select_parts, joins = [], []
+    # one group at a time -> per-group parquet (bounded memory), temp tables dropped after each group
+    part_paths = []
     for g, gexpr in GROUPS.items():
+        select_parts, joins, temps = [], [], []
         for ev in ("dep", "arr"):
             cols = ["c_n", "c_sum", "c_15"]
             con.execute(f"CREATE TEMP TABLE q_{g}_{ev}_0 AS {asof(f's_{g}_{ev}', gexpr, 0, cols)}")
-            joins.append(f"LEFT JOIN q_{g}_{ev}_0 USING (flight_key)")
+            temps.append(f"q_{g}_{ev}_0")
             for w in WINDOWS:
                 con.execute(f"CREATE TEMP TABLE q_{g}_{ev}_{w} AS {asof(f's_{g}_{ev}', gexpr, w, cols)}")
                 a, b = f"q_{g}_{ev}_0", f"q_{g}_{ev}_{w}"
+                temps.append(b)
                 n = f"({a}.c_n - {b}.c_n)"
                 select_parts += [
                     f"CAST({n} AS FLOAT) AS {g}_{ev}_n_{w}",
                     f"CAST(({a}.c_sum - {b}.c_sum) / NULLIF({n}, 0) AS FLOAT) AS {g}_{ev}_mean_{w}",
                     f"CAST(({a}.c_15 - {b}.c_15) / NULLIF({n}, 0) AS FLOAT) AS {g}_{ev}_r15_{w}",
                 ]
-                joins.append(f"LEFT JOIN {b} USING (flight_key)")
+                joins.append(f"JOIN {b} ON {b}.flight_key = q_{g}_dep_0.flight_key")
         cols = ["c_n", "c_c"]
         con.execute(f"CREATE TEMP TABLE q_{g}_sch_0 AS {asof(f's_{g}_sch', gexpr, 0, cols)}")
         con.execute(f"CREATE TEMP TABLE q_{g}_sch_360 AS {asof(f's_{g}_sch', gexpr, 360, cols)}")
+        temps += [f"q_{g}_sch_0", f"q_{g}_sch_360"]
         a, b = f"q_{g}_sch_0", f"q_{g}_sch_360"
         select_parts.append(
             f"CAST(({a}.c_c - {b}.c_c) / NULLIF({a}.c_n - {b}.c_n, 0) AS FLOAT) AS {g}_cancel_rate_360")
-        joins += [f"LEFT JOIN {a} USING (flight_key)", f"LEFT JOIN {b} USING (flight_key)"]
-    # rename ambiguous c_* columns by qualifying every reference above; DuckDB resolves USING joins
-    con.execute(
-        f"""
-        COPY (SELECT f.flight_key, {', '.join(select_parts)}
-              FROM f {' '.join(joins)} ORDER BY f.flight_key)
-        TO '{out_path}' (FORMAT PARQUET)
-        """
-    )
+        base = f"q_{g}_dep_0"
+        joins = [f"JOIN q_{g}_arr_0 ON q_{g}_arr_0.flight_key = {base}.flight_key"] + joins + [
+            f"JOIN {a} ON {a}.flight_key = {base}.flight_key", f"JOIN {b} ON {b}.flight_key = {base}.flight_key"]
+        part = out_path.replace(".parquet", f"_{g}.parquet")
+        con.execute(f"""COPY (SELECT {base}.flight_key, {', '.join(select_parts)} FROM {base} {' '.join(joins)}
+                         ORDER BY {base}.flight_key) TO '{part}' (FORMAT PARQUET)""")
+        for t in temps:
+            con.execute(f"DROP TABLE {t}")
+        part_paths.append(part)
+        print(f"  group {g}: {len(select_parts)} features", flush=True)
+    # every part is complete (one row per flight, ordered by flight_key) -> positional join in DuckDB
+    reads = [f"read_parquet('{pp}')" for pp in part_paths]
+    sel = ", ".join(["p0.*"] + [f"p{i}.* EXCLUDE (flight_key)" for i in range(1, len(reads))])
+    frm = f"{reads[0]} p0 " + " ".join(f"POSITIONAL JOIN {r} p{i}" for i, r in enumerate(reads[1:], 1))
+    con.execute(f"COPY (SELECT {sel} FROM {frm}) TO '{out_path}' (FORMAT PARQUET)")
+    chk = con.execute(f"SELECT COUNT(*) FROM {frm} WHERE " + " OR ".join(
+        f"p{i}.flight_key <> p0.flight_key" for i in range(1, len(reads)))).fetchone()[0]
+    assert chk == 0, f"positional join misaligned rows: {chk}"
+    for pp in part_paths:
+        os.remove(pp)
     n = con.execute(f"SELECT COUNT(*), AVG(nat_dep_n_120), AVG(car_dep_n_120) FROM read_parquet('{out_path}')").fetchone()
     print(f"wrote {out_path} rows={n[0]} mean nat_dep_n_120={n[1]:.1f} car_dep_n_120={n[2]:.1f} "
           f"H={horizon} in {time.time() - t0:.1f}s", flush=True)

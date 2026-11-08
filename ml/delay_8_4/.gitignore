@@ -4,3 +4,4 @@ data/*.duckdb
 !data/
 !data/weather_daily.parquet
 __pycache__/
+data/weather_hourly_utc.parquet

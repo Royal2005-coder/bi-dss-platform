@@ -11,7 +11,9 @@ Steps (each skipped when its output already exists, unless --force):
   7 variable_dictionary-> outputs/variable_dictionary_pre_event_v14.csv (all features, known_time)
 
 Usage:
-  python run_pipeline.py --db /path/warehouse.duckdb [--work DIR] [--out DIR] [--from-step N] [--to-step M] [--force]
+  python run_pipeline.py --db /path/warehouse.duckdb [--version v15|v14] [--work DIR] [--out DIR]
+                         [--from-step N] [--to-step M] [--force]
+  v15 (default): steps 1-7 = meteostat, features_all, nowcast, network, weather, train_final_v15, audit
 """
 from __future__ import annotations
 
@@ -23,6 +25,19 @@ import time
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, "src")
+
+
+def step_list_v15(work: str, out: str) -> list[tuple[int, str, list[str], str]]:
+    """v15: 2019-2023 history, hourly weather <= T_pred, XGB+LGBM+CatBoost, monthly walk-forward, DSS layer."""
+    return [
+        (1, "fetch_meteostat", ["fetch_meteostat.py"], os.path.join(ROOT, "data", "weather_hourly_utc.parquet")),
+        (2, "features_all", ["features_all.py"], os.path.join(work, "features_all.parquet")),
+        (3, "nowcast_h60", ["build_nowcast_features.py", "--horizon", "60"], os.path.join(work, "nowcast_h60.parquet")),
+        (4, "network_h60", ["build_network_nowcast.py", "--horizon", "60"], os.path.join(work, "network_h60_v2.parquet")),
+        (5, "weather_h60", ["build_weather_nowcast.py", "--horizon", "60"], os.path.join(work, "weather_h60.parquet")),
+        (6, "train_final_v15", ["train_final_v15.py"], ""),
+        (7, "audit_leakage", ["audit_leakage.py", "--report", os.path.join(out, "leakage_audit_v15.json")], ""),
+    ]
 
 
 def step_list(work: str, out: str) -> list[tuple[int, str, list[str], str]]:
@@ -46,6 +61,7 @@ def main() -> int:
     p.add_argument("--from-step", type=int, default=1)
     p.add_argument("--to-step", type=int, default=7)
     p.add_argument("--force", action="store_true")
+    p.add_argument("--version", choices=["v14", "v15"], default="v15")
     a = p.parse_args()
     for path, what in ((a.db, "DuckDB warehouse"), (a.weather, "weather parquet")):
         if not os.path.exists(path):
@@ -55,9 +71,10 @@ def main() -> int:
     os.makedirs(a.out, exist_ok=True)
     env = dict(os.environ, BI_DUCKDB_PATH=os.path.abspath(a.db), BI_WORK_DIR=os.path.abspath(a.work),
                BI_OUT_DIR=os.path.abspath(a.out), BI_WEATHER_PATH=os.path.abspath(a.weather),
-               BI_FEATURE_SPEC=os.path.join(os.path.abspath(a.out), "models", "feature_spec_v14.json"),
-               PYTHONIOENCODING="utf-8")
-    for num, name, cmd, output in step_list(a.work, a.out):
+               BI_FEATURE_SPEC=os.path.join(os.path.abspath(a.out), "models", f"feature_spec_{a.version}.json"),
+               BI_FLIGHT_SCOPE="all" if a.version == "v15" else "2022", PYTHONIOENCODING="utf-8")
+    steps = step_list_v15(a.work, a.out) if a.version == "v15" else step_list(a.work, a.out)
+    for num, name, cmd, output in steps:
         if num < a.from_step or num > a.to_step:
             continue
         if output and os.path.exists(output) and not a.force:

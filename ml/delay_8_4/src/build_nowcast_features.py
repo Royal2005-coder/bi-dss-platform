@@ -17,6 +17,8 @@ import time
 
 import duckdb
 
+from flights_source import flights_sql
+
 DB = os.environ.get("BI_DUCKDB_PATH", os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "warehouse.duckdb"))
 
 
@@ -24,19 +26,22 @@ def build(out_path: str, horizon: int) -> None:
     t0 = time.time()
     con = duckdb.connect(DB, read_only=True)
     con.execute("SET threads TO 8")
+    con.execute(f"SET memory_limit = '{os.environ.get('BI_DUCKDB_MEM', '3GB')}'")
+    con.execute("SET preserve_insertion_order = false")
+    tmp = os.path.join(os.environ.get("BI_WORK_DIR", os.path.dirname(os.path.abspath(__file__))), "duckdb_tmp")
+    con.execute(f"SET temp_directory = '{tmp.replace(os.sep, '/')}'")
     H = int(horizon)
     con.execute(
-        """
+        f"""
         CREATE TEMP TABLE f AS
         SELECT
-            CAST(ROW_NUMBER() OVER (ORDER BY flight_date, carrier_code, flight_number,
-                                     origin_code, dest_code) AS BIGINT) AS flight_key,
+            flight_key,
             flight_date, carrier_code, flight_number, origin_code AS origin, dest_code AS dest,
             (crs_dep_time // 100) * 60 + crs_dep_time % 100 AS dep_m,
             (crs_arr_time // 100) * 60 + crs_arr_time % 100 AS arr_m,
             crs_elapsed_time AS el,
             dep_delay, arr_delay, cancelled, diverted
-        FROM intermediate.int_flights_2022_2023
+        FROM ({flights_sql()}) src
         """
     )
     # tz(dest) - tz(origin) theo lich CRS, dua ve [-720, 720)
@@ -103,44 +108,40 @@ def build(out_path: str, horizon: int) -> None:
         """
     )
     # ---------- 2) nowcast san bay bang cumulative stream + ASOF ----------
-    def airport_stream(name, airport_col, clock_expr, extra_where):
-        con.execute(
-            f"""
-            CREATE TEMP TABLE {name} AS
-            SELECT {airport_col} AS ap, flight_date, kt,
-                   SUM(1) OVER w AS c_n, SUM(dly) OVER w AS c_sum, SUM(d15) OVER w AS c_15
-            FROM (SELECT {airport_col}, flight_date, {clock_expr} AS kt,
-                         {{dly}} AS dly, {{d15}} AS d15 FROM f2 WHERE {extra_where}) s
-            WINDOW w AS (PARTITION BY ap, flight_date ORDER BY kt, dly
-                         ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
-            """.replace("{dly}", "dep_delay").replace("{d15}", "CASE WHEN dep_delay >= 15 THEN 1 ELSE 0 END")
-        )
-
-    # cat canh thuc te tai san bay (dong ho dia phuong cua san bay do)
-    airport_stream("dep_stream", "origin", "dep_m + dep_delay", "cancelled = 0 AND dep_delay IS NOT NULL")
+    # Streams are aggregated to one row per (airport, date, known-time) BEFORE cumulating, so an ASOF match
+    # returns the full cumulative count at that minute (no arbitrary pick among tied events).
+    con.execute(
+        """
+        CREATE TEMP TABLE dep_stream AS
+        SELECT ap, flight_date, kt,
+               SUM(n) OVER w AS c_n, SUM(sd) OVER w AS c_sum, SUM(s15) OVER w AS c_15
+        FROM (SELECT origin AS ap, flight_date, dep_m + dep_delay AS kt, COUNT(*) AS n, SUM(dep_delay) AS sd,
+                     SUM(CASE WHEN dep_delay >= 15 THEN 1 ELSE 0 END) AS s15
+              FROM f2 WHERE cancelled = 0 AND dep_delay IS NOT NULL GROUP BY 1, 2, 3) s
+        WINDOW w AS (PARTITION BY ap, flight_date ORDER BY kt ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+        """
+    )
     # lich cat canh ke hoach (backlog) va huy (biet tai gio ke hoach)
     con.execute(
         """
         CREATE TEMP TABLE sched_stream AS
-        SELECT origin AS ap, flight_date, dep_m AS kt,
-               COUNT(*) OVER w AS c_sched,
-               SUM(cancelled) OVER w AS c_cancel
-        FROM f2
-        WINDOW w AS (PARTITION BY origin, flight_date ORDER BY dep_m, flight_key
-                     ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+        SELECT ap, flight_date, kt, SUM(n) OVER w AS c_sched, SUM(nc) OVER w AS c_cancel
+        FROM (SELECT origin AS ap, flight_date, dep_m AS kt, COUNT(*) AS n, SUM(cancelled) AS nc
+              FROM f2 GROUP BY 1, 2, 3) s
+        WINDOW w AS (PARTITION BY ap, flight_date ORDER BY kt ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
         """
     )
-    # ha canh thuc te vao san bay (dong ho san bay den = san bay do)
+    # ha canh thuc te vao san bay (dong ho san bay den; +1440 neu ha canh hom sau)
     con.execute(
         """
         CREATE TEMP TABLE arr_stream AS
-        SELECT dest AS ap, flight_date, kt,
-               SUM(1) OVER w AS c_n, SUM(arr_delay) OVER w AS c_sum,  -- kt da cong 1440 neu ha canh hom sau
-               SUM(CASE WHEN arr_delay >= 15 THEN 1 ELSE 0 END) OVER w AS c_15
-        FROM (SELECT dest, flight_date, arr_m + 1440 * arr_next_day + arr_delay AS kt, arr_delay
-              FROM f2 WHERE cancelled = 0 AND diverted = 0 AND arr_delay IS NOT NULL AND arr_m IS NOT NULL) s
-        WINDOW w AS (PARTITION BY ap, flight_date ORDER BY kt, arr_delay
-                     ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+        SELECT ap, flight_date, kt,
+               SUM(n) OVER w AS c_n, SUM(sa) OVER w AS c_sum, SUM(s15) OVER w AS c_15
+        FROM (SELECT dest AS ap, flight_date, arr_m + 1440 * arr_next_day + arr_delay AS kt, COUNT(*) AS n,
+                     SUM(arr_delay) AS sa, SUM(CASE WHEN arr_delay >= 15 THEN 1 ELSE 0 END) AS s15
+              FROM f2 WHERE cancelled = 0 AND diverted = 0 AND arr_delay IS NOT NULL AND arr_m IS NOT NULL
+              GROUP BY 1, 2, 3) s
+        WINDOW w AS (PARTITION BY ap, flight_date ORDER BY kt ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
         """
     )
 

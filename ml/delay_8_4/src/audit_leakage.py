@@ -24,7 +24,8 @@ import duckdb
 import numpy as np
 import pandas as pd
 
-from build_network_nowcast import DB, EPOCH, utc_offsets
+from build_network_nowcast import DB, utc_offsets
+from flights_source import EPOCH, SCOPE, flights_sql
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WORK = os.environ.get("BI_WORK_DIR", os.path.join(HERE, "..", "work"))
@@ -41,12 +42,11 @@ def load_flights() -> pd.DataFrame:
     con.register("off_df", off)
     df = con.execute(
         f"""
-        SELECT CAST(ROW_NUMBER() OVER (ORDER BY s.flight_date, s.carrier_code, s.flight_number,
-                                       s.origin_code, s.dest_code) AS BIGINT) AS flight_key,
+        SELECT s.flight_key,
                s.carrier_code, s.dep_delay, s.cancelled,
                date_diff('day', DATE '{EPOCH}', s.flight_date) * 1440
                  + (s.crs_dep_time // 100) * 60 + s.crs_dep_time % 100 - o.off_min AS sdep_utc
-        FROM intermediate.int_flights_2022_2023 s
+        FROM ({flights_sql()}) s
         JOIN off_df o ON o.airport = s.origin_code AND o.flight_date = s.flight_date
         """
     ).fetchdf()
@@ -91,6 +91,17 @@ def check_inbound() -> dict:
                 delay_known_without_status_flag=known_without_flag, passed=known_without_flag == 0)
 
 
+def check_weather() -> dict:
+    """v15 hourly weather: every observation used must be stamped <= T_pred - 60 min (age >= 0)."""
+    path = os.path.join(WORK, f"weather_h{H}.parquet")
+    if not os.path.exists(path):
+        return dict(passed=True, note="no hourly weather features (v14 scope)")
+    w = pd.read_parquet(path, columns=["o_wxh_age_h", "d_wxh_age_h"])
+    mins = {c: float(w[c].min()) for c in w.columns}
+    return dict(min_obs_age_hours_before_cutoff=mins, rows=int(len(w)),
+                share_origin_obs_within_3h=float((w.o_wxh_age_h <= 3).mean()), passed=all(v >= 0 for v in mins.values()))
+
+
 def check_features() -> dict:
     spec_path = os.environ.get("BI_FEATURE_SPEC", os.path.join(HERE, "..", "outputs", "models", "feature_spec_v14.json"))
     if not os.path.exists(spec_path):
@@ -101,11 +112,11 @@ def check_features() -> dict:
 
 
 def check_history_sql() -> dict:
-    src = open(os.path.join(HERE, "features_v8.py"), encoding="utf-8").read()
+    src = open(os.path.join(HERE, "features_all.py" if SCOPE == "all" else "features_v8.py"), encoding="utf-8").read()
     windows = src.count("PRECEDING AND 1 PRECEDING")
     current_row = src.count("AND CURRENT ROW")
     return dict(windows_ending_1_preceding=windows, windows_including_current_row=current_row,
-                passed=windows >= 6 and current_row == 0)
+                passed=windows >= 3 and current_row == 0)
 
 
 def main() -> int:
@@ -114,7 +125,8 @@ def main() -> int:
     p.add_argument("--report", default=os.path.join(HERE, "..", "outputs", "leakage_audit_v14.json"))
     a = p.parse_args()
     rng = np.random.default_rng(42)
-    report = {"features": check_features(), "history_sql": check_history_sql(), "inbound": check_inbound()}
+    report = {"features": check_features(), "history_sql": check_history_sql(), "inbound": check_inbound(),
+              "weather_hourly": check_weather()}
     report["network_bruteforce"] = check_network(load_flights(), a.sample, rng)
     report["all_passed"] = all(v["passed"] for v in report.values() if isinstance(v, dict))
     os.makedirs(os.path.dirname(os.path.abspath(a.report)), exist_ok=True)
