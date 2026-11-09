@@ -16,6 +16,7 @@ Env: BI_WORK_DIR, BI_OUT_DIR, BI_TRAIN_YEARS (default 2019,2021,2022,2023),
 """
 from __future__ import annotations
 
+import gc
 import hashlib
 import json
 import os
@@ -77,6 +78,25 @@ def family(c: str) -> str:
     return "schedule"
 
 
+class _CuPyIter(xgb.DataIter):
+    """Streams 500k-row chunks to GPU so QuantileDMatrix never duplicates the 2.8 GB matrix in host RAM."""
+    def __init__(self, X, y, bs: int = 500_000) -> None:
+        import cupy as cp
+        self._cp, self.X, self.y, self.bs, self.i = cp, X, y, bs, 0
+        super().__init__()
+
+    def next(self, input_data) -> int:
+        if self.i >= len(self.y):
+            return 0
+        j = min(self.i + self.bs, len(self.y))
+        input_data(data=self._cp.asarray(self.X[self.i:j]), label=self._cp.asarray(self.y[self.i:j]))
+        self.i = j
+        return 1
+
+    def reset(self) -> None:
+        self.i = 0
+
+
 class Learner:
     def __init__(self, kind: str) -> None:
         self.kind, self.model, self.iters, self.device = kind, None, 0, "cpu"
@@ -86,9 +106,20 @@ class Learner:
             for device in ("cuda", "cpu"):  # fall back to CPU when the shared GPU runs out of memory
                 try:
                     p = dict(XGB_P, device=device)
-                    d = xgb.QuantileDMatrix(X, y, max_bin=256)
+                    use_cupy = False
+                    if device == "cuda":
+                        try:
+                            import cupy as cp  # noqa: F401
+                            use_cupy = True
+                        except ImportError:
+                            pass
+                    d = xgb.QuantileDMatrix(_CuPyIter(X, y) if use_cupy else X, None if use_cupy else y, max_bin=256)
+                    if use_cupy:
+                        cp.get_default_memory_pool().free_all_blocks()
                     if iters is None:
-                        dv = xgb.QuantileDMatrix(Xv, yv, ref=d)
+                        dv = xgb.QuantileDMatrix(_CuPyIter(Xv, yv) if use_cupy else Xv, None if use_cupy else yv, ref=d)
+                        if use_cupy:
+                            cp.get_default_memory_pool().free_all_blocks()
                         self.model = xgb.train(p, d, 12000, evals=[(dv, "v")], early_stopping_rounds=300, verbose_eval=False)
                         self.iters = self.model.best_iteration + 1
                     else:
@@ -101,6 +132,7 @@ class Learner:
                     log(f"xgb CUDA out of memory on {len(y)} rows -> retry on CPU")
                 finally:
                     d = dv = None
+                    gc.collect()
             if self.device == "cuda":
                 self.model.set_param({"device": "cuda"})
         elif self.kind == "lgb":
@@ -146,14 +178,15 @@ def greedy_ensemble(preds: dict[str, np.ndarray], y: np.ndarray) -> list[str]:
     return chosen
 
 
-def reason_codes(model: xgb.Booster, X: np.ndarray, cols: list[str]) -> tuple[np.ndarray, np.ndarray]:
+def reason_codes(model: xgb.Booster, X: np.ndarray, cols: list[str], max_trees: int = 150) -> tuple[np.ndarray, np.ndarray]:
     fams = np.array([family(c) for c in cols] + ["bias"])
     names = [f for f in FAMILY_VI]
     idx = {f: np.flatnonzero(fams == f) for f in names}
     r1 = np.empty(len(X), dtype=object)
     r2 = np.empty(len(X), dtype=object)
+    ntrees = min(max_trees, model.num_boosted_rounds())
     for s in range(0, len(X), 100_000):
-        c = model.predict(xgb.DMatrix(X[s:s + 100_000]), pred_contribs=True)
+        c = model.predict(xgb.DMatrix(X[s:s + 100_000]), pred_contribs=True, iteration_range=(0, ntrees))
         g = np.stack([c[:, idx[f]].sum(axis=1) for f in names], axis=1)
         top = np.argsort(-g, axis=1)[:, :2]
         pos = np.take_along_axis(g, top, axis=1) > 0

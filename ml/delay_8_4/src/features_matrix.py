@@ -4,11 +4,13 @@ prefix views), plus a small matrix of unlabelled 2022-2023 rows (cancelled/diver
 """
 from __future__ import annotations
 
+import gc
 import os
 from dataclasses import dataclass
 
 import numpy as np
 import pandas as pd
+import pyarrow as pa
 import pyarrow.dataset as pads
 import pyarrow.parquet as pq
 
@@ -87,6 +89,8 @@ def build_matrix(years: tuple[int, ...]) -> Matrix:
             for c in ccols:
                 M[:, ci[c]] = t.column(c).to_numpy(zero_copy_only=False).astype(np.float32)[pos]
         del t
+    pa.default_memory_pool().release_unused()
+    gc.collect()
     return Matrix(X, y_all[lab_rows], dk_all[lab_rows], keys_all[lab_rows], Xu, dk_all[unl_rows], keys_all[unl_rows],
                   cols, cats, meta_all.iloc[lab_rows].reset_index(drop=True),
                   meta_all.iloc[unl_rows].reset_index(drop=True))

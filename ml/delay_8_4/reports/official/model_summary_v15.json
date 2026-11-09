@@ -1,0 +1,340 @@
+{
+  "generated_at": "2026-11-09T09:15:31.806178+00:00",
+  "runtime_sec": 258.7,
+  "environment": {
+    "python": "3.13.16",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "xgboost": "3.4.1",
+    "lightgbm": "4.6.0",
+    "sklearn": "1.6.1"
+  },
+  "protocol": {
+    "prediction_time": "CRS_DEP - 60 min",
+    "train_years": [
+      2019,
+      2021,
+      2022,
+      2023
+    ],
+    "weather": "hourly observed <= T_pred - 60 min",
+    "validation": "2023-05-01..2023-06-30",
+    "test": "2023-07-01..2023-08-31 (monthly walk-forward)"
+  },
+  "rows": {
+    "labelled_used": 2463979,
+    "train": 2227836,
+    "validation": 116223,
+    "test": 119920,
+    "scored_2022_2023": 1151344
+  },
+  "stage1": {
+    "members": [
+      "xgb",
+      "cat"
+    ],
+    "iters": {
+      "xgb": 4442,
+      "cat": 3089
+    },
+    "val_auc_by_learner": {
+      "xgb": 0.753779157842001,
+      "cat": 0.7525562667841141
+    },
+    "static_test_auc_by_learner": {
+      "xgb": 0.7434511759893863,
+      "cat": 0.7413383144018915
+    },
+    "val": {
+      "n": 116223,
+      "positives": 26003,
+      "auc": 0.7547447757102325,
+      "ap": 0.49672164322397544,
+      "brier": 0.14511548613412426,
+      "logloss": 0.45318988714407044,
+      "threshold": 0.2,
+      "tn": 58746,
+      "fp": 31474,
+      "fn": 7266,
+      "tp": 18737,
+      "precision": 0.37316524267590767,
+      "recall": 0.7205707033803792,
+      "f1": 0.4916944393418532,
+      "accuracy": 0.6666752708155873
+    },
+    "val_at_f1_threshold": {
+      "n": 116223,
+      "positives": 26003,
+      "auc": 0.7547447757102325,
+      "ap": 0.49672164322397544,
+      "brier": 0.14511548613412426,
+      "logloss": 0.45318988714407044,
+      "threshold": 0.245,
+      "tn": 68966,
+      "fp": 21254,
+      "fn": 10287,
+      "tp": 15716,
+      "precision": 0.4251014335948066,
+      "recall": 0.6043918009460447,
+      "f1": 0.4991345497276611,
+      "accuracy": 0.7286165388950552
+    }
+  },
+  "static_test": {
+    "test": {
+      "n": 119920,
+      "positives": 30290,
+      "auc": 0.7435427976582645,
+      "ap": 0.5170584980576016,
+      "brier": 0.15915500907215563,
+      "logloss": 0.4891161639106417,
+      "threshold": 0.2,
+      "tn": 49778,
+      "fp": 39852,
+      "fn": 6738,
+      "tp": 23552,
+      "precision": 0.37145921392972053,
+      "recall": 0.7775503466490591,
+      "f1": 0.5027429718018229,
+      "accuracy": 0.6114909939959974
+    },
+    "test_auc_jul": 0.749307706002533,
+    "test_auc_aug": 0.7280418625758556
+  },
+  "walk_forward_test": {
+    "test": {
+      "n": 119920,
+      "positives": 30290,
+      "auc": 0.7447031963731016,
+      "ap": 0.5218522336199429,
+      "brier": 0.15884599617193285,
+      "logloss": 0.4882348335161887,
+      "threshold": 0.2,
+      "tn": 49628,
+      "fp": 40002,
+      "fn": 6602,
+      "tp": 23688,
+      "precision": 0.37192651907677815,
+      "recall": 0.7820402773192473,
+      "f1": 0.5041072568631624,
+      "accuracy": 0.6113742494996665
+    },
+    "test_at_f1_threshold": {
+      "n": 119920,
+      "positives": 30290,
+      "auc": 0.7447031963731016,
+      "ap": 0.5218522336199429,
+      "brier": 0.15884599617193285,
+      "logloss": 0.4882348335161887,
+      "threshold": 0.245,
+      "tn": 61012,
+      "fp": 28618,
+      "fn": 9715,
+      "tp": 20575,
+      "precision": 0.41825056410464906,
+      "recall": 0.679267084846484,
+      "f1": 0.5177207704792219,
+      "accuracy": 0.6803452301534356
+    },
+    "test_auc_ci95": [
+      0.7418769336319126,
+      0.7478439202790836
+    ],
+    "test_auc_jul": 0.7505822274941603,
+    "test_auc_aug": 0.7292391262987465
+  },
+  "dss_policy_test": {
+    "threshold_bayes": 0.2,
+    "conformal": {
+      "alpha": 0.1,
+      "coverage": 0.8996914609739827,
+      "coverage_delayed": 0.9491251238032354,
+      "coverage_ontime": 0.8829856074974897,
+      "uncertain_share": 0.6347481654436291,
+      "auc_on_confident": 0.8197749224383504
+    },
+    "hard_stop": {
+      "share": 0.0012841894596397599,
+      "precision": 0.8311688311688312,
+      "rules": {
+        "R1_inbound_late": {
+          "description": "Chặng inbound đã trễ vượt thời gian quay đầu kế hoạch",
+          "val_support": 115,
+          "val_precision": 0.9478260869565217,
+          "val_wilson_lb95": 0.8908280962827254,
+          "accepted": true
+        },
+        "R2_inbound_cancel": {
+          "description": "Chặng inbound đã bị hủy trước T-60",
+          "val_support": 4,
+          "val_precision": 0.25,
+          "val_wilson_lb95": 0.045586062644636216,
+          "accepted": false
+        },
+        "R3_inbound_delay60": {
+          "description": "Chặng inbound đã trễ ≥ 60 phút",
+          "val_support": 143,
+          "val_precision": 0.8881118881118881,
+          "val_wilson_lb95": 0.8259703656182174,
+          "accepted": true
+        },
+        "R4_carrier_meltdown": {
+          "description": "Hãng có ≥ 60% chuyến cất cánh trễ trong 120 phút qua",
+          "val_support": 5425,
+          "val_precision": 0.43502304147465437,
+          "val_wilson_lb95": 0.42188109126191964,
+          "accepted": false
+        },
+        "R5_origin_backlog": {
+          "description": "Sân bay đi tồn ≥ 8 chuyến quá giờ chưa cất cánh",
+          "val_support": 250,
+          "val_precision": 0.756,
+          "val_wilson_lb95": 0.699147815859017,
+          "accepted": false
+        },
+        "R6_origin_thunder": {
+          "description": "Dông tại sân bay đi trong 6h qua và tỷ lệ trễ hãng ≥ 40%",
+          "val_support": 391,
+          "val_precision": 0.6854219948849105,
+          "val_wilson_lb95": 0.6377800659698198,
+          "accepted": false
+        }
+      }
+    },
+    "p1_act": {
+      "share": 0.13058705803869247,
+      "precision": 0.42586206896551726,
+      "recall": 0.22017167381974248,
+      "lift": 1.686014503477875
+    },
+    "cost_relative_to_no_model": {
+      "no_action": 1.0,
+      "threshold_only": 0.5481181908220535,
+      "dss_p1_capacity": 0.8540359854737537
+    },
+    "capacity_curve": [
+      {
+        "capacity_share": 0.05,
+        "flagged_share": 0.10733822548365576,
+        "precision": 0.43085767557489124,
+        "recall": 0.18309673159458567,
+        "cost_vs_no_model": 0.8773687685704853
+      },
+      {
+        "capacity_share": 0.1,
+        "flagged_share": 0.13412274849899933,
+        "precision": 0.42794081074359613,
+        "recall": 0.227236711786068,
+        "cost_vs_no_model": 0.8487041928029052
+      },
+      {
+        "capacity_share": 0.2,
+        "flagged_share": 0.1903685790527018,
+        "precision": 0.4198607034911735,
+        "recall": 0.3164410696599538,
+        "cost_vs_no_model": 0.7928689336414658
+      },
+      {
+        "capacity_share": 0.3,
+        "flagged_share": 0.255653769179453,
+        "precision": 0.41052906256115856,
+        "recall": 0.4155166721690327,
+        "cost_vs_no_model": 0.733641465830307
+      },
+      {
+        "capacity_share": 0.5,
+        "flagged_share": 0.35207638425617077,
+        "precision": 0.394921958267213,
+        "recall": 0.5504787058435127,
+        "cost_vs_no_model": 0.660374711125784
+      },
+      {
+        "capacity_share": 1.0,
+        "flagged_share": 0.5311040693795864,
+        "precision": 0.37192651907677815,
+        "recall": 0.7820402773192473,
+        "cost_vs_no_model": 0.5481181908220535
+      }
+    ],
+    "conformal_static_coverage": 0.8767261507671781,
+    "conformal_aci_coverage": 0.8996914609739827,
+    "aci_alpha_path": [
+      0.1,
+      0.0974,
+      0.0946,
+      0.0955,
+      0.0973,
+      0.0965,
+      0.0938,
+      0.0916,
+      0.0896,
+      0.0851,
+      0.0817,
+      0.0811,
+      0.0805,
+      0.0805,
+      0.0772,
+      0.0749,
+      0.0713,
+      0.0703,
+      0.0708,
+      0.0707,
+      0.0697,
+      0.0675,
+      0.0684,
+      0.0689,
+      0.0687,
+      0.0693,
+      0.0696,
+      0.0683,
+      0.067,
+      0.066,
+      0.0651,
+      0.0662,
+      0.0678,
+      0.0703,
+      0.0722,
+      0.0718,
+      0.0722,
+      0.0725,
+      0.0726,
+      0.0741,
+      0.0776,
+      0.0738,
+      0.0738,
+      0.0749,
+      0.0746,
+      0.0751,
+      0.0771,
+      0.0798,
+      0.0788,
+      0.0783,
+      0.0796,
+      0.079,
+      0.079,
+      0.0824,
+      0.0854,
+      0.087,
+      0.0853,
+      0.0885,
+      0.0907,
+      0.0933,
+      0.096,
+      0.0972
+    ]
+  },
+  "thresholds": {
+    "bayes_cost_1_to_4": 0.2,
+    "f1_on_validation": 0.245
+  },
+  "csv": {
+    "path": "DSS_Flight_Prediction.csv",
+    "bytes": 315822947,
+    "sha256": "13b72e304c4e5567c0259d14e3e12bfb472fd4d34b6a58b299d926d12a848bc6",
+    "tier_counts": {
+      "P4": 359989,
+      "P2": 333453,
+      "P3": 314880,
+      "P1": 143022
+    }
+  }
+}
