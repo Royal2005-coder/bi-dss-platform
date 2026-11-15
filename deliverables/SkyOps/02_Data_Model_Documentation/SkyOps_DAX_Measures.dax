@@ -1,0 +1,172 @@
+// _Measures[Total Flights]
+Total Flights =
+COUNTROWS ( FactFlight )
+
+// _Measures[Completed Flights]
+Completed Flights =
+CALCULATE ( [Total Flights], FactFlight[IsCompleted] = 1 )
+
+// _Measures[Delayed Flights]
+Delayed Flights =
+CALCULATE ( [Total Flights], FactFlight[IsArrDelayed15] = 1 )
+
+// _Measures[On-time Flights]
+On-time Flights =
+CALCULATE (
+    [Total Flights],
+    FactFlight[IsCancelled] = 0,
+    FactFlight[IsDiverted] = 0,
+    NOT ISBLANK ( FactFlight[ArrDelay] ),
+    FactFlight[ArrDelay] < 15
+)
+
+// _Measures[Cancelled Flights]
+Cancelled Flights =
+SUM ( FactFlight[IsCancelled] )
+
+// _Measures[OTP Rate]
+OTP Rate =
+DIVIDE ( [On-time Flights], [Total Flights] )
+
+// _Measures[Cancellation Rate]
+Cancellation Rate =
+DIVIDE ( [Cancelled Flights], [Total Flights] )
+
+// _Measures[Average Departure Delay]
+Average Departure Delay =
+CALCULATE (
+    AVERAGE ( FactFlight[DepDelay] ),
+    FactFlight[IsCancelled] = 0)
+
+// _Measures[Average Arrival Delay]
+Average Arrival Delay =
+CALCULATE (
+    AVERAGE ( FactFlight[ArrDelay] ),
+    FactFlight[IsCancelled] = 0,
+    FactFlight[IsDiverted] = 0
+)
+
+// _Measures[Average Arrival Delay (by Dest Airport)]
+Average Arrival Delay (by Dest Airport) =
+CALCULATE (
+    [Average Arrival Delay],
+    USERELATIONSHIP ( FactFlight[DestAirportKey], DimAirport[AirportKey] )
+)
+
+// _Measures[Total Delay Minutes]
+Total Delay Minutes =
+SUM ( FactDelay[DelayMinutes] )
+
+// _Measures[Delay Cause Breakdown %]
+Delay Cause Breakdown % =
+DIVIDE (
+    [Total Delay Minutes],
+    CALCULATE ( [Total Delay Minutes], ALL ( DimDelayReason ) )
+)
+
+// _Measures[Historical Priority Score]
+Historical Priority Score =
+SUM ( FactFlight[Excess_Delay_Minutes] )
+
+// _Measures[Historical Priority Score (SUMX)]
+Historical Priority Score (SUMX) =
+SUMX (
+    FactFlight,
+    IF ( FactFlight[ArrDelay] > 15, FactFlight[ArrDelay] - 15, 0 )
+)
+
+// _Measures[OTP Rate PM]
+OTP Rate PM =
+CALCULATE (
+    [OTP Rate],
+    DATEADD ( DimDate[FullDate], -1, MONTH )
+)
+
+// _Measures[OTP MoM %]
+OTP MoM % =
+VAR _Curr = [OTP Rate]
+VAR _Prev = [OTP Rate PM]
+RETURN
+    IF (
+        HASONEVALUE ( DimDate[MonthYear] ) && NOT ISBLANK ( _Curr ) && NOT ISBLANK ( _Prev ),
+        DIVIDE ( _Curr - _Prev, _Prev )
+    )
+
+// _Measures[OTP Rate PY]
+OTP Rate PY =
+CALCULATE (
+    [OTP Rate],
+    DATEADD ( DimDate[FullDate], -1, YEAR )
+)
+
+// _Measures[OTP YoY %]
+OTP YoY % =
+VAR _Curr = [OTP Rate]
+VAR _Prev = [OTP Rate PY]
+RETURN
+    IF (
+        HASONEVALUE ( DimDate[MonthYear] ) && NOT ISBLANK ( _Curr ) && NOT ISBLANK ( _Prev ),
+        DIVIDE ( _Curr - _Prev, _Prev )
+    )
+
+// _Measures[Flights to Hub]
+Flights to Hub =
+VAR _HubList = { "ATL", "DFW", "DEN", "ORD", "LAX", "CLT", "LAS", "PHX", "MCO", "SEA" }
+RETURN
+    CALCULATE (
+        [Total Flights],
+        USERELATIONSHIP ( FactFlight[DestAirportKey], DimAirport[AirportKey] ),
+        KEEPFILTERS ( DimAirport[AirportCode] IN _HubList )
+    )
+
+// _Measures[OTP Color HEX]
+OTP Color HEX =
+VAR _OTP = [OTP Rate]
+RETURN
+    SWITCH (
+        TRUE (),
+        ISBLANK ( _OTP ), "#BFBFBF",
+        _OTP >= 0.80,     "#2E7D32",
+        _OTP >= 0.75,     "#F9A825",
+        "#C62828"
+    )
+
+// _Measures[OTP Title]
+OTP Title =
+VAR _Carrier = SELECTEDVALUE ( DimCarrier[CarrierName], "Tất cả hãng" )
+VAR _Period  = SELECTEDVALUE ( DimDate[MonthYear], "Toàn kỳ" )
+RETURN
+    "OTP – " & _Carrier & " – " & _Period
+
+// _Measures[Planning Priority Rank]
+Planning Priority Rank =
+IF (
+       ISINSCOPE ( ForecastTable[AirportCode] ) && [Planning Priority Score] > 0,
+       RANKX (
+           ALLSELECTED ( ForecastTable[AirportCode], ForecastTable[DepHour] ),
+           [Planning Priority Score],
+           ,
+           DESC,
+           DENSE
+       )
+   )
+
+// _Measures[Planning Priority Score]
+Planning Priority Score =
+SUMX (
+    ForecastTable,
+    MAX ( 0, ForecastTable[ExpectedDelay] - 15 ) * ForecastTable[WeeklyVolume]
+)
+
+// _Measures[OTP Target]
+OTP Target =
+0.80
+
+// _Measures[Delay Target (min)]
+Delay Target (min) =
+15
+
+// _Measures[Cancellation Target]
+Cancellation Target =
+0.02
+

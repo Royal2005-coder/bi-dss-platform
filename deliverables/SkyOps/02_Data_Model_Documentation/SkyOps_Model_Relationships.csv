@@ -1,0 +1,13 @@
+﻿FromTableName,FromColumnName,ToTableName,ToColumnName,IsActive,Cardinality,CrossFilteringBehavior,FromKeyCount,ToKeyCount,RelyOnReferentialIntegrity
+FactDelay,DelayReasonKey,DimDelayReason,DelayReasonKey,1,M:1,Single,8,,0
+FactDelay,OriginAirportKey,DimAirport,AirportKey,1,M:1,Single,372,,0
+FactDelay,CarrierKey,DimCarrier,CarrierKey,1,M:1,Single,20,,0
+FactDelay,DateKey,DimDate,DateKey,1,M:1,Single,611,,0
+FactFlight,DateKey,DimDate,DateKey,1,M:1,Single,611,,0
+FactFlight,CarrierKey,DimCarrier,CarrierKey,1,M:1,Single,20,,0
+FactFlight,OriginAirportKey,DimAirport,AirportKey,1,M:1,Single,373,,0
+FactFlight,RouteKey,DimRoute,RouteKey,1,M:1,Single,6823,,0
+FactFlight,FlightStatusKey,DimFlightStatus,FlightStatusKey,1,M:1,Single,7,,0
+FactFlight,DestAirportKey,DimAirport,AirportKey,0,M:1,Single,373,,0
+DSS_Flight_Prediction,FlightKey,FactFlight,FlightKey,1,1:1,Both,1151347,1151347.0,0
+DSS_Flight_Prediction,Priority_Tier,DSS_Priority_Tier,Priority_Tier,1,M:1,Single,7,,0

@@ -1,0 +1,5 @@
+﻿Priority_Tier,Tier_Name,Recommended_Action,Sort_Order,Decision_Threshold,Prediction_Horizon,Model_Version
+P1,Rủi ro cao · Tác động cao,"Can thiệp ngay: bố trí tàu/tổ bay dự phòng, ưu tiên cổng, báo khách sớm",1,0.25,T-60 phút,v14-ensemble-xgb-lgb-isotonic
+P2,Rủi ro cao · Tác động thấp,"Theo dõi sát: cảnh báo OCC, chuẩn bị phương án đổi chuyến",2,0.25,T-60 phút,v14-ensemble-xgb-lgb-isotonic
+P3,Rủi ro thấp · Tác động cao,"Giám sát định kỳ: chuyến tác động lớn, rủi ro thấp",3,0.25,T-60 phút,v14-ensemble-xgb-lgb-isotonic
+P4,Rủi ro thấp · Tác động thấp,Vận hành bình thường,4,0.25,T-60 phút,v14-ensemble-xgb-lgb-isotonic
