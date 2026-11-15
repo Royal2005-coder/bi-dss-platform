@@ -30,8 +30,8 @@
         "IsWeekend",
         "Season"
       ],
-      "bytes": 61328,
-      "sha256": "3330dfbc6c1ef9efc5dd583b6b9127ab4e23728aebc7ed2a9ffd77f53317be09"
+      "bytes": 60597,
+      "sha256": "014dd95d93f17ea04720250eef46612fefbbea4f8e4a5c82404eebd42cd1e124"
     },
     {
       "table": "DimCarrier",
@@ -44,8 +44,8 @@
         "DotCode",
         "AirlineDot"
       ],
-      "bytes": 976,
-      "sha256": "c2532691b628f98af1bf3c66c5b8464046df8ba32a8479b400ed32c6a7aa6c1b"
+      "bytes": 958,
+      "sha256": "c51c96d722861bfb522670341fee51a6706022109543c131bbed19314b56d4ab"
     },
     {
       "table": "DimAirport",
@@ -65,8 +65,8 @@
         "Longitude",
         "DataSource"
       ],
-      "bytes": 42964,
-      "sha256": "7b2f12528e211805e02a4571d3cb18a4c8545dce76c418de74c03bb23ba21870"
+      "bytes": 42593,
+      "sha256": "1f06ba1bd083a5532b94b41eb8dc03c4fd991adc871eb553147c09474ca85fbd"
     },
     {
       "table": "DimRoute",
@@ -83,8 +83,8 @@
         "DistanceGroup",
         "DistanceGroupOrder"
       ],
-      "bytes": 363801,
-      "sha256": "7ac30bf6120f9cae1d3370ad3f62c192abb2174b9d89127521c199a65def1ba6"
+      "bytes": 356980,
+      "sha256": "6253fe0c6602810a5d66e82d5d2f5bc61715391d37a27637ad8414736dc28fff"
     },
     {
       "table": "DimDelayReason",
@@ -98,8 +98,8 @@
         "SourceColumn",
         "SortOrder"
       ],
-      "bytes": 621,
-      "sha256": "f68deaf5785122d9e97627729d9a431b63e2d7c490ffa3b461d161fc07952d19"
+      "bytes": 615,
+      "sha256": "1078a99c21190daf7368bbe91e5a779317292b35aa6111d208cb39365f2a48a8"
     },
     {
       "table": "DimFlightStatus",
@@ -114,8 +114,8 @@
         "IsDisrupted",
         "SortOrder"
       ],
-      "bytes": 543,
-      "sha256": "018b1e0615c715e708d7ebdfc32270ea108b0003a1768307d950e12b2f95bc95"
+      "bytes": 538,
+      "sha256": "52258550424b11127c78257f38281e0156aa153b19e60514a7298deb9c11f1f4"
     },
     {
       "table": "FactFlight",
@@ -152,8 +152,8 @@
         "IsCompleted",
         "HasDelayReason"
       ],
-      "bytes": 133680300,
-      "sha256": "a162d447f28963cd8e65879e5b902a50608a0e98eb3604730db4cf357a311c55"
+      "bytes": 132528955,
+      "sha256": "209f96cc50bd6baa03435144a84c744edeb3ffa648a6cd1d0e5ba5909cc9ad1b"
     },
     {
       "table": "FactDelay",
@@ -168,8 +168,8 @@
         "DelayReasonKey",
         "DelayMinutes"
       ],
-      "bytes": 14625849,
-      "sha256": "313cddcf79ef9ca7cf260ba56ae0af611ce4b984fff4dd870f61b436dc6a0cb7"
+      "bytes": 14228717,
+      "sha256": "d249f185b9740a1690faf1237d81662c6ccd1c0658e771fb97e54dce2328ade9"
     }
   ],
   "relationships_file": "powerbi_relationships.csv",

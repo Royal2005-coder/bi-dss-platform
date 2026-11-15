@@ -22,3 +22,9 @@ output_6.2-6.3/
 SkyOps_Technical/data/*
 !SkyOps_Technical/data/processed/
 !SkyOps_Technical/data/processed/**
+
+# local artefacts
+catboost_info/
+analytics/profiles/.user.yml
+docs/*.log
+~$*

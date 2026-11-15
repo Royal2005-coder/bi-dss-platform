@@ -297,7 +297,7 @@ code([
     "ROW_NUMBER() OVER (ORDER BY flight_date, carrier_code, flight_number, origin_code, dest_code) AS flight_key,",
     "CAST(STRFTIME(flight_date, '%Y%m%d') AS INTEGER) AS date_key,",
     "CASE WHEN cancelled = 0 AND diverted = 0 AND arr_delay >= 15 THEN 1 ELSE 0 END AS is_arr_delayed15,",
-    "CASE WHEN cancelled = 0 AND arr_delay IS NOT NULL THEN GREATEST(arr_delay, 0) END AS arr_delay_minutes",
+    "CASE WHEN cancelled = 0 AND diverted = 0 AND arr_delay IS NOT NULL THEN GREATEST(arr_delay, 0) END AS arr_delay_minutes",
 ])
 
 h("6.2.2. FactDelayReason (tách riêng)")

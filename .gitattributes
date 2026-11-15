@@ -2,3 +2,5 @@ SkyOps_Technical/data/processed/FactFlight.csv filter=lfs diff=lfs merge=lfs -te
 *.csv -text
 *.dax text eol=lf
 *.py text eol=lf
+*.pbix filter=lfs diff=lfs merge=lfs -text
+deliverables/SkyOps/00_Data/DSS_Flight_Prediction.csv filter=lfs diff=lfs merge=lfs -text
