@@ -15,6 +15,19 @@ Hợp đồng mô hình: `DimAirport → FactFlight[OriginAirportKey]` Active; v
 
 Word bàn giao và DAX là tài liệu/mã nguồn cho các mục 6.2–6.3, 6.4 và 6.6; chưa phải `.pbix` hay ảnh chụp Model View. Kiểm chứng CSV không đồng nghĩa đã chạy DAX trong Power BI.
 
+## Gói nộp đồ án
+
+Toàn bộ sản phẩm nộp nằm trong [`deliverables/SkyOps/`](deliverables/SkyOps/README.md): `SkyOps.pbix` (Git LFS), tài liệu mô hình, báo cáo kiểm thử và Runbook triển khai 4 bước. Sau khi clone, chạy `git lfs pull` để lấy `SkyOps.pbix`, `FactFlight.csv` và `DSS_Flight_Prediction.csv`.
+
+| Đường dẫn | Nội dung |
+|---|---|
+| `SkyOps_Technical/` | 8 bảng CSV Star Schema, ETL Pandas, DAX, Word bàn giao kỹ thuật |
+| `analytics/`, `pipelines/`, `deploy/` | dbt, kiểm định hợp đồng dữ liệu, Kubernetes và Flux |
+| `ml/delay_8_4/` | Mô hình dự báo trễ chuyến v14, v15 (notebook, mã nguồn, báo cáo) |
+| `deliverables/SkyOps/` | PBIX, DSS CSV, tài liệu, báo cáo kiểm thử, Runbook |
+
+Còn thiếu: Quick User Guide, biên bản UAT Phụ lục D, Limitations & Known Issues, slide thuyết trình.
+
 ## Architecture
 
 ```text
