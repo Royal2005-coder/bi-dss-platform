@@ -17,6 +17,7 @@ Env: BI_WORK_DIR (features dir), BI_OUT_DIR (artifacts dir). Usage: python train
 """
 from __future__ import annotations
 
+import gc
 import hashlib
 import json
 import os
@@ -75,31 +76,45 @@ def gpu_available() -> bool:
         return False
 
 
-def load_features() -> tuple[pd.DataFrame, list[str], dict[str, list[str]]]:
+META_COLS = ["flight_key", "date_key", "carrier_key", "origin_airport_key", "dest_airport_key",
+             "route_key", "flight_number", "scheduled_dep_time", "scheduled_dep_hour",
+             "distance_miles", "origin", "dest", "carrier_code", "month", "origin_hub_flights", "target"]
+
+
+def load_features() -> tuple[pd.DataFrame, np.ndarray, list[str], dict[str, list[str]]]:
     df = pd.read_parquet(os.path.join(WORK, "features_v8.parquet"))
+    num = df.select_dtypes(include=["float64", "int64", "bool"]).columns.difference(["flight_key", "date_key"])
+    for c in num:
+        df[c] = df[c].astype("float32")
     groups = {}
     for name, fn in (("nowcast", f"nowcast_h{H}.parquet"), ("network", f"network_h{H}_v2.parquet")):
         part = pd.read_parquet(os.path.join(WORK, fn))
         cols = [c for c in part.columns if c != "flight_key"]
         groups[name] = cols
-        df = df.merge(part.astype({c: "float32" for c in cols}), on="flight_key", how="left",
-                      validate="one_to_one")
+        for c in cols:
+            part[c] = part[c].astype("float32")
+        df = df.merge(part, on="flight_key", how="left", validate="one_to_one")
+        del part
+        gc.collect()
     # look-ahead fix: hub size from the training window only
-    tr = df[df.date_key <= TRAIN_END]
+    tr_mask = df["date_key"] <= TRAIN_END
     for side in ("origin", "dest"):
-        hub = tr.groupby(side).size().rename(f"{side}_hub_flights")
-        df = df.drop(columns=f"{side}_hub_flights").merge(hub, left_on=side, right_index=True, how="left")
-        df[f"{side}_hub_flights"] = df[f"{side}_hub_flights"].fillna(0)
+        hub = df.loc[tr_mask].groupby(side).size().rename(f"{side}_hub_flights")
+        df[f"{side}_hub_flights"] = df[side].map(hub).fillna(0).astype("float32")
     df = df.sort_values("flight_key").reset_index(drop=True)
     cat_maps = {}
     for c in CATEGORICAL:
         cats = df[c].astype("category")
         cat_maps[c] = list(map(str, cats.cat.categories))
         df[c] = cats.cat.codes.astype("int32")
-    num = df.select_dtypes(include=["float64", "int64", "bool"]).columns.difference(["flight_key", "date_key"])
-    df[num] = df[num].astype("float32")
     feats = [c for c in df.columns if c not in NON_FEATURES]
-    return df, feats, {"categorical_codes": cat_maps, **groups}
+    meta = df[META_COLS].copy()
+    X = np.empty((len(df), len(feats)), dtype=np.float32)
+    for i, c in enumerate(feats):
+        X[:, i] = df[c].to_numpy(dtype=np.float32, copy=False)
+    del df
+    gc.collect()
+    return meta, X, feats, {"categorical_codes": cat_maps, **groups}
 
 
 def best_xgb_params() -> dict:
@@ -137,42 +152,57 @@ def f1_threshold(y: np.ndarray, p: np.ndarray) -> float:
 class Ensemble:
     """XGBoost + LightGBM probability average, then isotonic calibration."""
 
-    def __init__(self, xgb_params: dict, device: str) -> None:
+    def __init__(self, xgb_params: dict, device: str, feature_names: list[str]) -> None:
         self.xgb_params = dict(xgb_params, device=device)
+        self.feature_names = feature_names
         self.xgb_model: xgb.Booster | None = None
         self.lgb_model: lgb.Booster | None = None
         self.xgb_iter = self.lgb_iter = 0
         self.calibrator: IsotonicRegression | None = None
 
     def fit_select(self, X_tr, y_tr, X_va, y_va) -> None:
-        dtr = xgb.QuantileDMatrix(X_tr, y_tr, max_bin=self.xgb_params["max_bin"])
-        dva = xgb.QuantileDMatrix(X_va, y_va, ref=dtr)
+        dtr = xgb.QuantileDMatrix(X_tr, y_tr, max_bin=self.xgb_params["max_bin"], feature_names=self.feature_names)
+        dva = xgb.QuantileDMatrix(X_va, y_va, ref=dtr, feature_names=self.feature_names)
         self.xgb_model = xgb.train(self.xgb_params, dtr, 10000, evals=[(dva, "val")],
                                    early_stopping_rounds=300, verbose_eval=500)
         self.xgb_iter = self.xgb_model.best_iteration + 1
-        ltr = lgb.Dataset(X_tr, y_tr)
-        lva = lgb.Dataset(X_va, y_va, reference=ltr)
+        del dtr, dva
+        gc.collect()
+        ltr = lgb.Dataset(X_tr, y_tr, feature_name=self.feature_names, free_raw_data=True)
+        lva = lgb.Dataset(X_va, y_va, reference=ltr, feature_name=self.feature_names, free_raw_data=True)
         self.lgb_model = lgb.train(LGB_PARAMS, ltr, 10000, valid_sets=[lva],
                                    callbacks=[lgb.early_stopping(300, verbose=False), lgb.log_evaluation(500)])
         self.lgb_iter = self.lgb_model.best_iteration
+        del ltr, lva
+        gc.collect()
 
     def fit_refit(self, X, y) -> None:
-        d = xgb.QuantileDMatrix(X, y, max_bin=self.xgb_params["max_bin"])
+        self.xgb_model = None
+        self.lgb_model = None
+        gc.collect()
+        d = xgb.QuantileDMatrix(X, y, max_bin=self.xgb_params["max_bin"], feature_names=self.feature_names)
         self.xgb_model = xgb.train(self.xgb_params, d, int(self.xgb_iter * REFIT_SCALE))
         self.xgb_iter = self.xgb_model.num_boosted_rounds()
-        self.lgb_model = lgb.train(LGB_PARAMS, lgb.Dataset(X, y), int(self.lgb_iter * REFIT_SCALE))
+        del d
+        gc.collect()
+        ltr = lgb.Dataset(X, y, feature_name=self.feature_names, free_raw_data=True)
+        self.lgb_model = lgb.train(LGB_PARAMS, ltr, int(self.lgb_iter * REFIT_SCALE))
         self.lgb_iter = self.lgb_model.current_iteration()
+        del ltr
+        gc.collect()
 
-    def raw(self, X: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
-        px = self.xgb_model.predict(xgb.DMatrix(X), iteration_range=(0, self.xgb_iter))
+    def raw(self, X: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+        dm = xgb.DMatrix(X, feature_names=self.feature_names)
+        px = self.xgb_model.predict(dm, iteration_range=(0, self.xgb_iter))
+        del dm
         pl = self.lgb_model.predict(X, num_iteration=self.lgb_iter)
         return px, pl
 
-    def score(self, X: pd.DataFrame) -> np.ndarray:
+    def score(self, X: np.ndarray) -> np.ndarray:
         px, pl = self.raw(X)
         return (px + pl) / 2
 
-    def proba(self, X: pd.DataFrame) -> np.ndarray:
+    def proba(self, X: np.ndarray) -> np.ndarray:
         return np.clip(self.calibrator.predict(self.score(X)), *PROB_CLIP)
 
 
@@ -271,22 +301,26 @@ def main() -> None:
     os.makedirs(OUT, exist_ok=True)
     device = "cuda" if gpu_available() else "cpu"
     log(f"device={device} xgb={xgb.__version__} lgb={lgb.__version__} sklearn={sklearn.__version__}")
-    df, feats, groups = load_features()
+    df, X, feats, groups = load_features()
     y_all = df["target"].to_numpy()
     lab = ~np.isnan(y_all)
     dk = df["date_key"].to_numpy()
     tr, va, te = lab & (dk <= TRAIN_END), lab & (dk >= VAL_START) & (dk <= VAL_END), lab & (dk >= TEST_START)
     log(f"rows={len(df)} labelled={lab.sum()} train={tr.sum()} val={va.sum()} test={te.sum()} features={len(feats)}")
-    X = df[feats]
 
     # ---- stage 1: selection on validation ----
-    ens = Ensemble(best_xgb_params(), device)
-    ens.fit_select(X[tr], y_all[tr], X[va], y_all[va])
-    s_va = ens.score(X[va])
+    ens = Ensemble(best_xgb_params(), device, feats)
+    X_tr, X_va = X[tr], X[va]
+    ens.fit_select(X_tr, y_all[tr], X_va, y_all[va])
+    del X_tr
+    gc.collect()
+    px_va, pl_va = ens.raw(X_va)
+    del X_va
+    gc.collect()
+    s_va = (px_va + pl_va) / 2
     ens.calibrator = IsotonicRegression(out_of_bounds="clip", y_min=0.0, y_max=1.0).fit(s_va, y_all[va])
     p_va = np.clip(ens.calibrator.predict(s_va), *PROB_CLIP)
     thr = f1_threshold(y_all[va], p_va)
-    px_va, pl_va = ens.raw(X[va])
     px_te1, pl_te1 = ens.raw(X[te])
     p_te1 = np.clip(ens.calibrator.predict((px_te1 + pl_te1) / 2), *PROB_CLIP)
     stage1 = {"xgb_best_iter": ens.xgb_iter, "lgb_best_iter": ens.lgb_iter,
@@ -305,7 +339,10 @@ def main() -> None:
 
     # ---- stage 2: refit on train+validation ----
     trva = tr | va
-    ens.fit_refit(X[trva], y_all[trva])
+    X_trva = X[trva]
+    ens.fit_refit(X_trva, y_all[trva])
+    del X_trva
+    gc.collect()
     p_te = ens.proba(X[te])
     stage2 = {"xgb_iter": ens.xgb_iter, "lgb_iter": ens.lgb_iter, "test": metrics(y_all[te], p_te, thr),
               "test_auc_ci95": bootstrap_auc(y_all[te], p_te),
@@ -321,7 +358,9 @@ def main() -> None:
     # ---- score every flight with the production model ----
     p_all = np.empty(len(df), dtype="float64")
     for s in range(0, len(df), 200_000):
-        p_all[s:s + 200_000] = ens.proba(X.iloc[s:s + 200_000])
+        p_all[s:s + 200_000] = ens.proba(X[s:s + 200_000])
+    del X
+    gc.collect()
     split = np.where(dk >= TEST_START, "test", np.where(dk >= VAL_START, "validation", "train"))
     dist = df["distance_miles"].astype(float).to_numpy()
     hub = df["origin_hub_flights"].astype(float).to_numpy()
